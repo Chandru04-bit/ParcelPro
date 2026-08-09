@@ -1,0 +1,207 @@
+/* ========== ParcelPro - RTL (Right to Left) Styles ========== */
+
+[dir="rtl"] {
+  font-family: 'Tajawal', 'Cairo', 'Inter', sans-serif;
+}
+
+[dir="rtl"] body {
+  text-align: right;
+}
+
+[dir="rtl"] .float-start { float: right !important; }
+[dir="rtl"] .float-end { float: left !important; }
+[dir="rtl"] .text-start { text-align: right !important; }
+[dir="rtl"] .text-end { text-align: left !important; }
+[dir="rtl"] .ms-auto { margin-right: auto !important; margin-left: 0 !important; }
+[dir="rtl"] .me-auto { margin-left: auto !important; margin-right: 0 !important; }
+
+[dir="rtl"] .navbar-nav .nav-link.active::after {
+  right: 18px;
+  left: 18px;
+}
+
+[dir="rtl"] .hero-floating-card.card-1 {
+  right: -20px;
+  left: auto;
+}
+
+[dir="rtl"] .hero-floating-card.card-2 {
+  left: -10px;
+  right: auto;
+}
+
+[dir="rtl"] .hero-section::before {
+  left: -200px;
+  right: auto;
+}
+
+[dir="rtl"] .hero-section::after {
+  right: -200px;
+  left: auto;
+}
+
+[dir="rtl"] .page-header::before {
+  left: -200px;
+  right: auto;
+}
+
+[dir="rtl"] .tracking-card::before {
+  left: -100px;
+  right: auto;
+}
+
+[dir="rtl"] .cta-card::before {
+  left: -150px;
+  right: auto;
+}
+
+[dir="rtl"] .cta-card::after {
+  right: -100px;
+  left: auto;
+}
+
+[dir="rtl"] .pricing-card.featured::before {
+  left: 20px;
+  right: auto;
+}
+
+[dir="rtl"] .step-card:not(:last-child)::after {
+  right: 60%;
+  left: auto;
+  background: linear-gradient(270deg, var(--gray-300), transparent);
+}
+
+[dir="rtl"] .footer h5::after {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .footer-links a i {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .timeline::before {
+  right: 20px;
+  left: auto;
+}
+
+[dir="rtl"] .timeline-item {
+  padding-right: 60px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .timeline-icon {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .password-toggle {
+  left: 14px;
+  right: auto;
+}
+
+[dir="rtl"] .auth-form-side {
+  border-left: none;
+}
+
+[dir="rtl"] .auth-side::before {
+  left: -100px;
+  right: auto;
+}
+
+[dir="rtl"] .stat-card::after {
+  left: -40px;
+  right: auto;
+}
+
+[dir="rtl"] .form-check-input {
+  margin-left: 0.5em;
+  margin-right: 0;
+}
+
+[dir="rtl"] .dropdown-menu {
+  text-align: right;
+}
+
+[dir="rtl"] .service-card-link i {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .hero-btns .btn i {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .cta-btns .btn i {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .blog-meta span i {
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .feature-card-link i {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .status-pill::before {
+  margin-right: 0;
+  margin-left: 6px;
+}
+
+[dir="rtl"] .hero-stat-icon {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir="rtl"] .testimonial-quote {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+[dir="rtl"] .newsletter-form button {
+  border-radius: 8px 8px 8px 8px;
+}
+
+[dir="rtl"] .offcanvas-start {
+  transform: translateX(100%);
+}
+
+[dir="rtl"] .offcanvas-start.show {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .offcanvas-end {
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .offcanvas-end.show {
+  transform: translateX(0);
+}
+
+@media (max-width: 575.98px) {
+  [dir="rtl"] .hero-floating-card.card-1 { right: 0; }
+  [dir="rtl"] .hero-floating-card.card-2 { left: 0; }
+}
+
+[dir="rtl"] [data-theme="dark"] .hero-section,
+[dir="rtl"] [data-theme="dark"] .page-header,
+[dir="rtl"] [data-theme="dark"] .testimonials-section,
+[dir="rtl"] [data-theme="dark"] .auth-wrapper,
+[dir="rtl"] [data-theme="dark"] .error-wrapper {
+  background: linear-gradient(135deg, #0b1120 0%, #130a04 100%);
+}
+
+[dir="rtl"] .accordion-button::after {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+[dir="rtl"] .pricing-features li i {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+  transform: scaleX(-1);
+}

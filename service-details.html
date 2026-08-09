@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ParcelPro Service Details - Learn more about our domestic, international, same-day delivery, warehousing, packaging, freight, and pickup services." />
+  <meta name="keywords" content="courier, shipping details, delivery service, logistics, warehousing, freight, pickup service" />
+  <meta name="author" content="ParcelPro" />
+  <title id="pageTitle">Domestic Shipping - ParcelPro Service Details</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #f97316 100%);
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+    .page-header .container { position: relative; z-index: 2; }
+    .page-header h1 { color: #fff; font-size: 48px; font-weight: 800; margin-bottom: 16px; }
+    .page-header p { color: rgba(255,255,255,0.85); font-size: 18px; max-width: 600px; margin: 0 auto 24px; }
+    .breadcrumb-custom { justify-content: center; background: transparent; padding: 0; margin: 0; }
+    .breadcrumb-custom .breadcrumb-item { color: rgba(255,255,255,0.85); }
+    .breadcrumb-custom .breadcrumb-item a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-custom .breadcrumb-item a:hover { color: #fbbf24; }
+    .breadcrumb-custom .breadcrumb-item::before { color: rgba(255,255,255,0.6); }
+    .breadcrumb-custom .breadcrumb-item.active { color: #fff; font-weight: 600; }
+
+    .details-section { padding: 80px 0; }
+    .details-description h2 { font-size: 32px; font-weight: 800; margin-bottom: 20px; color: var(--dark, #0f172a); }
+    .details-description p { color: var(--gray-600, #475569); font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+    .features-list-ext {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .features-list-ext li {
+      padding: 12px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      color: var(--gray-700, #334155);
+      font-size: 15px;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .features-list-ext li:last-child { border-bottom: none; }
+    .features-list-ext li i {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .features-card {
+      background: var(--card-bg, #fff);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.04);
+      height: 100%;
+    }
+    .features-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: var(--dark, #0f172a);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .features-card h3 i {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .process-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    }
+    .process-section .section-header { margin-bottom: 60px; }
+    .vertical-timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    .vertical-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #1e40af 0%, #f97316 100%);
+      transform: translateX(-50%);
+      border-radius: 4px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+      width: 50%;
+      padding-right: 50px;
+    }
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      padding-right: 0;
+      padding-left: 50px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      top: 10px;
+      right: -22px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 0 0 6px #fff, 0 4px 16px rgba(30,64,175,0.3);
+      z-index: 2;
+    }
+    .timeline-item:nth-child(even) .timeline-dot {
+      right: auto;
+      left: -22px;
+      background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+    }
+    .timeline-card {
+      background: var(--card-bg, #fff);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+    .timeline-card:hover { transform: translateY(-4px); }
+    .timeline-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .timeline-icon.blue { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+    .timeline-icon.orange { background: linear-gradient(135deg, #ea580c, #f97316); }
+    .timeline-icon.green { background: linear-gradient(135deg, #059669, #10b981); }
+    .timeline-icon.purple { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
+    .timeline-icon.cyan { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+    .timeline-icon.pink { background: linear-gradient(135deg, #be185d, #ec4899); }
+    .timeline-card h4 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--dark, #0f172a);
+    }
+    .timeline-card p {
+      margin: 0;
+      color: var(--gray-500, #64748b);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .vertical-timeline::before { left: 28px; }
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 80px;
+        padding-right: 0;
+      }
+      .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 6px;
+        right: auto;
+      }
+    }
+
+    .pricing-section-details { padding: 80px 0; }
+    .calculator-card {
+      background: var(--card-bg, #fff);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .calculator-card h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--dark, #0f172a);
+    }
+    .calculator-card .subtitle {
+      color: var(--gray-500, #64748b);
+      margin-bottom: 32px;
+    }
+    .calc-label {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--dark, #0f172a);
+      display: block;
+    }
+    .calc-form-select, .calc-form-input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      font-size: 15px;
+      transition: all 0.2s;
+      background: var(--card-bg, #fff);
+      color: var(--dark, #0f172a);
+    }
+    .calc-form-select:focus, .calc-form-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+    }
+    .calc-result {
+      margin-top: 24px;
+      padding: 28px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #eff6ff 0%, #fff7ed 100%);
+      border: 2px dashed rgba(30,64,175,0.15);
+      display: none;
+    }
+    .calc-result.show { display: block; }
+    .calc-result .label { font-size: 13px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+    .calc-result .price {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1e40af 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 6px 0 12px;
+    }
+    .calc-result .breakdown { font-size: 14px; color: #475569; }
+    .calc-result .breakdown div { padding: 4px 0; display: flex; justify-content: space-between; }
+    .calc-result .breakdown div span:last-child { font-weight: 700; color: var(--dark, #0f172a); }
+    .calc-btn-primary {
+      padding: 16px 36px;
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.3s;
+      width: 100%;
+    }
+    .calc-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(30,64,175,0.25); }
+
+    .faq-section-details {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #fef7ed 100%);
+    }
+    .faq-section-details .section-header { margin-bottom: 48px; }
+    .accordion-custom .accordion-item {
+      border: none;
+      border-radius: 16px !important;
+      margin-bottom: 14px;
+      overflow: hidden;
+      background: var(--card-bg, #fff);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .accordion-custom .accordion-button {
+      padding: 22px 28px;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--dark, #0f172a);
+      background: transparent;
+      box-shadow: none;
+    }
+    .accordion-custom .accordion-button:not(.collapsed) {
+      background: linear-gradient(135deg, rgba(30,64,175,0.05), rgba(249,115,22,0.05));
+      color: #1e40af;
+    }
+    .accordion-custom .accordion-button::after {
+      background-image: none;
+      content: '\F4FE';
+      font-family: 'bootstrap-icons';
+      font-size: 20px;
+      transition: transform 0.2s;
+      color: #f97316;
+    }
+    .accordion-custom .accordion-button:not(.collapsed)::after { transform: rotate(180deg); }
+    .accordion-custom .accordion-body {
+      padding: 0 28px 24px;
+      color: var(--gray-600, #475569);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .testimonials-section-details { padding: 80px 0; }
+    .testimonial-slider-card {
+      background: var(--card-bg, #fff);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .testimonial-quote-icon {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(30,64,175,0.1), rgba(249,115,22,0.1));
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      opacity: 0.6;
+    }
+    .testimonial-stars {
+      color: #fbbf24;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    .testimonial-text {
+      color: var(--gray-700, #334155);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .testimonial-avatar-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e40af 0%, #f97316 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .testimonial-author-info h6 {
+      margin: 0 0 2px;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--dark, #0f172a);
+    }
+    .testimonial-author-info span {
+      font-size: 13px;
+      color: var(--gray-500, #64748b);
+    }
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #cbd5e1;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      background: linear-gradient(135deg, #1e40af, #f97316);
+      width: 28px;
+      border-radius: 5px;
+    }
+
+    .related-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    }
+    .related-card {
+      background: var(--card-bg, #fff);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .related-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(30,64,175,0.12); }
+    .related-card-header {
+      padding: 28px;
+      color: #fff;
+    }
+    .related-card-header i {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+    .related-card-header h4 { margin: 0; font-weight: 800; font-size: 20px; }
+    .related-card-body {
+      padding: 24px 28px 28px;
+    }
+    .related-card-body p {
+      color: var(--gray-600, #475569);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .related-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e40af;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 14px;
+      transition: gap 0.2s;
+    }
+    .related-link:hover { gap: 14px; color: #f97316; }
+    .grad-blue-sm { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+    .grad-orange-sm { background: linear-gradient(135deg, #ea580c, #f97316); }
+    .grad-purple-sm { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
+    .grad-green-sm { background: linear-gradient(135deg, #059669, #10b981); }
+    .grad-cyan-sm { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+    .grad-pink-sm { background: linear-gradient(135deg, #be185d, #ec4899); }
+    .grad-indigo-sm { background: linear-gradient(135deg, #3730a3, #6366f1); }
+    .grad-teal-sm { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+
+    .cta-section-details {
+      padding: 80px 0;
+    }
+    .cta-gradient-banner {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #f97316 100%);
+      border-radius: 28px;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-gradient-banner::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .cta-gradient-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cta-gradient-banner .container-inner { position: relative; z-index: 2; }
+    .cta-gradient-banner h2 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-gradient-banner p {
+      color: rgba(255,255,255,0.9);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2" href="services.html">All Services</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=domestic">Domestic Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=international">International Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=sameday">Same Day Delivery</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=warehouse">Warehousing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><h6 class="dropdown-header text-uppercase small">Public Pages</h6></li>
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" aria-label="Theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <a href="login.html" class="btn btn-outline-primary btn-sm d-none d-lg-inline-flex">Sign In</a>
+      <a href="tracking.html" class="btn btn-primary btn-sm d-none d-lg-inline-flex">
+        <i class="bi bi-send"></i> Ship Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container text-center">
+    <span id="serviceBreadcrumbTag" style="display:inline-block;background:rgba(255,255,255,0.2);color:#fff;padding:6px 18px;border-radius:20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px;">POPULAR SERVICE</span>
+    <h1 data-aos="fade-up" id="serviceName">Domestic Shipping</h1>
+    <p data-aos="fade-up" data-aos-delay="100" id="serviceHeaderDesc">Fast and reliable nationwide parcel delivery with multiple service tiers and real-time tracking from pickup to doorstep.</p>
+    <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+      <ol class="breadcrumb breadcrumb-custom">
+        <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house-door-fill me-1"></i> Home</a></li>
+        <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+        <li class="breadcrumb-item active" aria-current="page" id="breadcrumbActive">Domestic Shipping</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="details-section">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7">
+        <div class="details-description" data-aos="fade-right">
+          <h2 id="serviceH2">Fast, Reliable Nationwide Delivery</h2>
+          <div id="serviceLongDesc">
+            <p>ParcelPro's Domestic Shipping service connects every corner of the country with a reliable, fully-tracked delivery network that processes over a quarter-million parcels every day. Whether you're sending an important envelope across town or a bulky package to the other side of the country, we have the perfect service tier for every need and budget.</p>
+            <p>Our infrastructure includes 85+ regional sorting hubs, a fleet of 12,000+ delivery vehicles, and partnerships with last-mile agents in every postal code ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ensuring that even remote and rural locations receive the same fast, professional service as metropolitan customers.</p>
+            <p>Every domestic shipment comes with automatic insurance, SMS/email notifications, and a money-back guarantee for eligible service delays. Book in under a minute through our website, mobile app, or API integrations, and let us handle the rest.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="features-card" data-aos="fade-left">
+          <h3><i class="bi bi-stars"></i> Key Features</h3>
+          <ul class="features-list-ext" id="keyFeaturesList">
+            <li><i class="bi bi-check-lg"></i> <span>Nationwide coverage ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â every city, town & postal code</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Three service tiers: Economy, Standard, Express</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Automatic $500 insurance (upgrade to $5,000)</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Live GPS tracking with SMS & email alerts</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Doorstep pickup or drop-off at 2,000+ locations</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Signature-on-delivery + photo proof available</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Money-back guarantee for late deliveries</span></li>
+            <li><i class="bi bi-check-lg"></i> <span>Volume discounts for monthly business shippers</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <span class="sub-title">How It Works</span>
+      <h2>Simple 6-Step Delivery Process</h2>
+      <p>From the moment you book to the second your parcel is signed for, every step is transparent and tracked.</p>
+    </div>
+
+    <div class="vertical-timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-card">
+          <div class="timeline-icon blue"><i class="bi bi-laptop"></i></div>
+          <h4>Request Pickup</h4>
+          <p>Book online or via the app in under 60 seconds. Enter pickup/delivery addresses, choose a service tier, and select a convenient pickup window.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-card">
+          <div class="timeline-icon orange"><i class="bi bi-box-seam"></i></div>
+          <h4>Package Collected</h4>
+          <p>Our uniformed courier arrives at your doorstep at the scheduled time, scans the parcel, and provides a digital receipt on collection.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-card">
+          <div class="timeline-icon green"><i class="bi bi-diagram-3"></i></div>
+          <h4>Sorting & Processing</h4>
+          <p>Your parcel is sent to the nearest sorting hub where it's scanned, weighed, dimension-verified, and routed to the correct destination lane.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-card">
+          <div class="timeline-icon purple"><i class="bi bi-truck"></i></div>
+          <h4>In Transit</h4>
+          <p>The package travels via our optimized ground or air network. Every checkpoint is scanned and visible on your real-time tracking page.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-card">
+          <div class="timeline-icon cyan"><i class="bi bi-geo-alt"></i></div>
+          <h4>Out for Delivery</h4>
+          <p>Shipment reaches the destination city and is loaded onto the local delivery route. You'll get an ETA window and the courier's contact info.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+        <div class="timeline-dot">6</div>
+        <div class="timeline-card">
+          <div class="timeline-icon pink"><i class="bi bi-check2-circle"></i></div>
+          <h4>Delivered</h4>
+          <p>Your parcel is delivered to the recipient's doorstep. You receive instant confirmation, including signature or photo proof of delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section-details">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="sub-title">Pricing Calculator</span>
+        <h2 style="font-size:36px;font-weight:800;margin:16px 0 20px;color:var(--dark,#0f172a);">Get an Instant Price Quote</h2>
+        <p style="color:var(--gray-600,#475569);font-size:16px;line-height:1.8;margin-bottom:32px;">Use our simple calculator to estimate the cost of your shipment. Enter the package details below and see the exact price before you book ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â no hidden fees, no surprises.</p>
+        <div class="d-flex flex-column gap-3">
+          <div class="d-flex gap-3 align-items-start p-4 rounded-4" style="background:linear-gradient(135deg,rgba(30,64,175,0.05),rgba(249,115,22,0.05));">
+            <div style="width:48px;height:48px;border-radius:12px;background:rgba(30,64,175,0.1);color:#1e40af;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <div style="font-weight:800;color:var(--dark,#0f172a);margin-bottom:4px;">All prices include insurance</div>
+              <div style="font-size:14px;color:var(--gray-500,#64748b);">Up to $5,000 coverage automatically included.</div>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-start p-4 rounded-4" style="background:linear-gradient(135deg,rgba(30,64,175,0.05),rgba(249,115,22,0.05));">
+            <div style="width:48px;height:48px;border-radius:12px;background:rgba(249,115,22,0.1);color:#f97316;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;"><i class="bi bi-arrow-left-right"></i></div>
+            <div>
+              <div style="font-weight:800;color:var(--dark,#0f172a);margin-bottom:4px;">Price-match guarantee</div>
+              <div style="font-size:14px;color:var(--gray-500,#64748b);">Found a lower price? We'll beat it by 10%.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="calculator-card">
+          <h3><i class="bi bi-calculator me-2" style="color:#1e40af;"></i> Shipping Calculator</h3>
+          <p class="subtitle">Fill in the details below to calculate your estimated delivery cost.</p>
+          <form id="calcForm" onsubmit="calculatePrice(event);">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="calc-label">Service Type</label>
+                <select class="calc-form-select" id="calcService">
+                  <option value="domestic">Domestic Shipping</option>
+                  <option value="international">International Shipping</option>
+                  <option value="sameday">Same Day Delivery</option>
+                  <option value="express">Express Delivery</option>
+                  <option value="freight">Freight Services</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="calc-label">Package Weight</label>
+                <select class="calc-form-select" id="calcWeight">
+                  <option value="0.5">Up to 0.5 kg (Letter / Documents)</option>
+                  <option value="1">1 kg (Small parcel)</option>
+                  <option value="2" selected>2 kg (Standard parcel)</option>
+                  <option value="5">5 kg (Medium parcel)</option>
+                  <option value="10">10 kg (Large parcel)</option>
+                  <option value="20">20 kg (Heavy parcel)</option>
+                  <option value="50">50 kg (Bulky / Freight)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="calc-label">Dimensions</label>
+                <select class="calc-form-select" id="calcSize">
+                  <option value="small">Small (ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 30ÃƒÆ’Ã¢â‚¬â€20ÃƒÆ’Ã¢â‚¬â€10 cm)</option>
+                  <option value="medium" selected>Medium (ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 50ÃƒÆ’Ã¢â‚¬â€40ÃƒÆ’Ã¢â‚¬â€30 cm)</option>
+                  <option value="large">Large (ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 80ÃƒÆ’Ã¢â‚¬â€60ÃƒÆ’Ã¢â‚¬â€50 cm)</option>
+                  <option value="xlarge">Extra Large (ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 120ÃƒÆ’Ã¢â‚¬â€80ÃƒÆ’Ã¢â‚¬â€60 cm)</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="calc-label">Pickup Distance</label>
+                <select class="calc-form-select" id="calcDistance">
+                  <option value="local">Local (Same city, ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 50 km)</option>
+                  <option value="regional" selected>Regional (Same state, ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 500 km)</option>
+                  <option value="national">National (Cross-country, ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ 3,000 km)</option>
+                  <option value="international">International (Overseas)</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="calc-btn-primary">
+                  <i class="bi bi-calculator me-2"></i> Calculate Price
+                </button>
+              </div>
+              <div class="col-12">
+                <div class="calc-result" id="calcResult">
+                  <div class="label">Estimated Total</div>
+                  <div class="price" id="calcPrice">$0.00</div>
+                  <div class="breakdown">
+                    <div><span>Base Shipping Rate</span><span id="calcBase">$0.00</span></div>
+                    <div><span>Weight Surcharge</span><span id="calcWeightFee">$0.00</span></div>
+                    <div><span>Insurance (included)</span><span id="calcIns">$0.00</span></div>
+                    <div style="border-top:1px dashed rgba(0,0,0,0.15);margin-top:6px;padding-top:8px;font-weight:800;font-size:16px;">
+                      <span>Total</span><span id="calcTotal">$0.00</span>
+                    </div>
+                  </div>
+                  <div class="mt-3 d-flex gap-2 flex-wrap">
+                    <a href="tracking.html" class="btn btn-primary" style="border-radius:12px;font-weight:700;padding:12px 28px;">
+                      <i class="bi bi-send me-1"></i> Book This
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-secondary" style="border-radius:12px;font-weight:700;padding:12px 28px;">
+                      Need Help?
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section-details">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <span class="sub-title">Frequently Asked Questions</span>
+      <h2>Questions About This Service?</h2>
+      <p>Here are the most common questions we get. Can't find an answer? Contact our 24/7 support team.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="accordion accordion-custom" id="faqAccordionDetails" data-aos="fade-up">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sdFaq1" id="sdFaqBtn1">How long does delivery take?</button></h2>
+            <div id="sdFaq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordionDetails"><div class="accordion-body" id="sdFaqBody1">Standard domestic delivery typically takes 2-5 business days depending on distance. Express service guarantees next-day delivery for metropolitan areas, while Economy takes 3-7 business days for budget-conscious shippers. All timelines are quoted at checkout.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sdFaq2" id="sdFaqBtn2">What items are prohibited for shipping?</button></h2>
+            <div id="sdFaq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionDetails"><div class="accordion-body" id="sdFaqBody2">Prohibited items include hazardous materials, explosives, illegal substances, live animals (except via special pet service), perishables without proper packaging, and high-value items like jewelry over $5,000 without prior approval. See our full prohibited items list or contact support for specific questions.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sdFaq3" id="sdFaqBtn3">How do I track my parcel?</button></h2>
+            <div id="sdFaq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionDetails"><div class="accordion-body" id="sdFaqBody3">Every parcel gets a unique tracking number emailed and SMS'd to you at booking. Enter it on our tracking page for live GPS updates, or check your dashboard for the full journey timeline. Push notifications are available through our mobile app.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sdFaq4" id="sdFaqBtn4">What happens if my parcel is lost or damaged?</button></h2>
+            <div id="sdFaq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionDetails"><div class="accordion-body" id="sdFaqBody4">All shipments are automatically insured up to $500 (upgradable to $5,000). In the rare case of damage or loss, file a claim through your dashboard with photos of the packaging and contents. Our claims team responds within 48 hours and reimburses approved claims in 3 business days.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sdFaq5" id="sdFaqBtn5">Can I schedule a recurring pickup?</button></h2>
+            <div id="sdFaq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionDetails"><div class="accordion-body" id="sdFaqBody5">Yes! Business and Enterprise customers can schedule daily, weekly, or custom recurring pickups through their dashboard. We also offer dedicated pickup time windows and even on-site packaging stations for high-volume shippers ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â contact our sales team to learn more.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section-details">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="sub-title">Customer Reviews</span>
+      <h2>What Our Customers Say</h2>
+      <p>Read real reviews from businesses and individuals who ship with ParcelPro every single day.</p>
+    </div>
+
+    <div class="swiper testimonialsSwiper" data-aos="fade-up">
+      <div class="swiper-wrapper pb-4">
+        <div class="swiper-slide">
+          <div class="testimonial-slider-card h-100">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">"ParcelPro's domestic shipping has been a game-changer for our online store. The integration with Shopify was seamless ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â orders auto-import and we save at least 15 hours every week on fulfillment. On-time rates are incredible."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar-circle">SM</div>
+              <div class="testimonial-author-info">
+                <h6>Sarah Mitchell</h6>
+                <span>Founder, UrbanStyle Retail</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-slider-card h-100">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">"I send important legal documents weekly and ParcelPro has never missed a delivery. The real-time tracking and signature proof gives me total peace of mind. Their 24/7 support once helped me redirect a package literally mid-transit. Unreal."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar-circle" style="background:linear-gradient(135deg,#6d28d9,#8b5cf6);">JL</div>
+              <div class="testimonial-author-info">
+                <h6>James Leeper</h6>
+                <span>Senior Paralegal, Lexford & Co.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-slider-card h-100">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+            </div>
+            <p class="testimonial-text">"Switching from our old courier to ParcelPro cut our monthly shipping bill by 28% while improving delivery speed. The pickup driver knows our staff by name now ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â the personal touch combined with enterprise tech is a rare combo. Highly recommend!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar-circle" style="background:linear-gradient(135deg,#059669,#10b981);">RP</div>
+              <div class="testimonial-author-info">
+                <h6>Rajesh Patel</h6>
+                <span>CEO, TechForge Components</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+  </div>
+</section>
+
+<section class="related-section">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="sub-title">Explore More</span>
+      <h2>Other Services You May Like</h2>
+      <p>Complementary services to help you ship smarter and save more with ParcelPro.</p>
+    </div>
+
+    <div class="row g-4" id="relatedCardsRow">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0" id="relatedCard1">
+        <div class="related-card h-100">
+          <div class="related-card-header grad-orange-sm">
+            <i class="bi bi-globe-americas"></i>
+            <h4>International Shipping</h4>
+          </div>
+          <div class="related-card-body">
+            <p>Expand globally with 220+ countries, automatic customs clearance, and built-in duties calculation at checkout.</p>
+            <a href="service-details.html?id=international" class="related-link">View Service <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100" id="relatedCard2">
+        <div class="related-card h-100">
+          <div class="related-card-header grad-purple-sm">
+            <i class="bi bi-lightning-fill"></i>
+            <h4>Same Day Delivery</h4>
+          </div>
+          <div class="related-card-body">
+            <p>Time-critical shipments picked up within the hour and delivered across town the very same day, 24/7.</p>
+            <a href="service-details.html?id=sameday" class="related-link">View Service <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200" id="relatedCard3">
+        <div class="related-card h-100">
+          <div class="related-card-header grad-green-sm">
+            <i class="bi bi-building-gear"></i>
+            <h4>Warehousing</h4>
+          </div>
+          <div class="related-card-body">
+            <p>Store inventory in our climate-controlled warehouses and let us handle pick, pack, and ship fulfillment for you.</p>
+            <a href="service-details.html?id=warehouse" class="related-link">View Service <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section-details">
+  <div class="container">
+    <div class="cta-gradient-banner" data-aos="zoom-in">
+      <div class="container-inner">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-8">
+            <h2 id="ctaH2">Ready to send your first parcel?</h2>
+            <p class="mb-0">Join 50,000+ businesses trusting ParcelPro for their daily shipping. First 3 shipments are free when you sign up today.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="d-flex flex-wrap gap-3 justify-content-lg-end justify-content-center">
+              <a href="register.html" class="btn btn-light btn-lg">
+                <i class="bi bi-gift me-2"></i> Start Free Trial
+              </a>
+              <a href="tracking.html" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-send me-2"></i> Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="service-details.html?id=domestic"><i class="bi bi-caret-right"></i> Domestic Shipping</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> International Shipping</a></li>
+          <li><a href="service-details.html?id=sameday"><i class="bi bi-caret-right"></i> Same Day Delivery</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Express Delivery</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Warehousing</a></li>
+          <li><a href="service-details.html?id=packaging"><i class="bi bi-caret-right"></i> Packaging</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Newsletter</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Subscribe to get updates, offers and logistics tips.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';window.showToast&&showToast('Subscribed successfully!','success');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>123 Delivery Ave, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (555) 012-4800</span></li>
+          <li><i class="bi bi-envelope"></i><span>hello@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for logistics.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="documentation/index.html">Documentation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+  const servicesData = {
+    domestic: {
+      name: 'Domestic Shipping',
+      tag: 'POPULAR SERVICE',
+      headerDesc: 'Fast and reliable nationwide parcel delivery with multiple service tiers and real-time tracking from pickup to doorstep.',
+      h2: 'Fast, Reliable Nationwide Delivery',
+      longDesc: `<p>ParcelPro's Domestic Shipping service connects every corner of the country with a reliable, fully-tracked delivery network that processes over a quarter-million parcels every day. Whether you're sending an important envelope across town or a bulky package to the other side of the country, we have the perfect service tier for every need and budget.</p>
+        <p>Our infrastructure includes 85+ regional sorting hubs, a fleet of 12,000+ delivery vehicles, and partnerships with last-mile agents in every postal code ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ensuring that even remote and rural locations receive the same fast, professional service as metropolitan customers.</p>
+        <p>Every domestic shipment comes with automatic insurance, SMS/email notifications, and a money-back guarantee for eligible service delays. Book in under a minute through our website, mobile app, or API integrations, and let us handle the rest.</p>`,
+      features: [
+        'Nationwide coverage ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â every city, town & postal code',
+        'Three service tiers: Economy, Standard, Express',
+        'Automatic $500 insurance (upgrade to $5,000)',
+        'Live GPS tracking with SMS & email alerts',
+        'Doorstep pickup or drop-off at 2,000+ locations',
+        'Signature-on-delivery + photo proof available',
+        'Money-back guarantee for late deliveries',
+        'Volume discounts for monthly business shippers'
+      ],
+      faqs: [
+        { q: 'How long does domestic delivery take?', a: 'Standard domestic delivery typically takes 2-5 business days depending on distance. Express service guarantees next-day delivery for metropolitan areas, while Economy takes 3-7 business days. All timelines are quoted at checkout with a money-back guarantee.' },
+        { q: 'What items are prohibited for domestic shipping?', a: 'Prohibited items include hazardous materials, explosives, illegal substances, unlabeled perishables, live animals (without special booking), loose lithium batteries, and cash. Please see our prohibited items list or contact 24/7 support for clarification.' },
+        { q: 'How do I track my domestic parcel?', a: 'Every parcel gets a unique tracking number emailed and SMS\'d at booking. Enter it on our tracking page for live GPS status, ETA updates, and a scan-by-scan timeline of the full journey.' },
+        { q: 'What happens if my domestic parcel is lost or damaged?', a: 'All domestic shipments are automatically insured up to $500 (upgradable to $5,000). File a claim through your dashboard with photos. Our team responds within 48 hours and reimburses approved claims in 3 business days.' },
+        { q: 'Can I schedule a recurring domestic pickup?', a: 'Yes! Business and Enterprise plans support daily/weekly recurring pickups with dedicated windows. High-volume shippers also qualify for on-site packing stations and a dedicated account manager.' }
+      ],
+      related: ['international', 'sameday', 'warehouse']
+    },
+    international: {
+      name: 'International Shipping',
+      tag: 'GLOBAL COVERAGE',
+      headerDesc: 'Ship to 220+ countries worldwide with automatic customs clearance, duties calculator, and end-to-end tracking.',
+      h2: 'Global Shipping Made Simple',
+      longDesc: `<p>Take your business global with ParcelPro International. We handle the complexities of cross-border logistics so you don't have to ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â from generating compliant commercial invoices and customs forms, to calculating accurate import duties and taxes at checkout.</p>
+        <p>Our international network partners with top global carriers to offer competitive rates and reliable transit times to 220+ countries and territories. Shipments are scanned at every border checkpoint, so you and your customer always know exactly where the parcel is.</p>
+        <p>We support DDP (Delivered Duty Paid) and DDU (Delivered Duty Unpaid) options, plus electronic customs clearance in 180+ countries for faster processing. Need to ship commercially? Ask about our IOSS and VAT-registered services for the EU, UK, and beyond.</p>`,
+      features: [
+        'Delivery to 220+ countries & territories worldwide',
+        'Automatic commercial invoice & customs paperwork',
+        'Built-in duties and taxes calculator at checkout',
+        'DDP & DDU shipping options available',
+        'Electronic customs clearance in 180+ countries',
+        'Multi-carrier routing for best price & speed',
+        'Full $5,000 insurance on every international parcel',
+        'IOSS & VAT-compliant options for EU/UK shipping'
+      ],
+      faqs: [
+        { q: 'How long does international delivery take?', a: 'Express International takes 2-5 business days to major economies, Standard International takes 5-10 business days, and Economy International takes 7-14 business days. Remote destinations may add 2-4 days depending on local postal infrastructure.' },
+        { q: 'How are customs duties and taxes calculated?', a: 'Our calculator uses live HS-code tariff data plus destination-country VAT/GST rates to compute charges at checkout. Choose DDP to pay everything upfront, or DDU to let the recipient settle duties on arrival.' },
+        { q: 'What documents are required for international shipping?', a: 'For personal shipments under the destination threshold, a simple customs form is auto-generated. Commercial shipments require a commercial invoice and sometimes a packing list. ParcelPro generates all required documents automatically from your booking.' },
+        { q: 'Are there restricted items for international shipping?', a: 'Yes ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â each country has its own import restrictions. Common restrictions include food, plants, animal products, medications, electronics without proper certification, and branded goods without proof of authenticity. Our booking system flags restrictions in real time.' },
+        { q: 'Can ParcelPro handle commercial import/export compliance?', a: 'Absolutely. We offer dedicated international freight services, IOSS registration for EU sales, customs brokerage, duty drawback consulting, and bulk/commercial manifest filing through our Enterprise plan.' }
+      ],
+      related: ['domestic', 'freight', 'packaging']
+    },
+    sameday: {
+      name: 'Same Day Delivery',
+      tag: 'URGENT SHIPPING',
+      headerDesc: 'Time-critical packages picked up within 60 minutes and delivered across town the very same day, 24/7.',
+      h2: 'Urgent Same-Day Delivery, 24/7',
+      longDesc: `<p>When time is of the essence, ParcelPro Same Day delivery gets your package where it needs to be ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â in hours, not days. Operating 24 hours a day, 7 days a week, 365 days a year across 80+ major cities, our dedicated same-day couriers prioritize your shipment from pickup to hand-delivery.</p>
+        <p>From forgotten legal contracts and passports, to retail flash sales and medical samples, our dedicated fleet of bikes, vans, and cars ensures that urgent shipments skip the sorting hubs entirely and go directly door-to-door whenever possible.</p>
+        <p>Every same-day booking includes photo-on-delivery proof, live driver tracking, and SMS updates to both sender and recipient. Need a dedicated courier? Book our "Exclusive Vehicle" option and your package rides alone, no stops, no transfers.</p>`,
+      features: [
+        'Pickup within 60 minutes, 24/7 / 365 days',
+        '80+ major metro areas covered',
+        'Dedicated bike, car & van fleet',
+        'Live driver GPS with ETA countdown',
+        'Photo proof + signature confirmation',
+        'No sorting ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â direct door-to-door routing',
+        'Exclusive "One Package Only" vehicle option',
+        'Medical & legal time-sensitive specialists'
+      ],
+      faqs: [
+        { q: 'How fast can you pick up a same-day order?', a: 'In most metro areas, pickup within 30-60 minutes of confirmed booking during daytime hours, and 60-90 minutes overnight. You\'ll get a live driver tracker with name, photo, and ETA the moment a courier is assigned.' },
+        { q: 'What is the delivery cutoff time for same day?', a: 'For standard same-day, bookings by 2:00 PM local time guarantee delivery by 8:00 PM. After 2:00 PM, delivery may be same-day or guaranteed early next morning ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â please confirm ETA at checkout. Priority same-day has no cutoff.' },
+        { q: 'Is there a weight or size limit for same-day delivery?', a: 'Bike couriers handle up to 15 kg envelope/parcels. Our van fleet can carry up to 250 kg and oversized items ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â just select the appropriate vehicle type at checkout. Palletized same-day freight is also available in most cities.' },
+        { q: 'Can you deliver to secured buildings, offices, or hospitals?', a: 'Yes. Our couriers are trained for office lobbies, concierge desks, hospital wards, and secure facilities. Provide any access codes or special instructions at checkout and we will make sure it gets to the right person.' },
+        { q: 'What happens if you miss the same-day window?', a: 'Same-day delivery failures are extremely rare. If we miss our guaranteed window for any reason within our control, you receive a 100% refund on the spot ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â no paperwork, no arguments.' }
+      ],
+      related: ['express', 'pickup', 'domestic']
+    },
+    express: {
+      name: 'Express Delivery',
+      tag: 'FAST & GUARANTEED',
+      headerDesc: 'Next-day and 2-day guaranteed delivery with priority sorting, priority line-haul, and first-out for delivery.',
+      h2: 'Priority Express, Guaranteed on Time',
+      longDesc: `<p>ParcelPro Express is our premium time-definite service, guaranteeing next-day delivery to all metro areas and 2-day delivery to regional and remote locations nationwide. Every express shipment gets priority treatment across the entire network ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â first in line at sorting, first on the truck, first out for delivery.</p>
+        <p>We reserve dedicated line-haul capacity and delivery slots exclusively for Express parcels, so even during peak periods (Black Friday, holiday season, back-to-school) your shipments arrive exactly when promised. All Express shipments are covered by our industry-leading money-back-on-late guarantee.</p>
+        <p>For even faster service, Express Plus offers morning-delivery guarantees (delivery by 9:00 AM or 12:00 noon) to select destinations, ideal for critical documents and time-sensitive business contracts.</p>`,
+      features: [
+        'Next-day delivery guarantee to all metro areas',
+        '2-day guarantee to regional & remote locations',
+        'Priority sorting, priority line-haul, priority delivery',
+        'Express Plus option: delivery by 9 AM or 12 PM',
+        'Reserved capacity ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â no delays during peak season',
+        'Dedicated customer hotline for express shippers',
+        'Signature-on-delivery + photo proof included',
+        'Full $5,000 automatic insurance coverage'
+      ],
+      faqs: [
+        { q: 'What does "guaranteed delivery" actually mean?', a: 'It means if your Express parcel is delivered even one minute after the published guaranteed window for your destination, you get a full refund of the Express shipping fee ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â automatically, in most cases, no claim required.' },
+        { q: 'Are weekends counted as delivery days for Express?', a: 'Standard Express runs Monday-Friday. Saturday Express delivery is available to select locations for a small surcharge, with Sunday and holiday delivery available on request for premium accounts.' },
+        { q: 'How is Express different from Same Day?', a: 'Same Day goes door-to-door within hours and skips all hubs. Express travels through our optimized sorting network overnight for next-morning/afternoon delivery at a much lower price point than Same Day.' },
+        { q: 'Can I send high-value items via Express?', a: 'Yes. Express includes $5,000 automatic insurance, upgradable to $25,000 on approval. We strongly recommend our Premium Packaging service for fragile or high-value express shipments.' },
+        { q: 'Is there a volume discount for frequent Express shippers?', a: 'Absolutely. Any customer shipping 50+ Express parcels per month qualifies for tiered volume pricing. Enterprise customers with 500+/month shipments also receive a dedicated account manager and custom SLA terms.' }
+      ],
+      related: ['sameday', 'domestic', 'international']
+    },
+    warehouse: {
+      name: 'Warehousing',
+      tag: 'STORAGE & FULFILLMENT',
+      headerDesc: 'Secure, climate-controlled storage with real-time inventory management and pick-pack-ship order fulfillment.',
+      h2: 'Warehousing + Fulfillment, All in One',
+      longDesc: `<p>Our warehousing service turns storage headaches into a competitive advantage. Store your products in our secure, climate-controlled facilities across the country, and we'll handle the entire fulfillment workflow ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â from receiving inbound inventory, to picking and packing every order, to shipping it out with our discounted carrier rates.</p>
+        <p>Every warehouse is equipped with 24/7 CCTV, fire suppression systems, rodent control, and humidity/temperature monitoring for sensitive goods. Inventory is managed through our web-based WMS, where you can see stock levels, set reorder alerts, and pull detailed SKU-level reports any time.</p>
+        <p>Best of all, warehousing clients save up to 40% on shipping costs thanks to our bulk volume rates, and enjoy faster delivery because inventory is stored closer to your customers. Perfect for e-commerce stores, DTC brands, and seasonal businesses.</p>`,
+      features: [
+        '12 nationwide facilities in key logistics hubs',
+        'Climate & humidity-controlled storage zones',
+        '24/7 CCTV, security patrols & fire suppression',
+        'Real-time WMS dashboard with SKU-level tracking',
+        'Receive, inspect, count & put-away services',
+        'Pick, pack & ship for e-commerce orders',
+        'Up to 40% off shipping rates on all orders',
+        'Returns processing & QC inspection included'
+      ],
+      faqs: [
+        { q: 'What kind of products can be stored in your warehouses?', a: 'Most general consumer goods, apparel, electronics, beauty products, dry goods, toys, homewares, and more. Special zones available for temperature-sensitive cosmetics, pharmaceuticals, and premium wines (by approval). Hazardous goods require prior clearance.' },
+        { q: 'How do I manage inventory and send orders to the warehouse?', a: 'Through our cloud-based WMS dashboard or API. Integrate with Shopify, WooCommerce, Amazon, eBay and more ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â orders flow automatically to the nearest warehouse for same-day fulfillment. Manual orders and CSV imports also supported.' },
+        { q: 'How is pricing structured for warehousing?', a: 'Simple pay-as-you-go: storage per pallet/bin per month + per-order pick-and-pack fees + outbound shipping at our discounted rates. No setup fees, no minimums. Enterprise clients with 500+ orders/month receive custom pricing.' },
+        { q: 'What is the typical order fulfillment SLA?', a: 'Orders received by 2:00 PM local time at the warehouse are picked, packed, and shipped out the same day. Orders after 2:00 PM ship the next business morning. Express cutoffs are even later for priority orders.' },
+        { q: 'Can I use my own packaging and branding?', a: 'Of course. You can ship custom boxes, poly mailers, packing slips, stickers, and branded inserts to the warehouse and we will use them. Plain generic packaging is provided at no extra cost if you prefer.' }
+      ],
+      related: ['packaging', 'freight', 'domestic']
+    },
+    packaging: {
+      name: 'Packaging Service',
+      tag: 'PREMIUM PROTECTION',
+      headerDesc: 'Professional packaging specialists for fragile, high-value, and special-handling items with eco-friendly materials.',
+      h2: 'Expert Packaging That Protects Your Shipment',
+      longDesc: `<p>Proper packaging is the #1 factor in damage-free deliveries. Our certified packaging specialists know exactly how to pack every type of item ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â from delicate fine china and glassware, to original artwork, electronics, musical instruments, furniture, and high-value retail goods.</p>
+        <p>We use premium eco-friendly materials: double-wall corrugated cardboard, 100% recycled paper cushioning, biodegradable air pillows, and custom-molded pulp inserts for fragile products. Every pack job includes void fill, corner protectors, and reinforced tape ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â tested to ISTA 3A drop and vibration standards.</p>
+        <p>Need a custom branded unboxing experience? We offer custom-printed mailer boxes, tissue paper, branded stickers, handwritten thank-you notes, and product inserts that elevate your brand perception from the moment the package arrives.</p>`,
+      features: [
+        'Fragile & high-value item specialists (ISTA certified)',
+        'Premium eco-friendly & 100% recyclable materials',
+        'Custom crating for art, antiques & oversized items',
+        'Temperature-controlled packaging for perishables',
+        'Custom branded boxes, tissue & inserts available',
+        'Hazardous goods packaging (UN-spec, DG certified)',
+        'Free pickup of items to be packed (on request)',
+        'Damage-free guarantee on all ProPack jobs'
+      ],
+      faqs: [
+        { q: 'Is it really worth paying for professional packaging?', a: 'Absolutely. Improper packaging is the #1 cause of shipping damage claims (90%+ by industry estimates). Our damage-free guarantee and the avoided cost of replacements/refunds/complaints pays for the packaging fee many times over.' },
+        { q: 'Can I provide my own packaging?', a: 'Yes! You may pack items yourself, or provide packaging materials for us to use. If you choose ParcelPro ProPack packaging, our damage-free guarantee applies; customer-packed items follow standard carrier liability.' },
+        { q: 'Do you pack items like artwork, antiques or furniture?', a: 'Yes ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â we offer custom wooden crating and foam-in-place molding for high-value, oversized, or irregularly-shaped items. Our team will assess the piece and recommend the optimal packaging approach.' },
+        { q: 'Can you handle temperature-sensitive or perishable packaging?', a: 'Absolutely. We have insulated liners, EPS foam coolers, gel ice packs, and dry ice options for perishables, pharmaceuticals, and temperature-sensitive biologics. Specify your temperature range at booking.' },
+        { q: 'Is your packaging eco-friendly?', a: 'Yes. By default we use 100% recyclable corrugated cardboard, recycled paper void fill, and biodegradable air pillows. Single-use plastics are only used by explicit request for extremely heavy or high-risk shipments.' }
+      ],
+      related: ['warehouse', 'international', 'freight']
+    },
+    freight: {
+      name: 'Freight Services',
+      tag: 'HEAVY SHIPPING EXPERTS',
+      headerDesc: 'LTL, FTL, partial-truck, air and ocean freight for pallets, cargo, crates, and heavy commercial shipments.',
+      h2: 'Freight Shipping for Pallets, Cargo & Heavy Loads',
+      longDesc: `<p>ParcelPro Freight handles all your heavy, bulky, and palletized shipping needs ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â from a single pallet to full truckloads (FTL) and intermodal containers. We work with a curated network of 200+ accredited carriers across air, road, rail, and ocean to get you the best rates and fastest transit options for every freight lane.</p>
+        <p>Book LTL (Less-Than-Truckload), Partial TL, Full TL, Air Freight, and Ocean FCL/LCL directly through the same dashboard you use for parcels. All freight quotes are transparent, all-inclusive, with no hidden accessorial surprises at the end.</p>
+        <p>Every freight shipment includes tracking at major milestones, liftgate service, residential delivery options, and optional inside pickup/delivery. Need white-glove or high-value freight? Our specialized teams handle electronics racks, trade show booths, heavy machinery, and more.</p>`,
+      features: [
+        'LTL, Partial TL & Full Truckload (FTL) options',
+        'Air freight, ocean FCL/LCL & intermodal rail',
+        'Curated network of 200+ accredited carriers',
+        'Transparent all-in quoting ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â no hidden fees',
+        'Liftgate, residential & inside delivery options',
+        'Customs brokerage for international freight',
+        'Trade show & white-glove specialist teams',
+        'Cargo insurance up to $500,000 per shipment'
+      ],
+      faqs: [
+        { q: 'What is the difference between LTL, Partial TL, and FTL freight?', a: 'LTL (Less-Than-Truckload) is for pallets that share space with other shipments (cost-effective for 1-6 pallets). Partial TL is for 6-12 pallets that still share a truck but get fewer touchpoints. FTL (Full Truckload) is for 12+ pallets that fill or dedicate an entire truck ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â fastest transit, least handling.' },
+        { q: 'How do I palletize and prepare my freight?', a: 'Standard pallets are 48ÃƒÆ’Ã¢â‚¬â€40 inches with a max of ~1,000 kg per pallet for LTL. Boxes should be stacked uniformly, banded, stretch-wrapped, and clearly labeled. Need help? Our packaging team can palletize, band, and label for you on request.' },
+        { q: 'Do you offer international freight and ocean container shipping?', a: 'Yes. We handle 20ft, 40ft, and 40HC FCL containers, plus LCL (less-than-container) ocean shipments, door-to-door or port-to-port. Customs brokerage, drayage, and final-mile delivery can all be bundled.' },
+        { q: 'How are freight shipping costs calculated?', a: 'Primarily by weight, pallet dimensions, class (density/commodity type), origin/destination distance, and accessorial services (liftgate, inside delivery, residential, etc.). Our freight calculator gives you instant all-in quotes.' },
+        { q: 'What transit times can I expect for freight?', a: 'Domestic LTL typically 2-7 business days depending on distance. FTL is faster, usually 1-5 days door-to-door. International ocean freight is 2-8 weeks depending on route; air freight takes 2-10 days on average.' }
+      ],
+      related: ['warehouse', 'international', 'packaging']
+    },
+    pickup: {
+      name: 'Pickup Service',
+      tag: 'CONVENIENT DOORSTEP',
+      headerDesc: 'Skip the lines. Schedule a courier to come to your home or office and collect parcels exactly when it suits you.',
+      h2: 'Doorstep Pickup, On Your Schedule',
+      longDesc: `<p>Our Pickup Service eliminates the hassle of driving to drop-off centers and waiting in lines. Book a pickup window as short as 2 hours, and a uniformed ParcelPro courier will come directly to your home, office, or warehouse at the scheduled time to collect your pre-packed or to-be-packed parcels.</p>
+        <p>Standard pickup windows are free for Business and Enterprise customers; individual pay-as-you-go users can book on-demand pickups for a nominal fee. Recurring scheduled pickups ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â daily, every weekday, weekly, or custom cadence ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â are ideal for e-commerce stores sending out daily orders.</p>
+        <p>Need a pickup right now? On-Demand Rush Pickup sends the nearest available courier in 30-60 minutes during business hours. Perfect for sellers on marketplace platforms, documents that need to go out the same day, or last-minute gifts.</p>`,
+      features: [
+        '2-hour pickup windows, 7 days a week',
+        'Free standard pickups on paid plans',
+        'On-Demand Rush Pickup: courier in 30-60 minutes',
+        'Daily/weekly/custom recurring scheduled pickups',
+        'Courier ID verified, tracked, and photo-documented',
+        'Digital receipt and scan at pickup moment',
+        'Works with parcels, envelopes, or pallets',
+        'Packaging materials can be brought by courier'
+      ],
+      faqs: [
+        { q: 'How far in advance do I need to schedule a pickup?', a: 'Standard pickup windows can be booked as little as 3 hours in advance (if slots are available), or up to 30 days ahead. Recurring pickups can be set once and then run automatically indefinitely until you pause or cancel.' },
+        { q: 'What happens if I\'m not home during the pickup window?', a: 'The courier will attempt pickup, wait 5-10 minutes, and call/text the provided contact number. If unreachable, we\'ll leave a missed-pickup slip and allow you to rebook for the next day at no extra charge (one-time courtesy).' },
+        { q: 'Do you bring packaging materials to the pickup?', a: 'Yes ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â standard packaging (boxes, envelopes, tape) can be requested at booking for a small per-item fee, and the courier will bring them. For fragile/complex packaging we recommend booking our Packaging Service separately for a pre-packing visit.' },
+        { q: 'Can the courier pick up multiple parcels at once?', a: 'Absolutely. There is no limit to the number of parcels in a single pickup (within reasonable vehicle capacity). Business customers can drop a CSV of pre-printed labels, and the courier will scan and go in minutes.' },
+        { q: 'How much does scheduled pickup cost?', a: 'Business and Enterprise accounts get unlimited free scheduled pickups. Starter and pay-as-you-go customers pay a small per-pickup fee (usually $3-$5) with the first 3 pickups free on signup. Rush on-demand pickups have a higher premium fee.' }
+      ],
+      related: ['domestic', 'sameday', 'packaging']
+    }
+  };
+
+  const relatedGradients = ['grad-orange-sm', 'grad-purple-sm', 'grad-green-sm', 'grad-cyan-sm', 'grad-pink-sm', 'grad-indigo-sm', 'grad-teal-sm'];
+  const relatedIcons = ['bi-globe-americas','bi-lightning-fill','bi-rocket-takeoff-fill','bi-building-gear','bi-box-seam-fill','bi-truck-flatbed','bi-geo-alt-fill','bi-house-fill'];
+
+  function getServiceData(id) {
+    return servicesData[id] || servicesData.domestic;
+  }
+
+  function getURLParam(name) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  function initServicePage() {
+    const serviceId = getURLParam('id') || 'domestic';
+    const data = getServiceData(serviceId);
+
+    document.title = `${data.name} - ParcelPro Service Details`;
+    document.getElementById('pageTitle').textContent = `${data.name} - ParcelPro Service Details`;
+    document.getElementById('serviceBreadcrumbTag').textContent = data.tag;
+    document.getElementById('serviceName').textContent = data.name;
+    document.getElementById('serviceHeaderDesc').textContent = data.headerDesc;
+    document.getElementById('breadcrumbActive').textContent = data.name;
+    document.getElementById('serviceH2').textContent = data.h2;
+    document.getElementById('serviceLongDesc').innerHTML = data.longDesc;
+
+    const featuresList = document.getElementById('keyFeaturesList');
+    featuresList.innerHTML = data.features.map(f =>
+      `<li><i class="bi bi-check-lg"></i> <span>${f}</span></li>`
+    ).join('');
+
+    data.faqs.forEach((faq, i) => {
+      const btn = document.getElementById(`sdFaqBtn${i + 1}`);
+      const body = document.getElementById(`sdFaqBody${i + 1}`);
+      if (btn) btn.textContent = faq.q;
+      if (body) body.textContent = faq.a;
+    });
+
+    const relatedContainer = document.getElementById('relatedCardsRow');
+    const relatedServices = data.related.map(rid => ({ id: rid, data: servicesData[rid] }));
+    const indices = Object.keys(servicesData);
+    relatedContainer.innerHTML = relatedServices.map((s, i) => {
+      const idx = indices.indexOf(s.id);
+      return `<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${i * 100}">
+        <div class="related-card h-100">
+          <div class="related-card-header ${relatedGradients[idx % relatedGradients.length]}">
+            <i class="${relatedIcons[idx % relatedIcons.length]}"></i>
+            <h4>${s.data.name}</h4>
+          </div>
+          <div class="related-card-body">
+            <p>${s.data.headerDesc}</p>
+            <a href="service-details.html?id=${s.id}" class="related-link">View Service <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    const svcSel = document.getElementById('calcService');
+    if (svcSel && servicesData[serviceId]) {
+      const opt = svcSel.querySelector(`option[value="${serviceId}"]`);
+      if (opt) svcSel.value = serviceId;
+    }
+  }
+
+  function calculatePrice(e) {
+    e.preventDefault();
+    const service = document.getElementById('calcService').value;
+    const weight = parseFloat(document.getElementById('calcWeight').value);
+    const size = document.getElementById('calcSize').value;
+    const distance = document.getElementById('calcDistance').value;
+
+    const baseRates = {
+      domestic: 8, international: 28, sameday: 35, express: 19, freight: 95
+    };
+    const weightMultiplier = { 0.5: 1, 1: 1.3, 2: 1.8, 5: 2.8, 10: 4.5, 20: 8.5, 50: 18 };
+    const sizeMultiplier = { small: 1, medium: 1.2, large: 1.7, xlarge: 2.5 };
+    const distanceMultiplier = { local: 1, regional: 1.4, national: 2.1, international: 2.8 };
+
+    const base = baseRates[service] || 10;
+    const wMult = weightMultiplier[weight] || 1.8;
+    const sMult = sizeMultiplier[size] || 1.2;
+    const dMult = distanceMultiplier[distance] || 1.4;
+    const insurance = weight < 5 ? 0 : Math.round(weight * 0.5 * 100) / 100;
+
+    const subtotal = Math.round(base * wMult * sMult * dMult * 100) / 100;
+    const total = Math.round((subtotal + insurance) * 100) / 100;
+    const weightFee = Math.round((base * (wMult - 1)) * 100) / 100;
+    const baseClean = Math.round(base * sMult * dMult * 100) / 100;
+
+    document.getElementById('calcPrice').textContent = '$' + total.toFixed(2);
+    document.getElementById('calcBase').textContent = '$' + baseClean.toFixed(2);
+    document.getElementById('calcWeightFee').textContent = '$' + weightFee.toFixed(2);
+    document.getElementById('calcIns').textContent = insurance > 0 ? '$' + insurance.toFixed(2) : 'Included FREE';
+    document.getElementById('calcTotal').textContent = '$' + total.toFixed(2);
+    document.getElementById('calcResult').classList.add('show');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initServicePage();
+    if (window.Swiper) {
+      new Swiper('.testimonialsSwiper', {
+        loop: true,
+        spaceBetween: 24,
+        speed: 600,
+        autoplay: { delay: 7000, disableOnInteraction: false },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          0:    { slidesPerView: 1 },
+          768:  { slidesPerView: 2 },
+          1024: { slidesPerView: 3 }
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>

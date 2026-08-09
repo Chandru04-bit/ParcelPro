@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ParcelPro - Track your parcel in real-time with live status updates." />
+  <meta name="keywords" content="courier, parcel, tracking, delivery, shipping, logistics" />
+  <meta name="author" content="ParcelPro" />
+  <title>Track Shipment - ParcelPro</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    :root {
+      --primary: #1e40af;
+      --primary-light: #3b82f6;
+      --secondary: #f97316;
+      --dark: #0f172a;
+      --gray-500: #64748b;
+      --border: #e2e8f0;
+      --white: #ffffff;
+      --dark-2: #1e293b;
+    }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+    /* ==== Tracking Hero (same gradient as index tracking-section) ==== */
+    .track-hero {
+      background: linear-gradient(135deg, #0b2561 0%, #1e40af 45%, #ea580c 100%);
+      padding: 180px 0 120px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+    .track-hero::before,
+    .track-hero::after {
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      filter: blur(80px);
+      opacity:.35;
+    }
+    .track-hero::before {
+      width:520px;height:520px;
+      background: #3b82f6;
+      top:-180px;right:-120px;
+    }
+    .track-hero::after {
+      width:460px;height:460px;
+      background:#fb923c;
+      bottom:-200px;left:-120px;
+    }
+    .track-hero > * { position: relative; z-index: 2; }
+    .track-hero .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px;
+      color: #fff;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      font-weight: 600; font-size: 13px;
+      backdrop-filter: blur(6px);
+      margin-bottom: 20px;
+    }
+    .track-hero .hero-badge i { color: var(--secondary); }
+    .track-hero h1 {
+      font-weight: 900;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      color:#fff;
+    }
+    .track-hero h1 span {
+      background: linear-gradient(90deg,#fed7aa,#bfdbfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .track-hero p.lead {
+      color: rgba(255,255,255,0.85);
+      font-size: 16px;
+      max-width: 560px;
+      margin-bottom: 22px;
+    }
+    .track-hero-stats {
+      display: flex; flex-wrap: wrap; gap: 22px;
+      margin-top: 26px;
+    }
+    .ths-item {
+      display:flex; align-items:center; gap:12px;
+    }
+    .ths-icon {
+      width:42px;height:42px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:18px;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+    }
+    .ths-num { font-weight: 800; font-size: 20px; line-height: 1; color:#fff;}
+    .ths-lbl { font-size: 12px; color: rgba(255,255,255,0.75); margin-top:3px; }
+
+    .hero-illus {
+      position: relative;
+      min-height: 420px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .illus-main {
+      width: min(100%, 560px);
+      aspect-ratio: 4 / 3;
+      border-radius: 36px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(5, 20, 55, 0.3);
+    }
+    .illus-main img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+    .float-card {
+      position: absolute;
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px;
+      background: #fff;
+      color: var(--dark);
+      border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.25);
+      min-width: 180px;
+      animation: floatY 3.5s ease-in-out infinite;
+    }
+    .float-card .fc-icon {
+      width:38px;height:38px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:16px;
+    }
+    .float-card .fc-title { font-weight: 800; font-size: 13px; color: var(--dark);}
+    .float-card .fc-sub { font-size: 11px; color: var(--gray-500); font-weight:600;}
+    .float-card.fc-1 { top: 20px; left: 0; animation-delay: 0s;}
+    .float-card.fc-2 { bottom: 30px; right: 10px; animation-delay: 1s;}
+    @keyframes floatY {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ==== Search Card (home page calculator card style) ==== */
+    .search-wrap {
+      margin-top: -70px;
+      position: relative;
+      z-index: 10;
+    }
+    .search-card {
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.15);
+      padding: 36px;
+      border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .search-card { background: var(--dark-2); border-color: #334155;}
+    .search-card h4 {
+      font-weight: 800;
+      margin: 0 0 6px;
+      color: var(--dark);
+    }
+    [data-bs-theme="dark"] .search-card h4 { color: #fff;}
+    .search-card p.sub {
+      color: var(--gray-500);
+      font-size: 14px;
+      margin: 0 0 22px;
+    }
+    .search-form-row {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .search-input-wrap {
+      flex: 1 1 380px;
+      position: relative;
+    }
+    .search-input-wrap i.bi-truck {
+      position: absolute;
+      left: 20px; top: 50%; transform: translateY(-50%);
+      color: var(--primary);
+      font-size: 18px;
+      z-index: 3;
+    }
+    .search-input {
+      width: 100%;
+      height: 58px;
+      border-radius: 16px;
+      padding: 0 20px 0 54px;
+      border: 1.5px solid var(--border);
+      font-weight: 600;
+      font-size: 15px;
+      background: #f8fafc;
+      transition: all .2s ease;
+    }
+    [data-theme="dark"] .search-input {
+      background: #0f172a; border-color: #334155; color: #fff;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(30,64,175,0.12);
+    }
+    .search-input.is-invalid {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 4px rgba(239,68,68,0.12) !important;
+    }
+    .btn-track {
+      height: 58px;
+      padding: 0 28px;
+      border-radius: 16px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--secondary), #ea580c);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 22px rgba(249,115,22,0.35);
+      transition: all .2s ease;
+      letter-spacing: .2px;
+      min-width: 140px;
+    }
+    .btn-track:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(249,115,22,0.45);
+    }
+    .btn-track:disabled {
+      opacity: .75;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-demo {
+      height: 58px;
+      padding: 0 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      background: rgba(30,64,175,0.08);
+      color: var(--primary);
+      border: 1.5px solid rgba(30,64,175,0.2);
+      transition: all .2s ease;
+    }
+    [data-theme="dark"] .btn-demo {
+      background: rgba(59,130,246,0.12);
+      color: #93c5fd;
+      border-color: rgba(59,130,246,0.3);
+    }
+    .btn-demo:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .samples-row {
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      margin-top: 18px;
+    }
+    .samples-row span.lbl {
+      font-size: 13px; color: var(--gray-500); font-weight: 600;
+    }
+    .chip {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(30,64,175,0.06);
+      border: 1px solid rgba(30,64,175,0.14);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 12.5px;
+      text-decoration: none;
+      transition: all .2s ease;
+      cursor: pointer;
+    }
+    .chip:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ==== Loading & Error States ==== */
+    .loading-box {
+      display: none;
+      text-align: center;
+      padding: 80px 32px;
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 40px rgba(15,23,42,0.08);
+    }
+    [data-theme="dark"] .loading-box { background: var(--dark-2); border-color: #334155;}
+    .loading-box.active { display: block; }
+    .spinner-ring {
+      width: 68px; height: 68px;
+      border: 5px solid #e2e8f0;
+      border-top-color: var(--primary);
+      border-right-color: var(--secondary);
+      border-radius: 50%;
+      animation: spinRing 0.9s linear infinite;
+      margin: 0 auto 18px;
+    }
+    @keyframes spinRing { to { transform: rotate(360deg); } }
+    .loading-box h3 { font-weight: 800; color: var(--dark); font-size:18px; margin:0 0 4px;}
+    [data-bs-theme="dark"] .loading-box h3 { color: #fff;}
+    .loading-box p { color: var(--gray-500); font-size: 14px; margin:0;}
+
+    .error-banner {
+      max-width: 960px;
+      margin: 0 auto 24px;
+      padding: 14px 20px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.22);
+      color: #b91c1c;
+      border-radius: 14px;
+      display: none;
+      align-items: center; gap: 12px;
+      font-weight: 700; font-size: 14px;
+    }
+    .error-banner.active { display: flex; }
+    .error-banner i { font-size: 22px; flex-shrink: 0;}
+
+    /* ==== Result Header ==== */
+    .result-header {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px 32px;
+      box-shadow: 0 10px 40px rgba(15,23,42,0.08);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    [data-theme="dark"] .result-header { background: var(--dark-2); border-color: #334155;}
+    .result-header::before {
+      content: "";
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(249,115,22,0.08));
+      z-index: 0;
+    }
+    .result-header > * { position: relative; z-index: 1;}
+    .rh-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(30,64,175,0.08);
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .rh-title-row {
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      gap: 18px; margin-bottom: 10px;
+    }
+    .rh-title {
+      font-weight: 900; color: var(--dark);
+      font-size: 26px; margin: 0;
+    }
+    [data-theme="dark"] .rh-title { color: #fff;}
+    .status-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 16px; border-radius:999px;
+      font-weight: 800; font-size: 13px;
+      border: 1px solid transparent;
+    }
+    .status-badge::before {
+      content:""; width:8px;height:8px;border-radius:50%;
+      background: currentColor;
+      box-shadow: 0 0 0 4px currentColor;
+      opacity: .35;
+    }
+    .status-delivered { background: rgba(16,185,129,0.1); color: #10b981; border-color: rgba(16,185,129,0.25); }
+    .status-out-for-delivery { background: rgba(59,130,246,0.1); color: #3b82f6; border-color: rgba(59,130,246,0.25); }
+    .status-in-transit { background: rgba(168,85,247,0.1); color: #a855f7; border-color: rgba(168,85,247,0.25); }
+    .status-picked-up { background: rgba(249,115,22,0.1); color: #f97316; border-color: rgba(249,115,22,0.25); }
+    .status-order-placed { background: rgba(100,116,139,0.12); color: #475569; border-color: rgba(100,116,139,0.25); }
+
+    .rh-id-row {
+      display:flex; flex-wrap:wrap; align-items:center; gap: 14px;
+    }
+    .rh-id-label { color: var(--gray-500); font-weight: 700; font-size: 14px;}
+    .rh-id-value {
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .copy-btn {
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .copy-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* ==== Info Grid Tiles ==== */
+    .info-tile {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      transition: all .25s ease;
+      height: 100%;
+    }
+    [data-theme="dark"] .info-tile { background: var(--dark-2); border-color: #334155;}
+    .info-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(15,23,42,0.1);
+    }
+    .it-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(30,64,175,0.08);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .it-label {
+      font-size: 11px; color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 1px; font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .it-value {
+      font-weight: 800; color: var(--dark);
+      font-size: 15.5px; line-height: 1.3;
+    }
+    [data-bs-theme="dark"] .it-value { color: #fff;}
+
+    /* ==== Route Card ==== */
+    .route-card {
+      background: linear-gradient(135deg, rgba(30,64,175,0.07), rgba(249,115,22,0.07));
+      border: 1px solid rgba(30,64,175,0.15);
+      border-radius: 22px;
+      padding: 24px;
+    }
+    .rp {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .rp-ico {
+      width: 44px; height: 44px; border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 18px; flex-shrink: 0;
+    }
+    .rp-ico.blue { background: var(--primary);}
+    .rp-ico.orange { background: var(--secondary);}
+    .rp-city { font-weight: 800; color: var(--dark); font-size: 18px;}
+    [data-theme="dark"] .rp-city { color: #fff;}
+    .rp-addr { font-size: 13px; color: var(--gray-500); margin-top: 2px;}
+    .rp-date { font-size: 12px; color: var(--primary); font-weight: 700; margin-top: 4px;}
+    .rp-line {
+      position: relative; height: 56px;
+      display:flex; align-items:center; justify-content:center;
+      margin-left: 22px;
+    }
+    .rp-line::before {
+      content:"";
+      position:absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: repeating-linear-gradient(to bottom, var(--primary) 0 6px, transparent 6px 12px);
+      opacity: .4;
+    }
+    .rp-line i {
+      position: relative;
+      margin-left: -18px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid rgba(30,64,175,0.25);
+      display:flex; align-items:center; justify-content:center;
+      font-size: 14px;
+    }
+    [data-theme="dark"] .rp-line i { background: var(--dark-2);}
+
+    .eta-box {
+      margin-top: 18px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    [data-theme="dark"] .eta-box { background: var(--dark-2); border-color: #334155;}
+    .eta-lbl { color: var(--gray-500); font-weight: 700; font-size: 13px;}
+    .eta-val { color: var(--secondary); font-weight: 800; font-size: 16px;}
+
+    /* ==== Recipient Card ==== */
+    .rc-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 4px 18px rgba(15,23,42,0.04);
+    }
+    [data-theme="dark"] .rc-card { background: var(--dark-2); border-color: #334155;}
+    .rc-head {
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 14px; margin-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .rc-head h4 { font-weight: 800; color: var(--dark); font-size: 17px; margin: 0;}
+    [data-theme="dark"] .rc-head h4 { color: #fff;}
+    .rc-head i { color: var(--primary); font-size: 20px;}
+    .rc-row {
+      display: flex; gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .rc-row:last-child { border-bottom: none;}
+    .rc-row .ic {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(30,64,175,0.08);
+      color: var(--primary);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .rc-row .lbl {
+      font-size: 10.5px; letter-spacing:.5px;
+      color: var(--gray-500); font-weight:800; text-transform: uppercase;
+    }
+    .rc-row .val {
+      font-weight: 700; color: var(--dark); line-height:1.35;
+    }
+    [data-theme="dark"] .rc-row .val { color: #fff;}
+
+    /* ==== Timeline Card ==== */
+    .tl-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px 30px;
+      box-shadow: 0 8px 28px rgba(15,23,42,0.07);
+      height: 100%;
+    }
+    [data-theme="dark"] .tl-card { background: var(--dark-2); border-color: #334155;}
+    .tl-head {
+      display:flex; justify-content:space-between; align-items:center;
+      padding-bottom: 14px; margin-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .tl-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(249,115,22,0.12); color: var(--secondary);
+      font-size: 12px; font-weight: 800; letter-spacing:.4px;
+      text-transform: uppercase;
+    }
+    .tl-head h3 { font-weight: 800; color: var(--dark); font-size: 19px; margin: 6px 0 0 0;}
+    [data-bs-theme="dark"] .tl-head h3 { color: #fff;}
+    .tl-head .meta { font-size: 12px; color: var(--gray-500); font-weight: 700;}
+
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      padding-bottom: 26px;
+    }
+    .tl-item:last-child { padding-bottom: 0;}
+    .tl-item::before {
+      content:"";
+      position: absolute;
+      left: 21px; top: 44px; bottom: 0;
+      width: 2px;
+      background: rgba(100,116,139,0.18);
+    }
+    .tl-item:last-child::before { display: none;}
+    .tl-dot {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #f1f5f9;
+      color: #94a3b8;
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid #fff;
+      position: relative; z-index: 1;
+      transition: all .3s ease;
+    }
+    [data-theme="dark"] .tl-dot { background: rgba(255,255,255,0.06); border-color: var(--dark-2);}
+    .tl-item.done .tl-dot {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(30,64,175,0.3);
+    }
+    .tl-item.active .tl-dot {
+      background: var(--secondary);
+      color: #fff;
+      box-shadow: 0 0 0 6px rgba(249,115,22,0.15), 0 4px 12px rgba(249,115,22,0.35);
+      animation: pulseTl 1.6s ease-in-out infinite;
+    }
+    @keyframes pulseTl {
+      0%,100% { box-shadow: 0 0 0 6px rgba(249,115,22,0.15), 0 4px 12px rgba(249,115,22,0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(249,115,22,0.07), 0 4px 12px rgba(249,115,22,0.35); }
+    }
+
+    .tl-card-body {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 16px 18px;
+      transition: all .2s ease;
+    }
+    [data-theme="dark"] .tl-card-body { background: #0f172a; border-color: #334155;}
+    .tl-item.active .tl-card-body {
+      border-color: rgba(249,115,22,0.35);
+      box-shadow: 0 4px 16px rgba(249,115,22,0.1);
+    }
+    .tl-ch {
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .tl-ttl {
+      font-weight: 800; color: var(--dark); font-size: 14.5px;
+    }
+    [data-theme="dark"] .tl-ttl { color: #fff;}
+    .tl-item:not(.done):not(.active) .tl-ttl { color: #94a3b8;}
+    .tl-time { font-size: 12px; color: var(--gray-500); font-weight: 700;}
+    .tl-loc {
+      margin-top: 5px;
+      color: #64748b; font-weight: 700; font-size: 13px;
+    }
+    .tl-item:not(.done):not(.active) .tl-loc { color: #cbd5e1;}
+    .tl-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, rgba(30,64,175,0.06), rgba(249,115,22,0.06));
+      border-radius: 10px;
+      font-size: 12.5px; color: #475569;
+      font-weight: 500;
+    }
+
+    /* ==== Payment Card ==== */
+    .pay-card {
+      background: linear-gradient(135deg, rgba(30,64,175,0.07), rgba(249,115,22,0.07));
+      border: 1px solid rgba(30,64,175,0.15);
+      border-radius: 22px;
+      padding: 32px;
+    }
+    .pay-head {
+      display:flex; align-items:center; gap: 14px;
+      margin-bottom: 22px;
+    }
+    .pay-ico {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: var(--primary); color: #fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size: 20px;
+    }
+    .pay-head .lbl { font-size: 11px; color: var(--gray-500); letter-spacing:1px; text-transform: uppercase; font-weight: 800;}
+    .pay-head h3 { font-weight: 800; color: var(--dark); font-size: 18px; margin: 4px 0 0 0;}
+    [data-bs-theme="dark"] .pay-head h3 { color: #fff;}
+
+    .pay-breakdown {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+    }
+    [data-theme="dark"] .pay-breakdown { background: var(--dark-2); border-color: #334155;}
+    .pb-row {
+      display:flex; justify-content: space-between;
+      padding: 7px 0;
+      color: #64748b; font-size: 14px;
+    }
+    .pb-row b { color: var(--dark); font-weight: 800;}
+    [data-theme="dark"] .pb-row b { color: #fff;}
+    .pb-total {
+      margin-top: 8px; padding-top: 14px;
+      border-top: 2px solid rgba(0,0,0,0.08);
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .pb-total .lbl { font-size: 16px; font-weight: 800; color: var(--dark);}
+    [data-theme="dark"] .pb-total .lbl { color: #fff;}
+    .pb-total .val {
+      font-size: 28px; font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .pay-method {
+      margin-top: 16px; color: var(--gray-500); font-size: 14px;
+    }
+    .pay-method b { color: var(--dark); font-weight: 800;}
+    [data-theme="dark"] .pay-method b { color: #fff;}
+
+    /* ==== Not Found Card ==== */
+    .nf-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 56px 36px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(15,23,42,0.08);
+    }
+    [data-theme="dark"] .nf-card { background: var(--dark-2); border-color: #334155;}
+    .nf-ico {
+      width: 96px; height: 96px;
+      margin: 0 auto 22px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(30,64,175,0.1), rgba(249,115,22,0.1));
+      color: var(--primary);
+      font-size: 42px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nf-card h2 {
+      font-weight: 900; color: var(--dark);
+      font-size: 28px; margin: 0 0 10px;
+    }
+    [data-theme="dark"] .nf-card h2 { color: #fff;}
+    .nf-card p {
+      color: var(--gray-500);
+      max-width: 500px; margin: 0 auto 28px;
+      font-size: 15px;
+    }
+    .nf-actions {
+      display:flex; flex-wrap:wrap; gap: 12px; justify-content: center;
+    }
+
+    .fade-in { animation: fadeInUp .45s ease-out;}
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(22px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* ==== Scroll-top button (aligns with page footer element) ==== */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 20px rgba(30,64,175,0.35);
+      z-index: 999;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .scroll-top.visible { display: flex; }
+    .scroll-top:hover { transform: translateY(-3px); }
+
+    /* ==== Hero alignment refinements (Flexbox centering) ==== */
+    .track-hero .row {
+      min-height: 100%;
+      align-items: center;
+    }
+    .track-hero .hero-badge {
+      justify-content: center;
+    }
+    .track-hero .ths-item {
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .hero-illus {
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==== Search card alignment (Flexbox centered) ==== */
+    .search-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .search-form-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+    }
+    .samples-row {
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* ==== Info tiles: equal height & Flexbox alignment ==== */
+    #infoGrid {
+      align-items: stretch;
+    }
+    #infoGrid > [class*="col-"] {
+      display: flex;
+    }
+    .info-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    .it-value { line-height: 1.4; }
+
+    /* ==== Route card: Flexbox vertical alignment ==== */
+    .rp {
+      align-items: flex-start;
+    }
+    .rp .flex-fill { width: 100%; }
+    .rp-line {
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .eta-box {
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ==== Recipient card row alignment ==== */
+    .rc-row {
+      align-items: flex-start;
+    }
+    .rc-row .flex-fill {
+      width: 100%;
+    }
+
+    /* ==== Timeline proper centering ==== */
+    .tl-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .tl-item {
+      align-items: flex-start;
+    }
+    .tl-ch {
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ==== Result header: proper centering ==== */
+    .result-header .row {
+      align-items: center;
+    }
+    .result-header .d-flex.justify-content-md-end {
+      justify-content: center !important;
+    }
+    @media (min-width: 768px) {
+      .result-header .d-flex.justify-content-md-end {
+        justify-content: flex-end !important;
+      }
+    }
+    .rh-title-row {
+      align-items: center;
+    }
+    .rh-id-row {
+      align-items: center;
+    }
+
+    /* ==== Buttons: text/icon alignment ==== */
+    .btn-track, .btn-demo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* ==== Loading box: Flexbox centering ==== */
+    .loading-box {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .loading-box.active {
+      display: flex;
+    }
+
+    /* ==== Error banner: Flexbox alignment ==== */
+    .error-banner {
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* ==== Payment card alignment ==== */
+    .pay-head {
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .pay-breakdown {
+      display: flex;
+      flex-direction: column;
+    }
+    .pb-row, .pb-total {
+      align-items: center;
+    }
+
+    /* ==== NotFound card: Flexbox centering ==== */
+    .nf-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .nf-actions {
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .track-hero { padding: 150px 0 100px; }
+      .search-card { padding: 24px; border-radius: 22px;}
+      .result-header { padding: 22px 20px;}
+      .rh-id-value { font-size: 18px;}
+      .nf-card { padding: 42px 22px;}
+      .nf-card h2 { font-size: 22px;}
+      .tl-card { padding: 22px 18px;}
+      .tl-item { grid-template-columns: 38px 1fr;}
+      .tl-dot { width: 38px; height: 38px;}
+      .tl-item::before { left: 18px; top: 38px;}
+      .pay-card { padding: 22px;}
+      .search-form-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-track, .btn-demo {
+        width: 100%;
+      }
+      .samples-row {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR (same as index) ==================== -->
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link active" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link" href="login.html">Sign In</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link" href="register.html">Register</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <div class="dropdown d-none d-lg-inline-block" id="authNavMenu">
+        <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right me-1"></i>Sign In</button>
+        <ul class="dropdown-menu dropdown-menu-end rounded-3 border-0 shadow-lg p-2 mt-2">
+          <li><a class="dropdown-item rounded-2" href="login.html"><i class="bi bi-box-arrow-in-right text-primary me-2"></i>User Sign In</a></li>
+          <li><a class="dropdown-item rounded-2" href="register.html"><i class="bi bi-person-plus-fill text-primary me-2"></i>User Sign Up</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item rounded-2" href="login.html?role=admin"><i class="bi bi-lock-fill text-muted me-2"></i>Admin Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="track-hero">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 col-xl-5" data-aos="fade-right">
+        <div class="hero-badge"><i class="bi bi-geo-alt-fill"></i> LIVE SHIPMENT TRACKER</div>
+        <h1>Track Your <span>Parcel</span> in Real-Time</h1>
+        <p class="lead">Get instant updates on status, current location, and estimated delivery. Full visibility at every checkpoint from pickup to your recipient's doorstep.</p>
+        <a href="booking.html" class="btn btn-light btn-lg" style="border-radius: 14px; font-weight: 800;">
+          <i class="bi bi-box-seam me-2"></i> Book a New Parcel
+        </a>
+
+        <div class="track-hero-stats">
+          <div class="ths-item">
+            <div class="ths-icon"><i class="bi bi-check2-all"></i></div>
+            <div>
+              <div class="ths-num">99.9%</div>
+              <div class="ths-lbl">On-Time Delivery</div>
+            </div>
+          </div>
+          <div class="ths-item">
+            <div class="ths-icon"><i class="bi bi-clock-history"></i></div>
+            <div>
+              <div class="ths-num">~30s</div>
+              <div class="ths-lbl">Avg Check-in</div>
+            </div>
+          </div>
+          <div class="ths-item">
+            <div class="ths-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <div class="ths-num">5000+</div>
+              <div class="ths-lbl">Tracking Points</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-xl-7 d-none d-lg-block" data-aos="fade-left">
+        <div class="hero-illus">
+          <div class="illus-main">
+            <img src="assets/images/Track_live_shipment_parcel_2K_202608082223.jpeg" alt="Live shipment tracking displayed on a tablet" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SEARCH CARD ==================== -->
+<section class="search-wrap">
+  <div class="container">
+    <div class="search-card" data-aos="fade-up">
+      <h4>Track Your Parcel</h4>
+      <p class="sub">Paste your tracking number below for instant live status updates.</p>
+
+      <form id="trackingForm" onsubmit="trackShipmentAction(); return false;">
+        <div class="search-form-row">
+          <div class="search-input-wrap">
+            <i class="bi bi-truck"></i>
+            <input
+              type="text"
+              id="trackingInput"
+              class="search-input"
+              placeholder="Enter tracking number (e.g. PK20258432A)"
+              autocomplete="off"
+              maxlength="25"
+            />
+          </div>
+          <button type="submit" id="trackButton" class="btn-track">
+            <i class="bi bi-search me-1"></i> Track
+          </button>
+          <button type="button" class="btn-demo" onclick="showTrackingDemo()">
+            <i class="bi bi-play-circle me-1"></i> Demo
+          </button>
+        </div>
+      </form>
+
+      <div class="samples-row">
+        <span class="lbl">Try examples:</span>
+        <a class="chip" href="javascript:loadShipmentById('PK20258432A')">PK20258432A</a>
+        <a class="chip" href="javascript:loadShipmentById('PX9876EXPRESS')">PX9876EXPRESS</a>
+        <a class="chip" href="javascript:ParcelPro.openBooking(event)"><i class="bi bi-box-seam me-1"></i>Book New Parcel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RESULT CONTAINER ==================== -->
+<section class="section-padding pb-0" id="resultContainer" style="padding-top:80px;">
+  <div class="container">
+
+    <!-- Error banner -->
+    <div class="error-banner" id="trackingErrorBanner">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <span id="trackingErrorText"></span>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-box" id="trackingLoading">
+      <div class="spinner-ring"></div>
+      <h3>Searching for your shipment…</h3>
+      <p>Matching your tracking ID against our live logistics network.</p>
+    </div>
+
+    <!-- ============ RESULT FOUND ============ -->
+    <div id="trackingResult" style="display:none;" class="fade-in">
+
+      <!-- Result Header -->
+      <div class="result-header" data-aos="fade-up">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-8">
+            <div class="rh-badge"><i class="bi bi-geo-alt-fill"></i> LIVE TRACKING</div>
+            <div class="rh-title-row">
+              <h2 class="rh-title">Shipment Tracking</h2>
+              <span class="status-badge" id="resultStatusPill">Order Placed</span>
+            </div>
+            <div class="rh-id-row">
+              <span class="rh-id-label">Tracking ID:</span>
+              <span class="rh-id-value" id="resultTrackingNo">—</span>
+              <button type="button" class="copy-btn" onclick="copyTracking()">
+                <i class="bi bi-clipboard me-1"></i> Copy
+              </button>
+            </div>
+            <div style="margin-top:8px; color: var(--gray-500); font-size: 14px; font-weight:700;">
+              Status: <span style="color:var(--dark); font-weight:800;" id="resultStatusText">—</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-flex justify-content-md-end">
+              <div style="background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(249,115,22,0.08)); border-radius:18px; padding:20px 24px; text-align:right; min-width:240px;">
+                <div style="font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; font-weight:800;">Last Updated</div>
+                <div style="font-size:18px; font-weight:800; color:var(--dark);" id="lastUpdated">—</div>
+                <div style="margin-top:10px; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; font-weight:800;">Next Update In</div>
+                <div style="font-size:16px; font-weight:800; color:var(--secondary);">~ 25 min</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Tiles -->
+      <div class="row g-3 mb-4" id="infoGrid" data-aos="fade-up" data-aos-delay="50"></div>
+
+      <!-- Route + Recipient + Timeline -->
+      <div class="row g-4 mb-4">
+        <!-- Route + Recipient -->
+        <div class="col-lg-5 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="route-card">
+            <div class="rp">
+              <div class="rp-ico blue"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="flex-fill">
+                <div class="rp-city" id="routeFromCity">—</div>
+                <div class="rp-addr" id="routeFromAddress">—</div>
+                <div class="rp-date" id="routeFromDate">—</div>
+              </div>
+            </div>
+            <div class="rp-line"><i class="bi bi-truck"></i></div>
+            <div class="rp">
+              <div class="rp-ico orange"><i class="bi bi-geo-fill"></i></div>
+              <div class="flex-fill">
+                <div class="rp-city" id="routeToCity">—</div>
+                <div class="rp-addr" id="routeToAddress">—</div>
+                <div class="rp-date" id="routeToDate">—</div>
+              </div>
+            </div>
+            <div class="eta-box">
+              <span class="eta-lbl"><i class="bi bi-clock me-1"></i> Estimated Delivery</span>
+              <span class="eta-val" id="routeEta">—</span>
+            </div>
+          </div>
+
+          <!-- Recipient -->
+          <div class="rc-card">
+            <div class="rc-head">
+              <i class="bi bi-person-lines-fill"></i>
+              <h4>Recipient Details</h4>
+            </div>
+            <div class="rc-row">
+              <div class="ic"><i class="bi bi-person-fill"></i></div>
+              <div class="flex-fill">
+                <div class="lbl">Full Name</div>
+                <div class="val" id="recName">—</div>
+              </div>
+            </div>
+            <div class="rc-row">
+              <div class="ic"><i class="bi bi-telephone-fill"></i></div>
+              <div class="flex-fill">
+                <div class="lbl">Contact Phone</div>
+                <div class="val" id="recPhone">—</div>
+              </div>
+            </div>
+            <div class="rc-row">
+              <div class="ic"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="flex-fill">
+                <div class="lbl">Delivery Address</div>
+                <div class="val" id="recAddress">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="col-lg-7 col-xl-8" data-aos="fade-up" data-aos-delay="150">
+          <div class="tl-card">
+            <div class="tl-head">
+              <div>
+                <div class="tl-badge"><i class="bi bi-clock-history"></i> SHIPMENT TIMELINE</div>
+                <h3>Status Updates</h3>
+              </div>
+              <div class="meta"><i class="bi bi-arrow-down-short"></i> Newest first</div>
+            </div>
+            <div id="timelineContainer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Breakdown -->
+      <div class="pay-card mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <div class="pay-head">
+              <div class="pay-ico"><i class="bi bi-receipt"></i></div>
+              <div>
+                <div class="lbl">Shipping Invoice</div>
+                <h3>Payment Summary</h3>
+              </div>
+            </div>
+            <p style="color:var(--gray-500); margin:0;">
+              Breakdown of charges for this shipment.
+              Paid via <b id="payMethod">—</b>
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="pay-breakdown">
+              <div class="pb-row"><span>Base Price</span><b>$<span id="payBase">0</span></b></div>
+              <div class="pb-row"><span>Distance Charge</span><b>$<span id="payDist">0</span></b></div>
+              <div class="pb-row"><span>Weight Charge</span><b>$<span id="payWeight">0</span></b></div>
+              <div class="pb-total">
+                <span class="lbl">Total Paid</span>
+                <span class="val">$<span id="payTotal">0</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="d-flex flex-wrap gap-3 justify-content-center pb-5" data-aos="fade-up" data-aos-delay="250">
+        <a href="javascript:ParcelPro.openBooking(event)" class="btn btn-primary btn-lg" style="border-radius: 14px; font-weight: 800;">
+          <i class="bi bi-box-seam me-2"></i> Book Another Parcel
+        </a>
+        <a href="pricing.html" class="btn btn-outline-primary btn-lg" style="border-radius: 14px; font-weight: 800;">
+          <i class="bi bi-tags me-2"></i> View Pricing Plans
+        </a>
+        <a href="contact.html" class="btn btn-outline-secondary btn-lg" style="border-radius: 14px; font-weight: 800;">
+          <i class="bi bi-headset me-2"></i> Need Help?
+        </a>
+      </div>
+    </div>
+
+    <!-- ============ NOT FOUND / INITIAL STATE ============ -->
+    <div id="trackingNotFound" style="display:block;" class="fade-in">
+      <div class="nf-card" data-aos="fade-up">
+        <div class="nf-ico"><i class="bi bi-search"></i></div>
+        <h2 id="nfTitle">Enter a Tracking Number to Begin</h2>
+        <p id="nfDesc">Enter your tracking number in the search field above, or try "Load Demo" to see how the live tracking system works.</p>
+        <div class="nf-actions">
+          <button type="button" class="btn btn-primary btn-lg" onclick="showTrackingDemo()" style="border-radius:14px; font-weight:800;">
+            <i class="bi bi-play-circle me-2"></i> Load Demo Shipment
+          </button>
+          <a href="booking.html" class="btn btn-outline-primary btn-lg" style="border-radius:14px; font-weight:800;" onclick="ParcelPro.openBooking(event)">
+            <i class="bi bi-box-seam me-2"></i> Book a New Parcel
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== FEATURES STRIP (index.html style) ==================== -->
+<section class="features-section section-padding" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Why Choose Us</span>
+      <h2>Complete Shipment Visibility, Guaranteed</h2>
+      <p>From the moment you book to the second it's delivered, we keep you informed at every step.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-card">
+          <div class="feature-icon blue"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h4>Instant Updates</h4>
+          <p>Real-time status scans delivered the moment a checkpoint is reached - no delays, ever.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
+          <div class="feature-icon orange"><i class="bi bi-shield-check"></i></div>
+          <h4>Insured Shipping</h4>
+          <p>Every shipment comes with full insurance coverage up to $5,000 automatically included.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
+          <div class="feature-icon green"><i class="bi bi-geo-alt-fill"></i></div>
+          <h4>Global Coverage</h4>
+          <p>Full end-to-end tracking across 220+ countries with our trusted logistics partners.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card">
+          <div class="feature-icon purple"><i class="bi bi-headset"></i></div>
+          <h4>24/7 Support</h4>
+          <p>Need clarity on a tracking update? Our logistics experts are always one call away.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== HOW IT WORKS (index.html style) ==================== -->
+<section class="how-it-works section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">How It Works</span>
+      <h2>Tracking Made Simple in 4 Steps</h2>
+      <p>Know exactly where your parcel is and when it will arrive - all from one simple page.</p>
+    </div>
+    <div class="row g-0 align-items-stretch">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="bi bi-search"></i></div>
+          <h4>Enter Tracking ID</h4>
+          <p>Type your unique tracking number into the search field above and click Track.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="bi bi-activity"></i></div>
+          <h4>See Live Status</h4>
+          <p>Get the current status, location, and estimated delivery time instantly.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="bi bi-clock-history"></i></div>
+          <h4>View Timeline</h4>
+          <p>Scroll through a detailed, timestamped history of every checkpoint in the journey.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-icon"><i class="bi bi-check2-circle"></i></div>
+          <h4>Delivery Confirmed</h4>
+          <p>Receive signed proof of delivery once your recipient has it in their hands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA (index.html style) ==================== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="cta-content">
+            <h2>Ship smarter with full tracking visibility.</h2>
+            <p>Join 50,000+ businesses shipping with real-time tracking, instant quotes, and door-to-door pickup — all in one platform.</p>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="cta-btns">
+            <a href="register.html" class="btn btn-light btn-lg">Create Free Account</a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg">Talk to Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER (same as index) ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="tracking.html"><i class="bi bi-caret-right"></i> Track Parcel</a></li>
+          <li><a href="booking.html"><i class="bi bi-caret-right"></i> Book Parcel</a></li>
+          <li><a href="login.html"><i class="bi bi-caret-right"></i> User Dashboard</a></li>
+          <li><a href="login.html?role=admin"><i class="bi bi-caret-right"></i> Admin Panel</a></li>
+          <li><a href="register.html"><i class="bi bi-caret-right"></i> Sign Up Free</a></li>
+          <li><a href="testimonials.html"><i class="bi bi-caret-right"></i> Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Get in Touch</h5>
+        <ul class="footer-contact">
+          <li><i class="bi bi-geo-alt-fill"></i> <span>101 Logistics Ave, Suite 300<br/>New York, NY 10001</span></li>
+          <li><i class="bi bi-telephone-fill"></i> <span>+1 (800) 555-0199<br/>Mon–Fri 8:00am–8:00pm EST</span></li>
+          <li><i class="bi bi-envelope-fill"></i> <span>support@parcelpro.example<br/>hello@parcelpro.example</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6 text-center text-md-start"><p>© 2026 ParcelPro. All rights reserved.</p></div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Shipping Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="backToTop" class="scroll-top"><i class="bi bi-arrow-up-short"></i></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="assets/js/parcelpro-store.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+  /* ========= Toast helper fallback (in case validation.js is not loaded) ========= */
+  (function ensureToast() {
+    if (typeof window.showToast === 'function') return;
+    const colors = {
+      success: { bg: '#10b981', icon: 'bi-check-circle' },
+      error:   { bg: '#ef4444', icon: 'bi-x-circle' },
+      warning: { bg: '#f59e0b', icon: 'bi-exclamation-triangle' },
+      info:    { bg: '#06b6d4', icon: 'bi-info-circle' }
+    };
+    window.showToast = function (msg, type = 'success', duration = 3500) {
+      const c = colors[type] || colors.success;
+      let container = document.getElementById('ppToastContainer');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'ppToastContainer';
+        container.style.cssText = 'position:fixed;top:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;';
+        document.body.appendChild(container);
+        const st = document.createElement('style');
+        st.textContent = '@keyframes fadeInLeft{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}';
+        document.head.appendChild(st);
+      }
+      const toast = document.createElement('div');
+      toast.style.cssText = `background:#fff;border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 15px 35px rgba(0,0,0,0.15);min-width:300px;max-width:420px;border-left:4px solid ${c.bg};animation:fadeInLeft 0.3s ease-out;`;
+      toast.innerHTML = `<div style="width:36px;height:36px;border-radius:10px;background:${c.bg}15;color:${c.bg};display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi ${c.icon}"></i></div><div style="flex:1;"><div style="font-weight:600;color:#1e293b;font-size:14px;text-transform:capitalize;">${type}</div><div style="font-size:13px;color:#64748b;margin-top:2px;">${msg}</div></div>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.animation = 'fadeInLeft 0.3s ease-out reverse';
+        setTimeout(() => toast.remove(), 300);
+      }, duration);
+    };
+  })();
+
+  /* ========= Scroll-top button handler (uses existing .scroll-top element in page footer) ========= */
+  (function initScrollTop() {
+    const btn = document.querySelector('.scroll-top');
+    if (!btn) return;
+    const THRESHOLD = 400;
+    function onScroll() {
+      if (window.scrollY > THRESHOLD) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    btn.addEventListener('mouseenter', () => btn.style.transform = 'translateY(-3px)');
+    btn.addEventListener('mouseleave', () => btn.style.transform = 'translateY(0)');
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  /* ========= Ensure ParcelPro helpers exist for the page ========= */
+  if (!window.ParcelPro) window.ParcelPro = {};
+  window.ParcelPro.openBooking = window.ParcelPro.openBooking || function (event) {
+    event?.preventDefault();
+    window.location.href = 'booking.html';
+  };
+  window.ParcelPro.copyTracking = window.ParcelPro.copyTracking || function () {};
+
+  /* ========= Status helpers ========= */
+  const STATUS_CLASS = {
+    'Delivered': 'status-delivered',
+    'Out for Delivery': 'status-out-for-delivery',
+    'In Transit': 'status-in-transit',
+    'Picked Up': 'status-picked-up',
+    'Order Placed': 'status-order-placed'
+  };
+  const STATUS_NOTES = {
+    'Order Placed': 'Shipment documentation created. Label generated with QR code for automated scanning.',
+    'Picked Up': 'Courier arrived and collected the parcel from sender address. Package verified and sealed.',
+    'In Transit': 'Scanned onto transport. Your parcel is traveling between hubs on schedule.',
+    'Out for Delivery': 'Your parcel is on the vehicle for last-mile delivery. Recipient will be notified via SMS 15 minutes before arrival.',
+    'Delivered': 'Parcel signed for by recipient. Proof of delivery (signature + photo + GPS) is available in your dashboard.'
+  };
+  const ICONS = {
+    'Order Placed': 'bi-clipboard-check',
+    'Picked Up': 'bi-box-seam',
+    'In Transit': 'bi-truck',
+    'Out for Delivery': 'bi-person-bounding-box',
+    'Delivered': 'bi-check-lg'
+  };
+  const TILE_ICONS = [
+    { ic: 'bi-bicycle', lbl: 'Service Type', key: 'service' },
+    { ic: 'bi-bag', lbl: 'Weight', key: 'weight' },
+    { ic: 'bi-box', lbl: 'Parcel Type', key: 'parcelType' },
+    { ic: 'bi-calendar-check', lbl: 'Shipment Date', key: 'shipDate' },
+    { ic: 'bi-geo-alt', lbl: 'Current Location', key: 'location' },
+    { ic: 'bi-clock-history', lbl: 'ETA', key: 'eta' }
+  ];
+  const TILE_ICON_COLORS = ['rgba(30,64,175,0.08)','rgba(249,115,22,0.08)','rgba(16,185,129,0.08)','rgba(139,92,246,0.08)','rgba(239,68,68,0.08)','rgba(14,165,233,0.08)'];
+
+  function statusBadgeClass(status) { return STATUS_CLASS[status] || 'status-order-placed'; }
+
+  function fmtTime(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  /* ========= UI state management ========= */
+  function hideAllStates() {
+    document.getElementById('trackingResult').style.display = 'none';
+    document.getElementById('trackingNotFound').style.display = 'none';
+    document.getElementById('trackingLoading').classList.remove('active');
+    document.getElementById('trackingErrorBanner').classList.remove('active');
+  }
+
+  function showLoading() {
+    hideAllStates();
+    document.getElementById('trackingLoading').classList.add('active');
+    const btn = document.getElementById('trackButton');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true" style="width:14px;height:14px;border-width:2px;"></span>Tracking...';
+    }
+    document.getElementById('resultContainer').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function hideLoading() {
+    document.getElementById('trackingLoading').classList.remove('active');
+    const btn = document.getElementById('trackButton');
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-search me-1"></i> Track'; }
+  }
+
+  function showBannerError(msg) {
+    const banner = document.getElementById('trackingErrorBanner');
+    document.getElementById('trackingErrorText').textContent = msg;
+    banner.classList.add('active');
+    setTimeout(() => banner.classList.remove('active'), 4500);
+  }
+
+  async function copyTracking() {
+    const btn = document.querySelector('.copy-btn');
+    const txt = document.getElementById('resultTrackingNo').textContent || '';
+    if (!txt) {
+      window.showToast?.('Nothing to copy.', 'warning');
+      return;
+    }
+    let copied = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(txt);
+        copied = true;
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = txt;
+        ta.style.cssText = 'position:fixed;left:-9999px;opacity:0;';
+        document.body.appendChild(ta);
+        ta.select();
+        copied = document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+    } catch (e) {
+      copied = false;
+    }
+    if (copied) {
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-check2 me-1"></i> Copied!';
+        btn.style.background = '#10b981';
+        btn.style.color = '#fff';
+        btn.style.borderColor = '#10b981';
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.style.cssText = '';
+        }, 1700);
+      }
+      window.showToast?.('Tracking number copied to clipboard!', 'success');
+    } else {
+      window.showToast?.('Copy failed — please copy manually.', 'error');
+    }
+  }
+  if (!window.ParcelPro) window.ParcelPro = {};
+  window.ParcelPro.copyTracking = copyTracking;
+
+  /* ========= Render result ========= */
+  function renderParcel(parcel) {
+    if (!parcel) return;
+    const q = parcel.quote || {};
+    const status = parcel.status || 'Order Placed';
+    const timeline = parcel.timeline && parcel.timeline.length
+      ? parcel.timeline
+      : window.ParcelProStore.buildTimeline(parcel);
+
+    // Header
+    document.getElementById('resultTrackingNo').textContent = parcel.trackingId || parcel.id;
+    document.getElementById('resultStatusText').textContent = status;
+    document.getElementById('resultStatusPill').className = 'status-badge ' + statusBadgeClass(status);
+    document.getElementById('lastUpdated').textContent = fmtTime(parcel.updatedAt || parcel.createdAt || new Date());
+
+    // Data fallbacks per required storage format
+    const pickupDisplay   = parcel.pickupCity || parcel.pickup || 'Pickup City';
+    const deliveryDisplay = parcel.deliveryCity || parcel.delivery || 'Delivery City';
+    const weightVal       = parcel.weight || q.weight || 0;
+    const etaVal          = parcel.eta || q.etaText || '2-3 days';
+
+    // Info tiles
+    const tileData = [
+      parcel.deliveryType || parcel.serviceLevel || 'Standard',
+      weightVal + ' kg',
+      parcel.parcelType || parcel.type || 'Package',
+      fmtDate(parcel.createdAt || new Date()),
+      timeline.find(t => t.active)?.location || pickupDisplay || 'Processing Center',
+      etaVal
+    ];
+    document.getElementById('infoGrid').innerHTML = TILE_ICONS.map((t, i) => `
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="info-tile">
+          <div class="it-icon" style="background:${TILE_ICON_COLORS[i]};color:${['#1e40af','#f97316','#10b981','#8b5cf6','#ef4444','#0ea5e9'][i]};">
+            <i class="bi ${t.ic}"></i>
+          </div>
+          <div class="it-label">${t.lbl}</div>
+          <div class="it-value" ${t.key==='location' ? `style="color:#1e40af;"` : ''}>${tileData[i]}</div>
+        </div>
+      </div>
+    `).join('');
+
+    // Route
+    document.getElementById('routeFromCity').textContent    = pickupDisplay;
+    document.getElementById('routeFromAddress').textContent = parcel.pickupAddress || parcel.pickup || 'Sender address';
+    document.getElementById('routeFromDate').textContent    = 'Pickup: ' + fmtDate(parcel.pickupDate || parcel.createdAt);
+    document.getElementById('routeToCity').textContent      = deliveryDisplay;
+    document.getElementById('routeToAddress').textContent   = parcel.receiverAddress || parcel.delivery || 'Recipient address';
+    document.getElementById('routeToDate').textContent      = 'Expected: ' + fmtDate(q.etaDate || parcel.createdAt);
+    document.getElementById('routeEta').textContent         = etaVal;
+
+    // Timeline (newest first)
+    document.getElementById('timelineContainer').innerHTML = timeline.slice().reverse().map(t => `
+      <div class="tl-item ${t.done ? 'done' : ''} ${t.active ? 'active' : ''}">
+        <div class="tl-dot"><i class="bi ${t.done ? 'bi-check' : 'bi-dot'}" style="${t.active ? 'font-size:22px;' : (t.done ? 'font-size:14px;' : 'font-size:14px;')}"></i></div>
+        <div class="tl-card-body">
+          <div class="tl-ch">
+            <div class="tl-ttl"><i class="bi ${ICONS[t.status] || 'bi-circle'} me-1"></i>${t.status}</div>
+            <div class="tl-time">${fmtTime(t.date)}</div>
+          </div>
+          <div class="tl-loc"><i class="bi bi-geo-alt me-1"></i>${t.location}</div>
+          ${(t.active || t.done) && STATUS_NOTES[t.status] ? `<div class="tl-note"><i class="bi bi-info-circle me-1"></i>${STATUS_NOTES[t.status]}</div>` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // Recipient
+    document.getElementById('recName').textContent    = parcel.receiverName || '—';
+    document.getElementById('recPhone').textContent   = parcel.receiverPhone || '—';
+    document.getElementById('recAddress').innerHTML   = (parcel.receiverAddress || parcel.delivery || '—').replace(/\n/g, '<br/>');
+
+    // Payment
+    document.getElementById('payBase').textContent   = (q.base_price ?? 50).toFixed(2);
+    document.getElementById('payDist').textContent   = (q.distanceCharge ?? 0).toFixed(2);
+    document.getElementById('payWeight').textContent = (q.weightCharge ?? 0).toFixed(2);
+    document.getElementById('payTotal').textContent  = (parcel.totalAmount || q.total || 0).toFixed(2);
+    document.getElementById('payMethod').textContent = (parcel.paymentMethod || 'Paid') + (parcel.paymentReference ? ` · ${parcel.paymentReference}` : '');
+
+    // Show result with fade-in animation
+    hideAllStates();
+    const resultEl = document.getElementById('trackingResult');
+    resultEl.style.display = 'block';
+    resultEl.classList.remove('fade-in');
+    void resultEl.offsetWidth;
+    resultEl.classList.add('fade-in');
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.AOS?.refreshHard();
+  }
+
+  /* ========= Error state ========= */
+  function showError(title, desc) {
+    hideAllStates();
+    document.getElementById('nfTitle').textContent = title;
+    document.getElementById('nfDesc').textContent  = desc;
+    const el = document.getElementById('trackingNotFound');
+    el.style.display = 'block';
+    el.classList.remove('fade-in');
+    void el.offsetWidth;
+    el.classList.add('fade-in');
+    window.showToast?.(title, 'warning');
+  }
+
+  /* ========= Ensure ParcelProStore exists (safety fallback) ========= */
+  (function ensureStore() {
+    if (window.ParcelProStore) return;
+    const DEMO = {
+      id: 'PK20258432A',
+      trackingId: 'PK20258432A',
+      userEmail: 'demo@parcelpro.com',
+      senderName: 'Michael Chen',
+      senderPhone: '+1 (555) 123-4567',
+      pickupAddress: '123 Shipping Ave, Newark, NJ 07102',
+      pickupCity: 'New York',
+      receiverName: 'Jennifer Adams',
+      receiverPhone: '+1 (555) 201-9932',
+      receiverAddress: '789 Sunrise Blvd, Los Angeles, CA 90001',
+      deliveryCity: 'Los Angeles',
+      parcelType: 'Box',
+      weight: 4.5,
+      deliveryType: 'Express',
+      paymentMethod: 'Credit or Debit Card',
+      paymentReference: 'Visa •• 4242',
+      status: 'Out for Delivery',
+      eta: '1-2 Business Days',
+      totalAmount: 76.20,
+      quote: {
+        base_price: 50, distance: 3940, weight: 4.5, deliveryType: 'Express',
+        distanceCharge: 197, weightCharge: 90, multiplier: 1.3, total: 76.20,
+        etaText: '1-2 Business Days'
+      },
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+      locations: { pickupCity: 'Newark, USA', hubCity: 'Newark Central Hub', deliveryCity: 'Los Angeles, USA' }
+    };
+    window.ParcelProStore = {
+      getAll() { return []; },
+      getById(id) { return (id || '').toUpperCase() === DEMO.trackingId ? DEMO : null; },
+      ensureDemoShipment() { return DEMO; }
+    };
+  })();
+
+  /* ========= Demo loader ========= */
+  function showTrackingDemo() {
+    try {
+      const demo = window.ParcelProStore.ensureDemoShipment();
+      const inp = document.getElementById('trackingInput');
+      if (inp) { inp.value = demo.trackingId || demo.id; inp.classList.remove('is-invalid'); }
+      renderParcel(demo);
+      window.showToast?.('Demo shipment loaded successfully.', 'success');
+    } catch (e) {
+      console.error(e);
+      window.showToast?.('Failed to load demo shipment.', 'error');
+    }
+  }
+  window.showTrackingDemo = showTrackingDemo;
+
+  function loadShipmentById(trackingNo) {
+    const inp = document.getElementById('trackingInput');
+    if (inp) inp.value = trackingNo;
+    trackShipmentAction(trackingNo);
+  }
+  window.loadShipmentById = loadShipmentById;
+
+  /* ========= Input auto-format helper ========= */
+  function sanitizeInput(val) {
+    return String(val || '').replace(/[^A-Za-z0-9\-]/g, '').toUpperCase();
+  }
+
+  /* ========= Main tracking action ========= */
+  function trackShipmentAction(providedNo) {
+    const inputEl = document.getElementById('trackingInput');
+    const rawVal = typeof providedNo === 'string' && providedNo
+      ? providedNo
+      : (inputEl?.value || '');
+    const no = sanitizeInput(rawVal);
+
+    if (inputEl && !providedNo) inputEl.value = no;
+
+    if (!no) {
+      if (inputEl) {
+        inputEl.focus();
+        inputEl.classList.add('is-invalid');
+        setTimeout(() => inputEl.classList.remove('is-invalid'), 2500);
+      }
+      showBannerError('Please enter a tracking number.');
+      showError('Tracking number required', 'Please enter your tracking number (e.g. PK20258432A) in the search field above.');
+      return;
+    }
+
+    if (!/^[A-Za-z0-9]{2,25}$/.test(no)) {
+      showBannerError('Invalid tracking number format.');
+      window.showToast?.('Tracking numbers contain 2-25 letters or numbers.', 'error');
+      if (inputEl) {
+        inputEl.classList.add('is-invalid');
+        setTimeout(() => inputEl.classList.remove('is-invalid'), 2500);
+      }
+      return;
+    }
+
+    showLoading();
+
+    setTimeout(() => {
+      try {
+        hideLoading();
+
+        let parcel = window.ParcelProStore.getById(no);
+
+        if (!parcel && (no === 'PK20258432A' || no === 'PX9876EXPRESS' || no === 'DEMO123456' || no.startsWith('PK'))) {
+          parcel = window.ParcelProStore.ensureDemoShipment();
+          if (parcel) {
+            parcel = { ...parcel, trackingId: no, id: no };
+          }
+        }
+
+        if (!parcel) {
+          const all = window.ParcelProStore.getAll();
+          if (!all || all.length === 0) {
+            showError('No shipments found', 'There are no shipments in the system yet. Click "Load Demo Shipment" to see how live tracking works, or book a new parcel to create one.');
+          } else {
+            showError('Tracking ID not found', `No record was found for tracking number ${no}. Please double-check the number and try again, or load the demo to see how tracking works.`);
+          }
+          showBannerError(`Tracking ID ${no} not found.`);
+          return;
+        }
+
+        if (inputEl) inputEl.value = no;
+        renderParcel(parcel);
+      } catch (err) {
+        hideLoading();
+        console.error(err);
+        showBannerError('An error occurred while searching.');
+        window.showToast?.('Tracking search failed — please try again.', 'error');
+      }
+    }, 700);
+  }
+  window.trackShipmentAction = trackShipmentAction;
+
+  /* Cross-page compatibility */
+  if (window.ParcelPro) {
+    window.ParcelPro.trackShipment = function (n) { trackShipmentAction(n); };
+  }
+
+  /* ========= Event wiring (extra safety beyond form onsubmit) ========= */
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('trackButton');
+    if (btn) btn.addEventListener('click', e => { e.preventDefault(); trackShipmentAction(); });
+
+    const demoBtn = document.querySelector('.btn-demo');
+    if (demoBtn) demoBtn.addEventListener('click', () => showTrackingDemo());
+
+    const inp = document.getElementById('trackingInput');
+    if (inp) {
+      inp.addEventListener('keypress', e => {
+        if (e.key === 'Enter') { e.preventDefault(); trackShipmentAction(); }
+      });
+      inp.addEventListener('input', () => {
+        const caret = inp.selectionStart;
+        const val = inp.value;
+        const cleaned = String(val).replace(/[^A-Za-z0-9\-]/g, '').toUpperCase();
+        if (cleaned !== val) {
+          inp.value = cleaned;
+          const diff = val.length - cleaned.length;
+          try { inp.setSelectionRange(Math.max(0, caret - diff), Math.max(0, caret - diff)); } catch (_) {}
+        }
+        if (inp.classList.contains('is-invalid')) inp.classList.remove('is-invalid');
+      });
+      inp.addEventListener('blur', () => { if (inp.value) inp.value = inp.value.toUpperCase(); });
+    }
+
+    document.querySelectorAll('.chip[href^="javascript:loadShipmentById"]').forEach(chip => {
+      chip.addEventListener('click', e => e.preventDefault());
+    });
+
+    const bookingChips = document.querySelectorAll('.chip[href*="ParcelPro.openBooking"], a[onclick*="ParcelPro.openBooking"]');
+    bookingChips.forEach(el => {
+      el.addEventListener('click', e => {
+        if (!el.getAttribute('href') || el.getAttribute('href').startsWith('javascript:')) {
+          e.preventDefault();
+          window.ParcelPro.openBooking(e);
+        }
+      });
+    });
+
+    document.querySelectorAll('#nfTitle, #nfDesc').forEach(el => {});
+  });
+
+  /* ========= Query param support ========= */
+  const params = new URLSearchParams(window.location.search);
+  window.addEventListener('load', () => {
+    const paid = params.get('paid');
+    const demo = params.get('demo');
+    const q = params.get('q');
+    const tracking = params.get('tracking');
+    if (paid === '1') {
+      window.showToast?.('Payment successful! Shipment confirmed.', 'success');
+    }
+    if (demo === '1') {
+      showTrackingDemo();
+    } else if (q) {
+      trackShipmentAction(q);
+    } else if (tracking) {
+      trackShipmentAction(tracking);
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Careers at ParcelPro - Join our team of passionate logistics professionals. Explore open positions in engineering, operations, sales, marketing, and support." />
+  <meta name="keywords" content="careers, jobs, logistics careers, courier jobs, engineering jobs, sales jobs, remote work, ParcelPro careers" />
+  <meta name="author" content="ParcelPro" />
+  <title>Careers - Join the ParcelPro Team</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .join-hero-copy h2 { font-size: 2.75rem; line-height: 1.15; font-weight: 800; margin-bottom: 20px; }
+    .stat-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-100);
+      height: 100%;
+      transition: transform 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-4px); }
+    .stat-card .stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+    .stat-card .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-card .stat-label {
+      color: var(--gray-600);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      border: 1px solid var(--gray-100);
+      height: 100%;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-light);
+    }
+    .benefit-card:hover::before { transform: scaleX(1); }
+    .benefit-card .benefit-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 22px;
+    }
+    .benefit-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .benefit-card p {
+      color: var(--gray-600);
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .job-filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+    .job-filter-tab {
+      padding: 10px 22px;
+      border-radius: 50px;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .job-filter-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .job-filter-tab.active {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 16px rgba(30,64,175,0.25);
+    }
+    .job-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      border: 1px solid var(--gray-100);
+      transition: all 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-light);
+    }
+    .job-card .job-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .job-card .job-dept-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .job-card .job-type-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .job-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    .job-card .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+    .job-card .job-meta > span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .job-card .job-dept-tag {
+      display: inline-block;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .job-card .job-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+    }
+    .life-card {
+      border-radius: var(--radius-lg);
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      transition: transform 0.4s;
+    }
+    .life-card:hover { transform: scale(1.03); }
+    .life-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+      z-index: 1;
+    }
+    .life-card-content {
+      position: relative;
+      z-index: 2;
+    }
+    .life-card-icon {
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      z-index: 2;
+    }
+    .life-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .life-card p {
+      font-size: 14px;
+      opacity: 0.88;
+      margin: 0;
+    }
+    .apply-form-wrap {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: 50px;
+      border: 1px solid var(--gray-100);
+    }
+    .upload-area {
+      border: 2px dashed var(--gray-300);
+      border-radius: 14px;
+      padding: 36px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: var(--gray-50);
+    }
+    .upload-area:hover {
+      border-color: var(--primary);
+      background: rgba(30,64,175,0.03);
+    }
+    .upload-area .upload-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(30,64,175,0.1), rgba(249,115,22,0.1));
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 14px;
+    }
+    .upload-area h6 {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .upload-area p {
+      color: var(--gray-500);
+      font-size: 13px;
+      margin: 0;
+    }
+    .type-fulltime { background: rgba(16,185,129,0.1); color: #10b981; }
+    .type-hybrid { background: rgba(59,130,246,0.1); color: #3b82f6; }
+    .type-remote { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+    .dept-eng { background: rgba(30,64,175,0.1); color: var(--primary); }
+    .dept-ops { background: rgba(249,115,22,0.1); color: var(--secondary); }
+    .dept-sales { background: rgba(16,185,129,0.1); color: #10b981; }
+    .dept-marketing { background: rgba(236,72,153,0.1); color: #ec4899; }
+    .dept-support { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+    .dept-hr { background: rgba(14,165,233,0.1); color: #0ea5e9; }
+    .dept-design { background: rgba(244,114,182,0.1); color: #f472b6; }
+    .dept-data { background: rgba(20,184,166,0.1); color: #14b8a6; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2" href="services.html">All Services</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=domestic">Domestic Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=international">International Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=sameday">Same Day Delivery</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=warehouse">Warehousing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><h6 class="dropdown-header text-uppercase small">Public Pages</h6></li>
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2 active" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" aria-label="Theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <a href="login.html" class="btn btn-outline-primary btn-sm d-none d-lg-inline-flex">Sign In</a>
+      <a href="tracking.html" class="btn btn-primary btn-sm d-none d-lg-inline-flex">
+        <i class="bi bi-send"></i> Ship Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-content" data-aos="fade-up">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Careers</li>
+        </ol>
+      </nav>
+      <h1>Careers</h1>
+      <p>Build the future of logistics with us. Join a team passionate about innovation, delivery excellence, and making a global impact.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="join-hero-copy">
+          <span class="sub-title">Join Our Team</span>
+          <h2>Build Something That <span class="gradient-text">Delivers Impact</span></h2>
+          <p style="color:var(--gray-600);font-size:17px;line-height:1.75;margin-bottom:30px;">At ParcelPro, we're more than just a courier company ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â we're reimagining global logistics with cutting-edge technology and a human-first approach. Join a diverse team of 250+ problem-solvers, engineers, and logistics experts who move millions of parcels and dreams forward every single day.</p>
+          <p style="color:var(--gray-600);font-size:16px;line-height:1.7;margin-bottom:34px;">We foster a culture of ownership, radical transparency, and continuous growth. Whether you're coding the next-gen routing algorithm or managing last-mile delivery operations, your work will directly touch the lives of thousands of businesses and customers worldwide.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#openPositions" class="btn btn-primary btn-lg">
+              View Open Positions <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#applyForm" class="btn btn-outline-secondary btn-lg">
+              <i class="bi bi-send"></i> Send Your CV
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="row g-4">
+          <div class="col-6 col-md-4">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(30,64,175,0.1);color:var(--primary);">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="stat-number gradient-text">250+</div>
+              <div class="stat-label">Team Members</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(249,115,22,0.1);color:var(--secondary);">
+                <i class="bi bi-buildings-fill"></i>
+              </div>
+              <div class="stat-number gradient-text">30</div>
+              <div class="stat-label">Global Offices</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981;">
+                <i class="bi bi-wifi"></i>
+              </div>
+              <div class="stat-number gradient-text">100%</div>
+              <div class="stat-label">Remote Friendly</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;">
+                <i class="bi bi-globe-americas"></i>
+              </div>
+              <div class="stat-number gradient-text">220+</div>
+              <div class="stat-label">Countries Served</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(236,72,153,0.1);color:#ec4899;">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <div class="stat-number gradient-text">$2k+</div>
+              <div class="stat-label">Annual Learning</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(14,165,233,0.1);color:#0ea5e9;">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <div class="stat-number gradient-text">4.8/5</div>
+              <div class="stat-label">Team Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" style="background:var(--gray-100);">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Perks & Benefits</span>
+      <h2>Why Work at ParcelPro?</h2>
+      <p>We invest in our people with comprehensive benefits that support your wellbeing, growth, and work-life balance.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="background:rgba(16,185,129,0.1);color:#10b981;">
+            <i class="bi bi-heart-pulse-fill"></i>
+          </div>
+          <h4>Comprehensive Health</h4>
+          <p>100% covered medical, dental, and vision insurance for you and 80% for dependents. Plus mental health support with 12 free therapy sessions a year.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="background:rgba(30,64,175,0.1);color:var(--primary);">
+            <i class="bi bi-graph-up"></i>
+          </div>
+          <h4>Equity & Bonus</h4>
+          <p>Stock options for every team member with a 4-year vesting schedule, plus performance-based quarterly bonuses of up to 20% of your base salary.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;">
+            <i class="bi bi-book-fill"></i>
+          </div>
+          <h4>Learning & Growth</h4>
+          <p>$2,000 annual learning budget for courses, certifications, and conferences. Weekly knowledge-sharing sessions and mentorship programs.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="background:rgba(249,115,22,0.1);color:var(--secondary);">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <h4>Flexible Work</h4>
+          <p>Choose remote, hybrid, or in-office ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â work wherever you're most productive. Core collaboration hours keep teams aligned without micromanagement.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="background:rgba(236,72,153,0.1);color:#ec4899;">
+            <i class="bi bi-umbrella-beach"></i>
+          </div>
+          <h4>Generous PTO</h4>
+          <p>25 days of paid time off, 12 paid company holidays, and a mandatory 1-week shut-down each year so you can truly disconnect and recharge.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="benefit-card">
+          <div class="benefit-icon" style="background:rgba(14,165,233,0.1);color:#0ea5e9;">
+            <i class="bi bi-cradle"></i>
+          </div>
+          <h4>Parental Leave</h4>
+          <p>18 weeks of fully paid parental leave for all parents (birthing and non-birthing) plus a $2,000 newborn stipend and flexible return-to-work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="openPositions">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Open Roles</span>
+      <h2>Open Positions</h2>
+      <p>Find your next challenge. We're always looking for talented individuals ready to make their mark on the logistics industry.</p>
+    </div>
+
+    <div class="job-filter-tabs" data-aos="fade-up" data-aos-delay="100">
+      <button class="job-filter-tab active" data-filter="all">All Positions</button>
+      <button class="job-filter-tab" data-filter="engineering">Engineering</button>
+      <button class="job-filter-tab" data-filter="operations">Operations</button>
+      <button class="job-filter-tab" data-filter="sales">Sales</button>
+      <button class="job-filter-tab" data-filter="marketing">Marketing</button>
+      <button class="job-filter-tab" data-filter="support">Support</button>
+    </div>
+
+    <div class="row g-4" id="jobsGrid">
+      <div class="col-lg-4 col-md-6 job-item" data-dept="engineering" data-aos="fade-up" data-aos-delay="0">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-eng"><i class="bi bi-code-slash"></i></div>
+            <span class="job-type-badge type-fulltime">Full-time</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Engineering</span>
+          <h4>Software Engineer</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> San Francisco, CA</span>
+            <span><i class="bi bi-house-door"></i> Hybrid</span>
+            <span><i class="bi bi-briefcase"></i> 3-5 Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Build scalable logistics platforms powering millions of daily shipments using Go, Node.js, and Kubernetes.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Software Engineer')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="operations" data-aos="fade-up" data-aos-delay="100">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-ops"><i class="bi bi-truck"></i></div>
+            <span class="job-type-badge type-fulltime">Full-time</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Operations</span>
+          <h4>Delivery Operations Lead</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> Chicago, IL</span>
+            <span><i class="bi bi-building"></i> On-site</span>
+            <span><i class="bi bi-briefcase"></i> 5+ Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Optimize delivery routes, manage a team of 50+ couriers, and drive operational efficiency across the region.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Delivery Operations Lead')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="support" data-aos="fade-up" data-aos-delay="200">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-support"><i class="bi bi-headset"></i></div>
+            <span class="job-type-badge type-remote">Remote</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Support</span>
+          <h4>Customer Success Manager</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> US Remote</span>
+            <span><i class="bi bi-wifi"></i> Remote</span>
+            <span><i class="bi bi-briefcase"></i> 2-4 Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Own the end-to-end customer journey for enterprise accounts, reduce churn, and drive expansion revenue.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Customer Success Manager')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="sales" data-aos="fade-up" data-aos-delay="0">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-sales"><i class="bi bi-graph-up-arrow"></i></div>
+            <span class="job-type-badge type-hybrid">Hybrid</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Sales</span>
+          <h4>Regional Sales Manager</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> Dallas, TX</span>
+            <span><i class="bi bi-house-door"></i> Hybrid</span>
+            <span><i class="bi bi-briefcase"></i> 4+ Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Lead a region of B2B sales reps, build pipeline, and hit aggressive revenue targets for the South Central US.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Regional Sales Manager')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="design" data-aos="fade-up" data-aos-delay="100">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-design"><i class="bi bi-palette-fill"></i></div>
+            <span class="job-type-badge type-remote">Remote</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Engineering Ãƒâ€šÃ‚Â· Design</span>
+          <h4>Product Designer</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> Global Remote</span>
+            <span><i class="bi bi-wifi"></i> Remote</span>
+            <span><i class="bi bi-briefcase"></i> 3-6 Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Design intuitive experiences for our shipping dashboard, mobile apps, and customer-facing brand touchpoints.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Product Designer')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="data" data-aos="fade-up" data-aos-delay="200">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-data"><i class="bi bi-bar-chart-line-fill"></i></div>
+            <span class="job-type-badge type-hybrid">Hybrid</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Engineering Ãƒâ€šÃ‚Â· Data</span>
+          <h4>Data Analyst</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> New York, NY</span>
+            <span><i class="bi bi-house-door"></i> Hybrid</span>
+            <span><i class="bi bi-briefcase"></i> 2-4 Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Build dashboards, run deep-dive analyses, and translate logistics data into actionable business recommendations.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Data Analyst')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="operations" data-aos="fade-up" data-aos-delay="0">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-ops"><i class="bi bi-warehouse"></i></div>
+            <span class="job-type-badge type-fulltime">Full-time</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Operations</span>
+          <h4>Warehouse Supervisor</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> Atlanta, GA</span>
+            <span><i class="bi bi-building"></i> On-site</span>
+            <span><i class="bi bi-briefcase"></i> 3+ Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Supervise daily warehouse operations, manage inventory accuracy, and ensure safety standards across shifts.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Warehouse Supervisor')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="marketing" data-aos="fade-up" data-aos-delay="100">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-marketing"><i class="bi bi-megaphone-fill"></i></div>
+            <span class="job-type-badge type-remote">Remote</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> Marketing</span>
+          <h4>Marketing Specialist</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> EU Remote</span>
+            <span><i class="bi bi-wifi"></i> Remote</span>
+            <span><i class="bi bi-briefcase"></i> 1-3 Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Own digital campaigns, content strategy, and lead-gen across paid social, SEO, and lifecycle marketing.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('Marketing Specialist')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 job-item" data-dept="hr" data-aos="fade-up" data-aos-delay="200">
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-dept-icon dept-hr"><i class="bi bi-person-badge-fill"></i></div>
+            <span class="job-type-badge type-hybrid">Hybrid</span>
+          </div>
+          <span class="job-dept-tag"><i class="bi bi-diagram-3 me-1"></i> People Ãƒâ€šÃ‚Â· HR</span>
+          <h4>HR Business Partner</h4>
+          <div class="job-meta">
+            <span><i class="bi bi-geo-alt"></i> London, UK</span>
+            <span><i class="bi bi-house-door"></i> Hybrid</span>
+            <span><i class="bi bi-briefcase"></i> 5+ Yrs</span>
+          </div>
+          <p style="color:var(--gray-600);font-size:14px;margin-bottom:18px;">Partner with EMEA leadership on org design, talent strategy, performance, and employee relations.</p>
+          <div class="job-actions">
+            <a href="#applyForm" class="btn btn-primary flex-grow-1" onclick="prefillRole('HR Business Partner')">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" style="background:var(--gray-100);">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Culture</span>
+      <h2>Life at ParcelPro</h2>
+      <p>A peek into the moments, people, and places that make ParcelPro a special place to do your best work.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="0">
+        <div class="life-card" style="background:linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);">
+          <div class="life-card-icon"><i class="bi bi-globe2"></i></div>
+          <div class="life-card-content">
+            <h4>Global Team Retreats</h4>
+            <p>Annual all-hands in amazing destinations with team-building, strategy, and fun.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+        <div class="life-card" style="background:linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fbbf24 100%);">
+          <div class="life-card-icon"><i class="bi bi-lightbulb-fill"></i></div>
+          <div class="life-card-content">
+            <h4>Hackathons &amp; Innovation</h4>
+            <p>Quarterly hack weeks where crazy ideas become shipped features ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â with prizes for winners.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+        <div class="life-card" style="background:linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%);">
+          <div class="life-card-icon"><i class="bi bi-people-fill"></i></div>
+          <div class="life-card-content">
+            <h4>Community &amp; ERGs</h4>
+            <p>Active employee resource groups celebrating diversity, inclusion, and belonging.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+        <div class="life-card" style="background:linear-gradient(135deg, #db2777 0%, #ec4899 50%, #f472b6 100%);">
+          <div class="life-card-icon"><i class="bi bi-heart"></i></div>
+          <div class="life-card-content">
+            <h4>Give Back Programs</h4>
+            <p>Volunteer days, donation matching, and logistics pro-bono for nonprofits worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="applyForm">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="sub-title">Apply Now</span>
+        <h2 style="font-size:2.5rem;font-weight:800;margin-bottom:18px;">Ready to <span class="gradient-text">Ship Greatness</span>?</h2>
+        <p style="color:var(--gray-600);font-size:16px;line-height:1.7;margin-bottom:30px;">Tell us about yourself. We review every application personally and typically respond within 2-3 business days. If you don't see the perfect role listed, send us a note ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â we're always connecting with exceptional talent.</p>
+
+        <div class="mt-4">
+          <h5 style="font-weight:700;margin-bottom:20px;">What happens next?</h5>
+          <div class="d-flex flex-column gap-4">
+            <div class="d-flex gap-3">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(30,64,175,0.1);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;">1</div>
+              <div>
+                <h6 style="font-weight:700;margin-bottom:4px;">Application Review</h6>
+                <p style="color:var(--gray-600);font-size:14px;margin:0;">Our talent team reviews your CV and LinkedIn within 48 hours.</p>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(249,115,22,0.1);color:var(--secondary);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;">2</div>
+              <div>
+                <h6 style="font-weight:700;margin-bottom:4px;">Recruiter Call</h6>
+                <p style="color:var(--gray-600);font-size:14px;margin:0;">30-min intro chat to align on role, goals, and culture.</p>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(16,185,129,0.1);color:#10b981;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;">3</div>
+              <div>
+                <h6 style="font-weight:700;margin-bottom:4px;">Interview Loop</h6>
+                <p style="color:var(--gray-600);font-size:14px;margin:0;">3-4 technical/team interviews + role-specific assessment.</p>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(139,92,246,0.1);color:#8b5cf6;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;">4</div>
+              <div>
+                <h6 style="font-weight:700;margin-bottom:4px;">Offer &amp; Onboard</h6>
+                <p style="color:var(--gray-600);font-size:14px;margin:0;">Receive offer, sign, and welcome to the ParcelPro family!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="apply-form-wrap">
+          <form id="applicationForm" data-validate="true" onsubmit="event.preventDefault();alert('Application submitted successfully! Our team will contact you soon.');this.reset();">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label">Full Name <span style="color:#ef4444;">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text" style="background:var(--gray-50);border-right:none;"><i class="bi bi-person" style="color:var(--gray-500);"></i></span>
+                  <input type="text" class="form-control" style="border-left:none;" placeholder="Jane Doe" required />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address <span style="color:#ef4444;">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text" style="background:var(--gray-50);border-right:none;"><i class="bi bi-envelope" style="color:var(--gray-500);"></i></span>
+                  <input type="email" class="form-control" style="border-left:none;" placeholder="jane@email.com" required />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Role Applying For</label>
+                <div class="input-group">
+                  <span class="input-group-text" style="background:var(--gray-50);border-right:none;"><i class="bi bi-briefcase" style="color:var(--gray-500);"></i></span>
+                  <select class="form-select" style="border-left:none;" id="applyRole">
+                    <option value="">Select a role (optional)</option>
+                    <option>Software Engineer</option>
+                    <option>Delivery Operations Lead</option>
+                    <option>Customer Success Manager</option>
+                    <option>Regional Sales Manager</option>
+                    <option>Product Designer</option>
+                    <option>Data Analyst</option>
+                    <option>Warehouse Supervisor</option>
+                    <option>Marketing Specialist</option>
+                    <option>HR Business Partner</option>
+                    <option>General Application / Not listed</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Resume / CV <span style="color:#ef4444;">*</span></label>
+                <div class="upload-area" onclick="document.getElementById('resumeFile').click();">
+                  <input type="file" id="resumeFile" style="display:none;" accept=".pdf,.doc,.docx" />
+                  <div class="upload-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                  <h6>Click to upload or drag &amp; drop</h6>
+                  <p>PDF, DOC, DOCX up to 10MB</p>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">LinkedIn Profile URL</label>
+                <div class="input-group">
+                  <span class="input-group-text" style="background:var(--gray-50);border-right:none;"><i class="bi bi-linkedin" style="color:var(--gray-500);"></i></span>
+                  <input type="url" class="form-control" style="border-left:none;" placeholder="https://linkedin.com/in/yourprofile" />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Why do you want to join ParcelPro? <span style="color:#ef4444;">*</span></label>
+                <textarea class="form-control" rows="5" placeholder="Tell us what excites you about logistics, this role, and what unique perspective you'd bring to our team..." style="border-radius:12px;padding:16px;" required></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="agreeTerms" required />
+                  <label class="form-check-label" for="agreeTerms" style="font-size:14px;color:var(--gray-600);">
+                    I agree to the <a href="#" style="color:var(--primary);font-weight:600;">Privacy Policy</a> and consent to ParcelPro processing my application data.
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100" style="padding:16px;font-weight:700;font-size:16px;border-radius:14px;">
+                  <i class="bi bi-send-fill me-2"></i> Submit Application
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="service-details.html?id=domestic"><i class="bi bi-caret-right"></i> Domestic Shipping</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> International Shipping</a></li>
+          <li><a href="service-details.html?id=sameday"><i class="bi bi-caret-right"></i> Same Day Delivery</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Express Delivery</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Warehousing</a></li>
+          <li><a href="service-details.html?id=packaging"><i class="bi bi-caret-right"></i> Packaging</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Newsletter</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Subscribe to get updates, offers and logistics tips.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';alert('Subscribed successfully!');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>123 Delivery Ave, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (555) 012-4800</span></li>
+          <li><i class="bi bi-envelope"></i><span>hello@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for logistics.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="documentation/index.html">Documentation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  document.querySelectorAll('.job-filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.job-filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      document.querySelectorAll('.job-item').forEach(item => {
+        const dept = item.getAttribute('data-dept');
+        const show = filter === 'all' || dept === filter ||
+          (filter === 'engineering' && (dept === 'engineering' || dept === 'design' || dept === 'data')) ||
+          (filter === 'support' && (dept === 'support' || dept === 'hr'));
+        item.style.display = show ? '' : 'none';
+        item.classList.remove('aos-animate');
+        if (show) {
+          setTimeout(() => item.classList.add('aos-animate'), 50);
+        }
+      });
+    });
+  });
+
+  function prefillRole(role) {
+    const sel = document.getElementById('applyRole');
+    if (sel) {
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === role) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  }
+
+  const resumeInput = document.getElementById('resumeFile');
+  if (resumeInput) {
+    resumeInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      const area = e.target.closest('.apply-form-wrap').querySelector('.upload-area');
+      if (file) {
+        area.querySelector('h6').textContent = file.name;
+        area.querySelector('p').textContent = (file.size / 1024).toFixed(1) + ' KB Ãƒâ€šÃ‚Â· Click to change';
+      }
+    });
+  }
+</script>
+</body>
+</html>

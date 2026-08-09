@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - ParcelPro Checkout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: linear-gradient(135deg, #eff6ff, #fff7ed); min-height: 100vh; }
+    .payment-wrap { max-width: 1120px; margin: 0 auto; padding: 130px 16px 80px; }
+    .summary-card, .pay-card { border: 0; border-radius: 20px; box-shadow: 0 16px 40px rgba(30, 64, 175, .10); }
+    .pay-option {
+      border: 2px solid var(--gray-200); border-radius: 16px; padding: 16px 18px;
+      cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; margin-bottom: 10px;
+      user-select: none;
+    }
+    .pay-option:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .pay-option.selected {
+      border-color: var(--primary); background: rgba(30,64,175,0.05);
+      box-shadow: 0 0 0 4px rgba(30,64,175,0.1);
+    }
+    .pay-option-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--gray-100); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .pay-option.selected .pay-option-icon { background: var(--primary); color: #fff; }
+    .summary-row { display: flex; justify-content: space-between; gap: 18px; padding: 10px 0; border-bottom: 1px dashed var(--gray-200); }
+    .summary-row:last-child { border-bottom: 0; }
+    .summary-row span { color: #64748b; }
+    .summary-row strong { color: #0f172a; text-align: right; }
+    .price-total { background: linear-gradient(135deg, rgba(30,64,175,0.1), rgba(249,115,22,0.1)); border-radius: 16px; padding: 18px; margin-top: 10px; }
+    .tracking-preview {
+      background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(249,115,22,0.08));
+      border: 1px solid rgba(30,64,175,0.2);
+      border-radius: 14px; padding: 12px 18px; display: inline-flex; align-items: center; gap: 10px;
+      font-family: monospace; font-weight: 800; color: var(--primary);
+    }
+    .pay-extra-form {
+      margin-top: 14px; padding: 16px;
+      border-radius: 14px; background: var(--gray-50);
+      border: 1px dashed var(--gray-200);
+    }
+    /* Loading spinner overlay */
+    .loading-overlay {
+      position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); z-index: 9999;
+      display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px);
+    }
+    .loading-box {
+      background: #fff; border-radius: 20px; padding: 36px 48px; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25); min-width: 320px;
+    }
+    .spinner-big {
+      width: 70px; height: 70px; border: 6px solid #e2e8f0;
+      border-top-color: var(--primary); border-right-color: var(--secondary);
+      border-radius: 50%; animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .secured-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #047857; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top w-100">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>Parcel<span>Pro</span></a>
+      <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation"><i class="bi bi-list fs-5"></i></button>
+      <div class="collapse navbar-collapse justify-content-center"><ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="nav-item"><a class="nav-link" href="about.html">About</a></li><li class="nav-item"><a class="nav-link" href="services.html">Services</a></li><li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pages</a><ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2"><li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li><li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li><li><a class="dropdown-item rounded-2" href="team.html">Our Team</a></li><li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li></ul></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li><li class="nav-item d-lg-none"><a class="nav-link" href="login.html">Sign In</a></li>
+      </ul></div>
+      <div class="nav-actions"><button class="search-toggle" type="button" aria-label="Search"><i class="bi bi-search"></i></button><button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button><div class="dropdown d-none d-lg-inline-block" id="authNavMenu"></div></div>
+    </div>
+  </nav>
+
+  <main class="payment-wrap">
+    <div class="mb-4">
+      <h1 style="font-weight:800;color:#0f172a;">Complete Your Payment</h1>
+      <p class="text-muted mb-0">Review your order details and choose a payment method to confirm your shipment.</p>
+    </div>
+
+    <div class="row g-4">
+      <!--- Left column: Payment methods --->
+      <div class="col-lg-7">
+        <div class="card pay-card">
+          <div class="card-body p-4 p-md-5">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h2 class="h5 mb-0" style="font-weight:800;"><i class="bi bi-credit-card me-2" style="color:var(--primary);"></i>Payment Method</h2>
+              <span class="secured-badge"><i class="bi bi-shield-lock-fill"></i> 256-bit SSL Secured</span>
+            </div>
+
+            <!--- Payment options --->
+            <div id="paymentOptions">
+              <div class="pay-option selected" data-method="UPI">
+                <div class="pay-option-icon"><i class="bi bi-phone"></i></div>
+                <div class="flex-grow-1">
+                  <div style="font-weight:700;color:#0f172a;">UPI</div>
+                  <div style="font-size:13px;color:#64748b;">Pay instantly via any UPI app (GPay, PhonePe, Paytm)</div>
+                </div>
+                <i class="bi bi-check-circle-fill text-primary" style="font-size:22px;display:none;"></i>
+              </div>
+
+              <div class="pay-option" data-method="Card">
+                <div class="pay-option-icon"><i class="bi bi-credit-card-2-front"></i></div>
+                <div class="flex-grow-1">
+                  <div style="font-weight:700;color:#0f172a;">Credit / Debit Card</div>
+                  <div style="font-size:13px;color:#64748b;">Visa, Mastercard, Amex, Discover accepted</div>
+                </div>
+                <i class="bi bi-check-circle-fill text-primary" style="font-size:22px;display:none;"></i>
+              </div>
+
+              <div class="pay-option" data-method="COD">
+                <div class="pay-option-icon"><i class="bi bi-cash-stack"></i></div>
+                <div class="flex-grow-1">
+                  <div style="font-weight:700;color:#0f172a;">Cash on Delivery</div>
+                  <div style="font-size:13px;color:#64748b;">Pay in cash when the courier arrives for pickup</div>
+                </div>
+                <i class="bi bi-check-circle-fill text-primary" style="font-size:22px;display:none;"></i>
+              </div>
+            </div>
+
+            <!--- Extra fields per method --->
+            <div id="upiForm" class="pay-extra-form">
+              <label class="form-label" style="font-weight:600;">UPI ID / Virtual Payment Address</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
+                <input type="text" class="form-control" id="upiId" placeholder="yourname@upi" />
+                <button class="btn btn-outline-primary" type="button" onclick="simulateVerify()">Verify</button>
+              </div>
+              <div class="form-text mt-2">Example: john@okicici, yourname@paytm</div>
+            </div>
+
+            <div id="cardForm" class="pay-extra-form d-none">
+              <div class="mb-3">
+                <label class="form-label" style="font-weight:600;">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" />
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" style="font-weight:600;">Expiry (MM/YY)</label>
+                  <input type="text" class="form-control" id="cardExpiry" maxlength="5" placeholder="12/28" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-weight:600;">CVV</label>
+                  <input type="password" class="form-control" id="cardCvv" maxlength="4" placeholder="•••" />
+                </div>
+              </div>
+              <div class="mt-3">
+                <label class="form-label" style="font-weight:600;">Cardholder Name</label>
+                <input type="text" class="form-control" id="cardName" placeholder="JOHN DOE" />
+              </div>
+            </div>
+
+            <div id="codForm" class="pay-extra-form d-none">
+              <div class="d-flex align-items-start gap-3">
+                <div style="width:44px;height:44px;border-radius:12px;background:rgba(249,115,22,0.12);color:var(--secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">
+                  <i class="bi bi-info-circle-fill"></i>
+                </div>
+                <div>
+                  <div style="font-weight:700;">Pay when courier picks up your parcel</div>
+                  <div style="font-size:13px;color:#64748b;">Please keep exact cash ready at the time of pickup. A small handling fee may apply.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+              <button class="btn btn-primary btn-lg" id="payNowBtn" type="button">
+                <i class="bi bi-lock-fill me-1"></i> <span id="payBtnLabel">Pay Now</span>
+              </button>
+              <a class="btn btn-outline-secondary btn-lg" href="booking.html"><i class="bi bi-arrow-left me-1"></i> Back to Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--- Right column: Order summary --->
+      <div class="col-lg-5">
+        <div class="card summary-card sticky-md-top" style="top: 110px;">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="h5 mb-3" style="font-weight:800;"><i class="bi bi-receipt me-2" style="color:var(--secondary);"></i>Order Summary</h2>
+
+            <div class="mb-3">
+              <span style="font-size:12px;color:#64748b;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Tracking ID</span><br/>
+              <span class="tracking-preview" id="sumTrackingId"><i class="bi bi-upc-scan"></i> PK00000000</span>
+            </div>
+
+            <div class="summary-row"><span>Sender</span><strong id="sumSender">—</strong></div>
+            <div class="summary-row"><span>Receiver</span><strong id="sumReceiver">—</strong></div>
+            <div class="summary-row"><span>Route</span><strong id="sumRoute">—</strong></div>
+            <div class="summary-row"><span>Parcel Type</span><strong id="sumType">—</strong></div>
+            <div class="summary-row"><span>Weight</span><strong id="sumWeight">—</strong></div>
+            <div class="summary-row"><span>Service</span><strong id="sumService">—</strong></div>
+            <div class="summary-row"><span>Pickup Date</span><strong id="sumPickupDate">—</strong></div>
+
+            <div class="price-total">
+              <div class="summary-row"><span>Base Price</span><strong id="sumBase">$0</strong></div>
+              <div class="summary-row"><span>Distance Charge</span><strong id="sumDist">$0</strong></div>
+              <div class="summary-row"><span>Weight Charge</span><strong id="sumWeightCh">$0</strong></div>
+              <hr style="border-color:rgba(0,0,0,0.1);margin:8px 0;">
+              <div class="d-flex justify-content-between align-items-center">
+                <span style="font-weight:800;font-size:16px;color:#0f172a;">TOTAL</span>
+                <span id="sumTotal" style="font-size:30px;font-weight:900;background:linear-gradient(135deg, var(--primary), var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">$0</span>
+              </div>
+              <div class="text-center mt-2 small text-muted" id="sumEta"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!--- Loading overlay --->
+  <div class="loading-overlay" id="payOverlay">
+    <div class="loading-box">
+      <div class="spinner-big"></div>
+      <h3 id="loadingTitle" style="font-weight:800;color:#0f172a;">Processing Payment…</h3>
+      <p class="text-muted" id="loadingDesc">Please wait while we securely process your transaction.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/parcelpro-store.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    /* ========== Payment page logic ========== */
+    const pending = JSON.parse(sessionStorage.getItem('parcelpro-pending-booking') || 'null');
+    if (!pending) {
+      window.showToast?.('No pending booking found.', 'error');
+      setTimeout(() => window.location.replace('booking.html'), 800);
+    }
+
+    /* ---- Populate summary ---- */
+    if (pending) {
+      document.getElementById('sumTrackingId').innerHTML = '<i class="bi bi-upc-scan"></i> ' + (pending.trackingId || pending.id);
+      document.getElementById('sumSender').textContent = `${pending.senderName || '—'}`;
+      document.getElementById('sumReceiver').textContent = `${pending.receiverName || '—'}`;
+      document.getElementById('sumRoute').textContent = `${pending.pickupCity || '—'} → ${pending.deliveryCity || '—'}`;
+      document.getElementById('sumType').textContent = pending.parcelType || pending.type || '—';
+      document.getElementById('sumWeight').textContent = `${pending.weight} kg`;
+      document.getElementById('sumService').textContent = pending.deliveryType || pending.serviceLevel || '—';
+      document.getElementById('sumPickupDate').textContent = pending.pickupDate || '—';
+
+      const q = pending.quote || {};
+      document.getElementById('sumBase').textContent = '$' + (q.base_price ?? 50).toFixed(2);
+      document.getElementById('sumDist').textContent = '$' + (q.distanceCharge ?? 0).toFixed(2);
+      document.getElementById('sumWeightCh').textContent = '$' + (q.weightCharge ?? 0).toFixed(2);
+      document.getElementById('sumTotal').textContent = '$' + (pending.totalAmount || q.total || 0).toFixed(2);
+      document.getElementById('sumEta').innerHTML = '<i class="bi bi-clock me-1"></i> Estimated delivery: ' + (q.etaText || '3-5 Business Days');
+
+      document.getElementById('payBtnLabel').textContent = 'Pay $' + (pending.totalAmount || q.total || 0).toFixed(2);
+    }
+
+    /* ---- Payment option toggle ---- */
+    let selectedMethod = 'UPI';
+    function setMethod(m) {
+      selectedMethod = m;
+      document.querySelectorAll('.pay-option').forEach(el => {
+        const on = el.dataset.method === m;
+        el.classList.toggle('selected', on);
+        const check = el.querySelector('.bi-check-circle-fill');
+        if (check) check.style.display = on ? 'block' : 'none';
+      });
+      document.getElementById('upiForm').classList.toggle('d-none', m !== 'UPI');
+      document.getElementById('cardForm').classList.toggle('d-none', m !== 'Card');
+      document.getElementById('codForm').classList.toggle('d-none', m !== 'COD');
+      if (m === 'COD') document.getElementById('payBtnLabel').textContent = 'Confirm COD Booking';
+      else document.getElementById('payBtnLabel').textContent = 'Pay $' + (pending?.totalAmount || pending?.quote?.total || 0).toFixed(2);
+    }
+    document.querySelectorAll('.pay-option').forEach(el => {
+      el.addEventListener('click', () => setMethod(el.dataset.method));
+    });
+    setMethod('UPI');
+
+    /* ---- Card number formatting helpers ---- */
+    document.getElementById('cardNumber')?.addEventListener('input', e => {
+      e.target.value = e.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+    });
+    document.getElementById('cardExpiry')?.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length >= 2) v = v.slice(0, 2) + '/' + v.slice(2, 4);
+      e.target.value = v;
+    });
+
+    function simulateVerify() { window.showToast?.('UPI ID verified successfully (demo).', 'success'); }
+
+    /* ---- Payment validation + flow ---- */
+    function validatePayment() {
+      if (selectedMethod === 'UPI') {
+        const upi = document.getElementById('upiId').value.trim();
+        if (!upi || !/^[\w.\-]{2,}@[a-zA-Z]{2,}$/.test(upi)) {
+          window.showToast?.('Please enter a valid UPI ID (e.g. name@upi).', 'error');
+          document.getElementById('upiId').focus();
+          return false;
+        }
+      } else if (selectedMethod === 'Card') {
+        const n = document.getElementById('cardNumber').value.replace(/\s/g, '');
+        if (n.length < 12) { window.showToast?.('Please enter a valid card number.', 'error'); return false; }
+        const exp = document.getElementById('cardExpiry').value;
+        if (!/^\d{2}\/\d{2}$/.test(exp)) { window.showToast?.('Please enter a valid expiry date (MM/YY).', 'error'); return false; }
+        const cvv = document.getElementById('cardCvv').value;
+        if (!/^\d{3,4}$/.test(cvv)) { window.showToast?.('Please enter a valid CVV.', 'error'); return false; }
+        if (!document.getElementById('cardName').value.trim()) { window.showToast?.('Please enter the cardholder name.', 'error'); return false; }
+      }
+      return true;
+    }
+
+    document.getElementById('payNowBtn').addEventListener('click', () => {
+      if (!pending) return;
+      if (selectedMethod !== 'COD' && !validatePayment()) return;
+
+      const overlay = document.getElementById('payOverlay');
+      const loadingTitle = document.getElementById('loadingTitle');
+      const loadingDesc = document.getElementById('loadingDesc');
+
+      overlay.style.display = 'flex';
+      loadingTitle.textContent = selectedMethod === 'COD' ? 'Confirming Booking…' : 'Processing Payment…';
+
+      /* Simulate payment delay */
+      const steps = [
+        { t: 800, title: 'Contacting payment gateway…', desc: 'Establishing secure connection…' },
+        { t: 1800, title: selectedMethod === 'COD' ? 'Reserving courier slot…' : 'Verifying payment details…', desc: selectedMethod === 'COD' ? 'Allocating nearest pickup agent.' : 'Securely verifying with your bank…' },
+        { t: 3000, title: 'Finalizing shipment…', desc: 'Generating shipping label and tracking.' }
+      ];
+      steps.forEach(s => setTimeout(() => { loadingTitle.textContent = s.title; loadingDesc.textContent = s.desc; }, s.t));
+
+      setTimeout(() => {
+        /* Payment SUCCESS -> create actual parcel with status "Order Placed" */
+        const payRef = selectedMethod === 'UPI' ? `UPI: ${document.getElementById('upiId').value}`
+          : selectedMethod === 'Card' ? `Card: Visa •• ${document.getElementById('cardNumber').value.slice(-4) || '4242'}`
+          : 'Cash on Delivery (Pay at pickup)';
+
+        const fullData = {
+          ...pending,
+          paymentMethod: selectedMethod,
+          paymentReference: payRef,
+          paymentStatus: 'Paid',
+          status: 'Order Placed'
+        };
+        const parcel = window.ParcelProStore.create(fullData);
+        sessionStorage.removeItem('parcelpro-pending-booking');
+
+        loadingTitle.innerHTML = '<i class="bi bi-check-circle-fill" style="color:#10b981;"></i> Payment Successful';
+        loadingDesc.textContent = `Tracking ID: ${parcel.id}. Redirecting to tracking…`;
+
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          window.location.href = `tracking.html?q=${encodeURIComponent(parcel.id)}&paid=1`;
+        }, 1400);
+      }, 4200);
+    });
+  </script>
+</body>
+</html>
