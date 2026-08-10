@@ -3,7 +3,6 @@ window.ParcelProAuth = (() => {
   const USERS_KEY = 'parcelpro-users';
   const SESSION_KEY = 'parcelpro-session';
   const USERNAME_KEY = 'username';
-  const ADMIN = { email: 'admin@gmail.com', password: 'admin123', name: 'Administrator', role: 'admin' };
   const read = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch { return fallback; } };
   const readTemporary = (key, fallback) => { try { return JSON.parse(sessionStorage.getItem(key)) || fallback; } catch { return fallback; } };
   const write = (key, value) => localStorage.setItem(key, JSON.stringify(value));
@@ -24,7 +23,6 @@ window.ParcelProAuth = (() => {
     if (!name || !email || !password) return { ok: false, message: 'Please complete all required fields.' };
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false, message: 'Please enter a valid email address.' };
     if (password.length < 8) return { ok: false, message: 'Password must contain at least 8 characters.' };
-    if (email === ADMIN.email) return { ok: false, message: 'This email is reserved for the administrator.' };
     if (users().some(user => user.email === email)) return { ok: false, message: 'An account with this email already exists.' };
     const user = { id: `USR-${Date.now()}`, name, email, phone: String(data.phone || '').trim(), password, role: 'user', createdAt: new Date().toISOString() };
     write(USERS_KEY, [...users(), user]);
@@ -33,13 +31,6 @@ window.ParcelProAuth = (() => {
 
   function login(email, password, remember = true) {
     email = normaliseEmail(email);
-    if (email === ADMIN.email) {
-      if (password !== ADMIN.password) return { ok: false, message: 'Access Denied - Not Admin' };
-      const admin = { email: ADMIN.email, name: ADMIN.name, role: ADMIN.role };
-      saveSession(admin, remember);
-      localStorage.setItem(USERNAME_KEY, admin.name);
-      return { ok: true, role: 'admin', user: admin };
-    }
     const user = users().find(entry => entry.email === email);
     if (!user) return { ok: false, message: 'No account found. Please register before signing in.' };
     if (user.password !== password) return { ok: false, message: 'Incorrect email or password.' };
@@ -59,7 +50,7 @@ window.ParcelProAuth = (() => {
   }
 
   function logout() {
-    const isDashboardPage = /\/(customer-dashboard|admin)\//.test(location.pathname);
+    const isDashboardPage = /\/customer-dashboard\//.test(location.pathname);
     const redirect = isDashboardPage ? '../login.html' : 'login.html';
     localStorage.removeItem(SESSION_KEY);
     localStorage.removeItem(USERNAME_KEY);
@@ -69,11 +60,6 @@ window.ParcelProAuth = (() => {
 
   function resetPassword(email, currentPassword, newPassword) {
     const normalised = normaliseEmail(email);
-    if (normalised === ADMIN.email) {
-      if (currentPassword !== ADMIN.password) return false;
-      ADMIN.password = newPassword;
-      return true;
-    }
     const all = users();
     const index = all.findIndex(user => user.email === normalised);
     if (index < 0) return false;
@@ -97,5 +83,5 @@ window.ParcelProAuth = (() => {
   function deleteUser(id) { write(USERS_KEY, users().filter(user => user.id !== id)); }
   function username() { return String(localStorage.getItem(USERNAME_KEY) || '').trim(); }
 
-  return { ADMIN, users, session, username, register, login, requireRole, logout, resetPassword, updateUser, deleteUser };
+  return { users, session, username, register, login, requireRole, logout, resetPassword, updateUser, deleteUser };
 })();

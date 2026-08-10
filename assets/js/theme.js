@@ -81,8 +81,13 @@
   }
 
   function updateBtnIcon(btn, theme) {
-    const icon = btn.querySelector('i') || btn;
     const resolved = theme === 'auto' ? resolveAutoTheme() : theme;
+    if (btn.matches('input[type="checkbox"]')) {
+      btn.checked = resolved === 'dark';
+      return;
+    }
+
+    const icon = btn.querySelector('i') || btn;
     const icons = { light: 'bi-sun-fill', dark: 'bi-moon-stars-fill' };
     const cls = icons[resolved] || icons.light;
     icon.className = icon.className.replace(/bi-[\w-]+/g, '') + ' ' + cls;

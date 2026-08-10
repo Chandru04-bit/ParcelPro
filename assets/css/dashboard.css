@@ -641,6 +641,27 @@ body.dark-mode { background:var(--dash-bg); color:var(--dash-ink); }
   border-color:#2563eb;
 }
 
+.form-check.form-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.5rem;
+}
+
+.form-check.form-switch .form-check-input {
+  margin-top: 0;
+  align-self: center;
+  vertical-align: middle;
+}
+
+.form-check.form-switch .form-check-label {
+  margin-bottom: 0;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+}
+
+
 /* ========== Responsiveness ========== */
 @media(max-width:991.98px){
   .dash-sidebar {

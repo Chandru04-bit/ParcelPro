@@ -171,7 +171,7 @@
     const activeUser = window.ParcelProAuth.session();
     const persistedUsername = window.ParcelProAuth.username?.() || '';
     const isSignedIn = Boolean(activeUser || persistedUsername);
-    const dashboard = activeUser?.role === 'admin' ? 'admin/dashboard.html' : 'customer-dashboard/dashboard.html';
+    const dashboard = 'customer-dashboard/dashboard.html';
     menu.innerHTML = isSignedIn
       ? `<button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle me-1"></i><span class="auth-user-name"></span></button>
          <ul class="dropdown-menu dropdown-menu-end rounded-3 border-0 shadow-lg p-2 mt-2">
@@ -183,8 +183,6 @@
          <ul class="dropdown-menu dropdown-menu-end rounded-3 border-0 shadow-lg p-2 mt-2">
            <li><a class="dropdown-item rounded-2" href="login.html"><i class="bi bi-box-arrow-in-right text-primary me-2"></i>User Sign In</a></li>
            <li><a class="dropdown-item rounded-2" href="register.html"><i class="bi bi-person-plus-fill text-primary me-2"></i>User Sign Up</a></li>
-           <li><hr class="dropdown-divider"></li>
-           <li><a class="dropdown-item rounded-2" href="login.html?role=admin"><i class="bi bi-lock-fill text-muted me-2"></i>Admin Login</a></li>
          </ul>`;
 
     if (isSignedIn) {

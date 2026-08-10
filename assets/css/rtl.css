@@ -100,6 +100,33 @@
   right: auto;
 }
 
+[dir="rtl"] .toggle-password {
+  left: 14px;
+  right: auto;
+}
+
+[dir="rtl"] .input-icon-wrap > .bi:first-child {
+  right: 16px;
+  left: auto;
+}
+
+[dir="rtl"] .input-icon-wrap .form-control {
+  padding-right: 46px;
+  padding-left: 48px;
+}
+
+[dir="rtl"] .auth-page-actions {
+  left: 24px;
+  right: auto;
+}
+
+@media (max-width: 575.98px) {
+  [dir="rtl"] .auth-page-actions {
+    left: 12px;
+    right: auto;
+  }
+}
+
 [dir="rtl"] .auth-form-side {
   border-left: none;
 }

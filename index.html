@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/css/dark.css" />
   <link rel="stylesheet" href="assets/css/rtl.css" />
   <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/partners.css" />
 </head>
 <body>
 
@@ -81,8 +82,6 @@
         <ul class="dropdown-menu dropdown-menu-end rounded-3 border-0 shadow-lg p-2 mt-2">
           <li><a class="dropdown-item rounded-2" href="login.html"><i class="bi bi-box-arrow-in-right text-primary me-2"></i>User Sign In</a></li>
           <li><a class="dropdown-item rounded-2" href="register.html"><i class="bi bi-person-plus-fill text-primary me-2"></i>User Sign Up</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item rounded-2" href="login.html?role=admin"><i class="bi bi-lock-fill text-muted me-2"></i>Admin Login</a></li>
         </ul>
       </div>
     </div>
@@ -123,24 +122,10 @@
       <div class="col-lg-6 col-xl-7">
         <div class="hero-image">
           <div class="hero-image-wrapper">
-            <div class="hero-floating-card card-1 animate-float">
-              <div class="floating-icon success"><i class="bi bi-check2-all"></i></div>
-              <div>
-                <div style="font-weight:700;color:var(--dark);font-size:14px;">Delivered</div>
-                <div style="font-size:12px;color:var(--gray-500);">#PK-2025-8432</div>
-              </div>
-            </div>
-            <div class="hero-floating-card card-2 animate-float" style="animation-delay:0.5s;">
-              <div class="floating-icon warning"><i class="bi bi-truck"></i></div>
-              <div>
-                <div style="font-weight:700;color:var(--dark);font-size:14px;">On Transit</div>
-                <div style="font-size:12px;color:var(--gray-500);">ETA 3 hours</div>
-              </div>
-            </div>
             <div class="hero-image-main" style="min-height:480px;">
-              <img src="assets/images/Courier_and_parcel_service_2K_202608082212.jpeg" alt="Courier delivering a parcel door to door" />
+              <img src="assets/images/hero section image .jpeg" alt="Courier handing a parcel to a customer" />
             </div>
-          </div> Three Three thousand two hundred projects spider and brand future in the weekend was this video is allon that one six one seventy three
+          </div>
         </div>
       </div>
     </div>
@@ -250,8 +235,8 @@
         <p class="desc">Enter your tracking number to get instant updates on your shipment status and location.</p>
       </div>
       <form class="track-input-wrap" onsubmit="ParcelPro.trackShipment();return false;">
-        <i class="bi bi-truck" style="position:absolute;left:28px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:18px;z-index:3;"></i>
-        <input id="trackInput" type="text" placeholder="Enter tracking number (e.g. PK20258432A)" style="padding-left:48px;" data-rules="tracking" />
+        <i class="bi bi-truck track-icon"></i>
+        <input id="trackInput" type="text" placeholder="Enter tracking number (e.g. PK20258432A)" data-rules="tracking" />
         <button type="submit" class="btn btn-secondary">
           <i class="bi bi-search"></i> Track
         </button>
@@ -522,7 +507,7 @@
           <div class="testimonial-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
           <p class="testimonial-text">"ParcelPro has transformed how we handle order fulfillment. The dashboard is intuitive, tracking is accurate, and pickup has never once been late in two years."</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">SM</div>
+            <div class="testimonial-avatar"><img src="assets/images/team-maya-walsh.png" alt="Sarah Mitchell, Founder of UrbanStyle Retail"></div>
             <div class="testimonial-info"><h5>Sarah Mitchell</h5><p>Founder, UrbanStyle Retail</p></div>
           </div>
         </div>
@@ -533,7 +518,7 @@
           <div class="testimonial-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
           <p class="testimonial-text">"We ship over 2,000 parcels per month internationally. ParcelPro's rate calculator and automatic customs documents save our team 20+ hours every week. Highly recommended!"</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-avatar"><img src="assets/images/team-james-carter.png" alt="Marco Rossi, Operations Director at DolceVita"></div>
             <div class="testimonial-info"><h5>Marco Rossi</h5><p>Operations Director, DolceVita</p></div>
           </div>
         </div>
@@ -544,7 +529,7 @@
           <div class="testimonial-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
           <p class="testimonial-text">"The customer support team actually picks up the phone and resolves issues immediately. When a rare issue happened, they made it right within hours. A+ service."</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">RP</div>
+            <div class="testimonial-avatar"><img src="assets/images/team-omar-navarro.png" alt="Rajesh Patel, CEO of TechForge Components"></div>
             <div class="testimonial-info"><h5>Rajesh Patel</h5><p>CEO, TechForge Components</p></div>
           </div>
         </div>
@@ -616,15 +601,32 @@
   </div>
 </section>
 
-<section class="partners-section">
+<section class="section-padding pt-0">
   <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-6 col-lg-2"><div class="partner-item">FedEx</div></div>
-      <div class="col-6 col-lg-2"><div class="partner-item">DHL</div></div>
-      <div class="col-6 col-lg-2"><div class="partner-item">UPS</div></div>
-      <div class="col-6 col-lg-2"><div class="partner-item">USPS</div></div>
-      <div class="col-6 col-lg-2"><div class="partner-item">Amazon</div></div>
-      <div class="col-6 col-lg-2"><div class="partner-item">Shopify</div></div>
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Awards & Partners</span>
+      <h2>Trusted by Industry Leaders</h2>
+      <p>We work with the biggest names in logistics and retail to deliver excellence every time.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="0">
+        <div class="partner-item">FedEx</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="50">
+        <div class="partner-item">DHL</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="partner-item">UPS</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="150">
+        <div class="partner-item">USPS</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="200">
+        <div class="partner-item">Amazon</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="250">
+        <div class="partner-item">Shopify</div>
+      </div>
     </div>
   </div>
 </section>

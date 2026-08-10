@@ -162,6 +162,108 @@
   .social-login { grid-template-columns: 1fr; }
   .social-login button:last-child { grid-column: auto; }
   .nav-actions .btn { display: none; }
+  .track-input-wrap { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px; }
+  .track-input-wrap input { width: 100%; padding: 14px 16px; }
+  .track-input-wrap .btn { width: 100%; min-width: auto; }
+  .track-input-wrap i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); }
+}
+
+/* ========== Recommended breakpoint ranges ==========
+   Mobile: 375, 390, 414, 430, 480
+   Tablet: 768, 820, 834, 912, 1024
+   Laptop/Desktop: 1280, 1366, 1440
+   Large Desktop: 1920, 2560, 3840
+*/
+
+@media (max-width: 480px) {
+  .container { padding-left: 18px; padding-right: 18px; }
+  .section-padding, .section-padding-sm, .section-padding-lg, .hero-section, .page-header {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .hero-title { font-size: 2rem; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  .section-header p, .page-header p { font-size: 0.95rem; max-width: 100%; }
+  .footer-social { justify-content: center; gap: 10px; }
+  .footer-bottom { flex-direction: column; gap: 16px; }
+  .hero-btns .btn, .cta-btns .btn { width: 100%; justify-content: center; }
+  .booking-form { grid-template-columns: 1fr; }
+  .service-card-body, .pricing-card, .testimonial-card, .blog-card { padding: 24px 18px; }
+}
+
+@media (min-width: 481px) and (max-width: 767.98px) {
+  .section-padding { padding: 60px 0; }
+  .section-padding-sm { padding: 45px 0; }
+  .section-padding-lg { padding: 70px 0; }
+  .hero-title { font-size: 2.25rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.625rem; }
+  h3 { font-size: 1.375rem; }
+  .page-header { padding: 100px 0 60px; }
+  .page-header h1 { font-size: 2rem; }
+  .page-header p { font-size: 15px; }
+  .hero-btns { gap: 12px; flex-direction: column; align-items: stretch; }
+  .hero-btns .btn { width: 100%; }
+  .booking-form { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-social { justify-content: center; }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .section-padding { padding: 70px 0; }
+  .section-padding-sm { padding: 50px 0; }
+  .section-padding-lg { padding: 80px 0; }
+  .hero-title { font-size: 2.75rem; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  .page-header { padding: 120px 0 70px; }
+  .page-header h1 { font-size: 2.5rem; }
+  .page-header p { font-size: 16px; }
+  .hero-image { margin-top: 50px; }
+  .hero-stats { gap: 24px; }
+  .hero-stat h4 { font-size: 22px; }
+  .booking-card { padding: 28px; }
+  .cta-card { padding: 40px 32px; }
+  .cta-btns { justify-content: flex-start; margin-top: 24px; }
+  .booking-form { grid-template-columns: repeat(2, 1fr); }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-social { justify-content: center; }
+}
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .section-padding { padding: 80px 0; }
+  .hero-title { font-size: 3rem; }
+  h1 { font-size: 3.25rem; }
+  h2 { font-size: 2.25rem; }
+  .page-header { padding: 140px 0 80px; }
+  .page-header h1 { font-size: 3rem; }
+  .section-header p { max-width: 700px; }
+  .container { max-width: 1180px; }
+}
+
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  .container { max-width: 1200px; }
+  .hero-title { font-size: 3.5rem; }
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.75rem; }
+  .section-padding { padding: 100px 0; }
+}
+
+@media (min-width: 1440px) and (max-width: 1919.98px) {
+  .container { max-width: 1280px; }
+  .section-padding { padding: 110px 0; }
+}
+
+@media (min-width: 1920px) {
+  .container { max-width: 1400px; }
+  .section-padding { padding: 120px 0; }
+}
+
+@media (min-width: 2560px) {
+  .container { max-width: 1500px; }
 }
 
 /* ========== High-DPI Screens ========== */

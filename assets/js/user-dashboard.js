@@ -37,7 +37,7 @@
   const syncThemeClass = () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     document.body.classList.toggle('dark-mode', isDark);
-    const toggles = $$('.customer-navbar-icon[aria-label="Toggle theme"], [data-theme-toggle]');
+    const toggles = $$('.customer-navbar-icon[aria-label="Toggle theme"]');
     toggles.forEach(t => {
       const icon = t.querySelector('i') || t;
       const cls = isDark ? 'bi-moon-stars-fill' : 'bi-sun-fill';

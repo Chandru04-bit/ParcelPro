@@ -128,7 +128,7 @@
     if (el.hasAttribute('required')) rules.unshift(['required']);
 
     let value = el.type === 'checkbox' ? el : (el.value || '');
-    const formGroup = el.closest('.form-group') || el.parentElement;
+    const formGroup = getFieldContainer(el);
     let errorMsg = '';
 
     for (const [name, ...params] of rules) {
@@ -204,6 +204,8 @@
     el.classList.remove('pp-field-error');
     el.style.borderColor = '';
     el.style.boxShadow = '';
+    // Authentication forms intentionally do not show validation checkmarks.
+    if (el.closest('.auth-form')) return;
     if (el.getAttribute('data-show-success') !== 'false' && el.value?.trim()) {
       if (!container.querySelector('.pp-success-icon')) {
         const i = document.createElement('i');
@@ -220,7 +222,7 @@
   }
 
   function resetField(el) {
-    const container = el.closest('.form-group') || el.parentElement;
+    const container = getFieldContainer(el);
     const errEl = container.querySelector('.pp-error-msg');
     const okIcon = container.querySelector('.pp-success-icon');
     if (errEl) errEl.remove();
@@ -231,8 +233,15 @@
   }
 
   function hasError(el) {
-    const container = el.closest('.form-group') || el.parentElement;
+    const container = getFieldContainer(el);
     return container?.querySelector('.pp-error-msg') || el.classList.contains('pp-field-error');
+  }
+
+  function getFieldContainer(el) {
+    // Keep validation messages outside the icon wrapper. Otherwise the wrapper
+    // grows with the error text and its absolutely positioned icons drift below
+    // the input field.
+    return el.closest('.form-group') || el.closest('.col-md-6') || el.parentElement;
   }
 
   function validateFormGroup(groupEl) {

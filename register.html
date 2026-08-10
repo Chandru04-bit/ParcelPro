@@ -21,6 +21,10 @@
 <body class="auth-body">
 
 <div class="auth-wrapper">
+  <div class="auth-page-actions" aria-label="Page preferences">
+    <button class="auth-control auth-theme-toggle theme-toggle" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+    <button class="auth-control" type="button" data-rtl-toggle aria-label="Toggle right-to-left layout">RTL</button>
+  </div>
   <div class="container-fluid p-0">
     <div class="row g-0 vh-100 align-items-stretch">
       <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center auth-hero-section" style="background:linear-gradient(135deg, var(--secondary), var(--secondary-dark));">
@@ -142,6 +146,11 @@
             <button type="submit" class="btn btn-secondary w-100 btn-lg mb-3 d-flex align-items-center justify-content-center gap-2">
               <i class="bi bi-person-plus"></i> Create Free Account
             </button>
+            <div class="auth-divider"><span>or continue with</span></div>
+            <div class="social-login auth-social-login mb-4">
+              <button type="button" data-social-login="Google"><i class="bi bi-google"></i> Continue with Google</button>
+              <button type="button" data-social-login="Apple"><i class="bi bi-apple"></i> Continue with Apple</button>
+            </div>
             <p class="text-center mb-0 small">Already have an account? <a href="login.html" class="fw-semibold">Sign in</a></p>
           </form>
         </div>
@@ -155,6 +164,7 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/theme.js"></script>
+<script src="assets/js/auth-ui.js"></script>
 <script src="assets/js/validation.js"></script>
 <script src="assets/js/auth.js"></script>
 <script>
