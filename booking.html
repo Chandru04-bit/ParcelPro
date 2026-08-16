@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a New Parcel - ParcelPro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: linear-gradient(135deg, #eff6ff, #fff7ed); min-height: 100vh; }
+    .booking-wrap { max-width: 1040px; margin: 0 auto; padding: 56px 16px 80px; }
+    .booking-card { border: 0; border-radius: 24px; box-shadow: 0 20px 50px rgba(30, 64, 175, .12); }
+    .booking-heading { color: #0f172a; font-weight: 800; }
+    .booking-section { color: #1e40af; font-size: 1.05rem; font-weight: 700; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin: 28px 0 18px; }
+    .quote-summary {
+      background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(249,115,22,0.08));
+      border: 1px solid rgba(30,64,175,0.15);
+      border-radius: 18px;
+      padding: 18px 22px;
+      margin-bottom: 10px;
+    }
+    .tracking-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(30,64,175,0.1), rgba(249,115,22,0.1));
+      border: 1px solid rgba(30,64,175,0.2);
+      padding: 8px 16px; border-radius: 12px;
+      font-family: monospace; font-weight: 800; color: #1e40af; font-size: 15px;
+    }
+    .payment-method-card {
+      border: 2px solid var(--gray-200); border-radius: 16px; padding: 16px 18px;
+      cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px;
+    }
+    .payment-method-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .payment-method-card.selected {
+      border-color: var(--primary); background: rgba(30,64,175,0.05);
+      box-shadow: 0 0 0 4px rgba(30,64,175,0.1);
+    }
+    .payment-method-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--gray-100); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .payment-method-card.selected .payment-method-icon { background: var(--primary); color: #fff; }
+
+    /* Step Indicator Styles */
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 22px 0 30px;
+      padding: 0 10px;
+      position: relative;
+    }
+    .step-indicator::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 40px;
+      right: 40px;
+      height: 3px;
+      background: #e2e8f0;
+      z-index: 1;
+    }
+    .step-indicator .step-progress-line {
+      position: absolute;
+      top: 22px;
+      left: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #1e40af);
+      z-index: 2;
+      transition: width 0.4s ease;
+    }
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 3;
+      flex: 1;
+    }
+    .step-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      border: 2px solid #cbd5e1;
+      background: #fff;
+      color: #94a3b8;
+      transition: all 0.3s ease;
+    }
+    .step-item.completed .step-circle {
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-color: #10b981;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .step-item.active .step-circle {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      border-color: #1e40af;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+      transform: scale(1.08);
+    }
+    .step-circle i { font-size: 18px; }
+    .step-label {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .step-item.active .step-label { color: #1e40af; }
+    .step-item.completed .step-label { color: #10b981; }
+
+    /* Step Panels */
+    .step-panel { display: none; animation: fadeIn 0.4s ease; }
+    .step-panel.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Step Navigation Buttons */
+    .step-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .step-nav-row.justify-end { justify-content: flex-end; }
+    .btn-step-next {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      border: 0;
+      color: #fff;
+      padding: 12px 28px;
+      font-weight: 700;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(30, 64, 175, 0.25);
+      transition: all 0.25s ease;
+    }
+    .btn-step-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(30, 64, 175, 0.32);
+      color: #fff;
+    }
+    .btn-step-back {
+      background: transparent;
+      border: 2px solid #cbd5e1;
+      color: #64748b;
+      padding: 10px 24px;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .btn-step-back:hover {
+      border-color: #94a3b8;
+      color: #475569;
+      background: #f8fafc;
+    }
+    .btn-final-submit {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      border: 0;
+      color: #fff;
+      padding: 14px 34px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(249, 115, 22, 0.3);
+      transition: all 0.25s ease;
+    }
+    .btn-final-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(249, 115, 22, 0.38);
+      color: #fff;
+    }
+
+    /* Review Card Styles */
+    .review-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .review-card-header {
+      background: linear-gradient(135deg, rgba(30,64,175,0.06), rgba(249,115,22,0.06));
+      padding: 18px 22px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .review-card-header i { font-size: 22px; color: #1e40af; }
+    .review-card-header h4 { margin: 0; font-weight: 700; color: #0f172a; font-size: 1.1rem; }
+    .review-section { padding: 18px 22px; border-bottom: 1px solid #f1f5f9; }
+    .review-section:last-child { border-bottom: 0; }
+    .review-section-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .review-section-title i { font-size: 14px; }
+    .review-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      gap: 12px;
+    }
+    .review-row .label { color: #64748b; font-size: 0.9rem; font-weight: 500; }
+    .review-row .value { color: #0f172a; font-weight: 600; font-size: 0.9rem; text-align: right; }
+    .price-summary-box {
+      background: linear-gradient(135deg, rgba(30,64,175,0.04), rgba(249,115,22,0.04));
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-top: 10px;
+    }
+    .price-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 0.92rem;
+    }
+    .price-line .lbl { color: #64748b; font-weight: 500; }
+    .price-line .amt { color: #334155; font-weight: 600; }
+    .price-line.total {
+      margin-top: 8px;
+      padding-top: 10px;
+      border-top: 2px dashed #cbd5e1;
+      font-size: 1.05rem;
+    }
+    .price-line.total .lbl { color: #0f172a; font-weight: 800; }
+    .price-line.total .amt { color: #f97316; font-weight: 900; font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top w-100">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>Parcel<span>Pro</span></a>
+      <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation"><i class="bi bi-list fs-5"></i></button>
+      <div class="collapse navbar-collapse justify-content-center">
+        <ul class="navbar-nav gap-2 align-items-lg-center">
+          <li class="nav-item home-dropdown">
+            <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              Home <i class="bi bi-chevron-down home-caret"></i>
+            </a>
+            <ul class="home-dropdown-menu" role="menu">
+              <li>
+                <a href="index.html" data-home="1" role="menuitem">
+                  <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                  <span><strong>Home 1</strong><small>Main landing page</small></span>
+                </a>
+              </li>
+              <li>
+                <a href="home2.html" data-home="2" role="menuitem">
+                  <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                  <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+            <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+              <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+              <li><a class="dropdown-item rounded-2" href="team.html">Our Team</a></li>
+              <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="login.html">Sign In</a></li>
+        </ul>
+      </div>
+      <div class="nav-actions">
+        <button class="search-toggle" type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+        <div class="dropdown d-none d-lg-inline-block" id="authNavMenu"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="booking-wrap" style="padding-top: 130px;">
+    <div class="text-center mb-4">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2"><i class="bi bi-box-seam me-1"></i>New Shipment</span>
+      <h1 class="booking-heading mt-3 mb-2">Book a New Parcel</h1>
+      <p class="text-muted mb-0">Complete your shipment details to proceed to payment and receive your tracking number.</p>
+    </div>
+
+    <div class="card booking-card"><div class="card-body p-4 p-md-5">
+
+      <!--- Quote summary if user came from home page calculator --->
+      <div id="quoteSummaryCard" class="quote-summary d-none">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-2">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-lightbulb" style="color:#f97316;font-size:18px;"></i>
+            <strong style="color:#0f172a;">Your pre-calculated quote</strong>
+            <a href="index.html" class="small text-decoration-none ms-2">Change</a>
+          </div>
+          <div>
+            <span class="small me-2">Total:</span>
+            <span id="quoteTotalDisplay" style="font-weight:900;color:#f97316;font-size:22px;">$0</span>
+          </div>
+        </div>
+        <div class="row g-2 small">
+          <div class="col-6 col-md-3"><span style="color:#64748b;">From:</span> <strong id="fromCityDisp">—</strong></div>
+          <div class="col-6 col-md-3"><span style="color:#64748b;">To:</span> <strong id="toCityDisp">—</strong></div>
+          <div class="col-6 col-md-3"><span style="color:#64748b;">Weight:</span> <strong id="weightDisp">—</strong></div>
+          <div class="col-6 col-md-3"><span style="color:#64748b;">Service:</span> <strong id="serviceDisp">—</strong></div>
+        </div>
+      </div>
+
+      <!--- Auto-generated tracking preview --->
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-upc-scan" style="color:#1e40af;font-size:18px;"></i>
+          <span style="font-weight:600;color:#334155;">Your Tracking ID:</span>
+          <span class="tracking-pill" id="trackingIdPreview">PK00000000</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary" id="regenerateTracking" title="Regenerate tracking ID">
+          <i class="bi bi-arrow-repeat me-1"></i> Regenerate
+        </button>
+      </div>
+
+      <!--- Step Indicator / Progress Bar --->
+      <div class="step-indicator">
+        <div class="step-progress-line" id="stepProgressLine" style="width: 0%;"></div>
+
+        <div class="step-item active" data-step-item="1">
+          <div class="step-circle"><i class="bi bi-person"></i></div>
+          <span class="step-label d-none d-md-inline">Sender Details</span>
+        </div>
+
+        <div class="step-item" data-step-item="2">
+          <div class="step-circle"><i class="bi bi-flag"></i></div>
+          <span class="step-label d-none d-md-inline">Receiver Details</span>
+        </div>
+
+        <div class="step-item" data-step-item="3">
+          <div class="step-circle"><i class="bi bi-box-seam"></i></div>
+          <span class="step-label d-none d-md-inline">Parcel Information</span>
+        </div>
+
+        <div class="step-item" data-step-item="4">
+          <div class="step-circle"><i class="bi bi-check2-all"></i></div>
+          <span class="step-label d-none d-md-inline">Review &amp; Confirm</span>
+        </div>
+      </div>
+
+      <form id="publicBookingForm" novalidate>
+
+        <!-- STEP 1: Sender Details -->
+        <div class="step-panel active" data-step="1">
+          <h2 class="booking-section mt-0"><i class="bi bi-person me-2"></i>Sender (Pickup) details</h2>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="senderName">Pickup Contact Name <span class="required">*</span></label><input class="form-control" id="senderName" name="senderName" placeholder="John Doe" required><div class="invalid-feedback">Enter a pickup contact name.</div></div>
+            <div class="col-md-6"><label class="form-label" for="senderPhone">Pickup Phone Number <span class="required">*</span></label><input type="tel" class="form-control" id="senderPhone" name="senderPhone" placeholder="+1 (555) 123-4567" required><div class="invalid-feedback">Enter a valid pickup phone number.</div></div>
+            <div class="col-md-6"><label class="form-label" for="pickupCity">Pickup City <span class="required">*</span></label>
+              <select class="form-select" id="pickupCity" name="pickupCity" required>
+                <option value="">Select City</option>
+                <option>New York</option><option>Los Angeles</option><option>Chicago</option>
+                <option>Houston</option><option>Phoenix</option><option>London</option><option>Berlin</option>
+              </select><div class="invalid-feedback">Choose a pickup city.</div>
+            </div>
+            <div class="col-md-6"><label class="form-label" for="pickupDate">Pickup Date <span class="required">*</span></label><input type="date" class="form-control" id="pickupDate" name="pickupDate" required><div class="invalid-feedback">Choose a pickup date.</div></div>
+            <div class="col-12"><label class="form-label" for="pickupAddress">Pickup Full Address <span class="required">*</span></label><textarea class="form-control" id="pickupAddress" name="pickupAddress" rows="2" placeholder="Street, Apt/Suit, City, State, Postal code" required></textarea><div class="invalid-feedback">Enter a pickup address.</div></div>
+          </div>
+
+          <div class="step-nav-row justify-end">
+            <button type="button" class="btn-step-next" data-next-step="2">Next: Receiver Details &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Receiver Details -->
+        <div class="step-panel" data-step="2">
+          <h2 class="booking-section mt-0"><i class="bi bi-flag me-2"></i>Receiver (Delivery) details</h2>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="receiverName">Recipient Name <span class="required">*</span></label><input class="form-control" id="receiverName" name="receiverName" placeholder="Jane Smith" required><div class="invalid-feedback">Enter a recipient name.</div></div>
+            <div class="col-md-6"><label class="form-label" for="receiverPhone">Recipient Phone <span class="required">*</span></label><input type="tel" class="form-control" id="receiverPhone" name="receiverPhone" placeholder="+1 (555) 987-6543" required><div class="invalid-feedback">Enter a recipient phone number.</div></div>
+            <div class="col-md-6"><label class="form-label" for="deliveryCity">Delivery City <span class="required">*</span></label>
+              <select class="form-select" id="deliveryCity" name="deliveryCity" required>
+                <option value="">Select City</option>
+                <option>New York</option><option>Los Angeles</option><option>Chicago</option>
+                <option>Houston</option><option>Phoenix</option><option>Paris</option><option>Tokyo</option>
+              </select><div class="invalid-feedback">Choose a delivery city.</div>
+            </div>
+            <div class="col-md-6"><label class="form-label" for="deliveryType">Delivery Type <span class="required">*</span></label>
+              <select class="form-select" id="deliveryType" name="deliveryType" required>
+                <option value="">Choose type</option>
+                <option value="Domestic">Domestic (Standard)</option>
+                <option value="International">International</option>
+                <option value="Same Day">Same Day</option>
+              </select><div class="invalid-feedback">Choose a delivery type.</div>
+            </div>
+            <div class="col-12"><label class="form-label" for="receiverAddress">Delivery Full Address <span class="required">*</span></label><textarea class="form-control" id="receiverAddress" name="receiverAddress" rows="2" placeholder="Street, Apt/Suit, City, State, Postal code" required></textarea><div class="invalid-feedback">Enter a delivery address.</div></div>
+          </div>
+
+          <div class="step-nav-row">
+            <button type="button" class="btn-step-back" data-prev-step="1">&larr; Back</button>
+            <button type="button" class="btn-step-next" data-next-step="3">Next: Parcel Information &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Parcel Information -->
+        <div class="step-panel" data-step="3">
+          <h2 class="booking-section mt-0"><i class="bi bi-box-seam me-2"></i>Parcel details</h2>
+          <div class="row g-3">
+            <div class="col-md-4"><label class="form-label" for="parcelType">Parcel Type <span class="required">*</span></label><select class="form-select" id="parcelType" name="parcelType" required><option value="">Choose type</option><option>Documents</option><option>Box</option><option>Fragile item</option><option>Electronics</option><option>Clothing</option><option>Other</option></select><div class="invalid-feedback">Choose a parcel type.</div></div>
+            <div class="col-md-4"><label class="form-label" for="weight">Weight (kg) <span class="required">*</span></label><input type="number" min="0.1" step="0.1" class="form-control" id="weight" name="weight" placeholder="2.5" required><div class="invalid-feedback">Enter a weight above 0 kg.</div></div>
+            <div class="col-md-4"><label class="form-label" for="serviceLevel">Service Level <span class="required">*</span></label><select class="form-select" id="serviceLevel" name="serviceLevel" required><option value="">Choose service</option><option>Standard (3–5 days)</option><option>Express (1–2 days)</option><option>Same Day</option></select><div class="invalid-feedback">Choose a service.</div></div>
+          </div>
+
+          <div class="step-nav-row">
+            <button type="button" class="btn-step-back" data-prev-step="2">&larr; Back</button>
+            <button type="button" class="btn-step-next" data-next-step="4">Next: Review &amp; Confirm &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Review & Confirm -->
+        <div class="step-panel" data-step="4">
+          <h2 class="booking-section mt-0"><i class="bi bi-check2-all me-2"></i>Review &amp; Confirm</h2>
+
+          <div class="review-card">
+            <div class="review-card-header">
+              <i class="bi bi-clipboard-check"></i>
+              <h4>Shipment Summary - Please review all details below</h4>
+            </div>
+
+            <!-- Sender Info -->
+            <div class="review-section">
+              <div class="review-section-title"><i class="bi bi-person" style="color:#1e40af;"></i>Sender (Pickup) Information</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="review-row"><span class="label">Contact Name</span><span class="value" id="rvSenderName">—</span></div>
+                  <div class="review-row"><span class="label">Phone Number</span><span class="value" id="rvSenderPhone">—</span></div>
+                  <div class="review-row"><span class="label">Pickup City</span><span class="value" id="rvPickupCity">—</span></div>
+                </div>
+                <div class="col-md-6">
+                  <div class="review-row"><span class="label">Pickup Date</span><span class="value" id="rvPickupDate">—</span></div>
+                  <div class="review-row" style="align-items:flex-start;"><span class="label">Full Address</span><span class="value" id="rvPickupAddress" style="max-width:65%;">—</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Receiver Info -->
+            <div class="review-section">
+              <div class="review-section-title"><i class="bi bi-flag" style="color:#10b981;"></i>Receiver (Delivery) Information</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="review-row"><span class="label">Recipient Name</span><span class="value" id="rvReceiverName">—</span></div>
+                  <div class="review-row"><span class="label">Phone Number</span><span class="value" id="rvReceiverPhone">—</span></div>
+                  <div class="review-row"><span class="label">Delivery City</span><span class="value" id="rvDeliveryCity">—</span></div>
+                  <div class="review-row"><span class="label">Delivery Type</span><span class="value" id="rvDeliveryType">—</span></div>
+                </div>
+                <div class="col-md-6">
+                  <div class="review-row" style="align-items:flex-start;"><span class="label">Full Address</span><span class="value" id="rvReceiverAddress" style="max-width:65%;">—</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Parcel Info + Price -->
+            <div class="review-section">
+              <div class="review-section-title"><i class="bi bi-box-seam" style="color:#f97316;"></i>Parcel &amp; Pricing Details</div>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="review-row"><span class="label">Parcel Type</span><span class="value" id="rvParcelType">—</span></div>
+                  <div class="review-row"><span class="label">Weight</span><span class="value" id="rvWeight">—</span></div>
+                  <div class="review-row"><span class="label">Service Level</span><span class="value" id="rvServiceLevel">—</span></div>
+                  <div class="review-row"><span class="label">Est. Delivery</span><span class="value" id="rvETA">—</span></div>
+                </div>
+                <div class="col-md-7">
+                  <div class="price-summary-box">
+                    <div class="price-line"><span class="lbl">Base Fee</span><span class="amt" id="rvBaseFee">$0.00</span></div>
+                    <div class="price-line"><span class="lbl">Distance Surcharge</span><span class="amt" id="rvDistanceFee">$0.00</span></div>
+                    <div class="price-line"><span class="lbl">Weight Surcharge</span><span class="amt" id="rvWeightFee">$0.00</span></div>
+                    <div class="price-line"><span class="lbl">Service Upgrade</span><span class="amt" id="rvServiceFee">$0.00</span></div>
+                    <div class="price-line total"><span class="lbl">TOTAL AMOUNT</span><span class="amt" id="rvTotalPrice">$0.00</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-nav-row">
+            <button type="button" class="btn-step-back" data-prev-step="3">&larr; Back to Edit</button>
+            <button class="btn-final-submit" type="submit" id="finalSubmitBtn">
+              <i class="bi bi-credit-card me-2"></i> Continue to Payment
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/parcelpro-store.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    /* ========== Booking page logic ========== */
+    const bookingForm = document.getElementById('publicBookingForm');
+    document.getElementById('pickupDate').min = new Date().toISOString().split('T')[0];
+
+    /* ---- Generate Tracking ID preview ---- */
+    function refreshTrackingPreview() {
+      const id = window.ParcelProStore.generateTrackingId();
+      document.getElementById('trackingIdPreview').textContent = id;
+      return id;
+    }
+    let currentTrackingId = refreshTrackingPreview();
+    document.getElementById('regenerateTracking').addEventListener('click', () => {
+      currentTrackingId = refreshTrackingPreview();
+      window.showToast?.('Tracking ID regenerated.', 'success');
+    });
+
+    /* ---- Restore quote from home page calculator ---- */
+    const savedQuote = sessionStorage.getItem('parcelpro-quote');
+    let quoteData = null;
+    if (savedQuote) {
+      try {
+        quoteData = JSON.parse(savedQuote);
+        document.getElementById('quoteSummaryCard').classList.remove('d-none');
+        document.getElementById('fromCityDisp').textContent = quoteData.pickupCity || '—';
+        document.getElementById('toCityDisp').textContent = quoteData.deliveryCity || '—';
+        document.getElementById('weightDisp').textContent = `${quoteData.weight} kg`;
+        document.getElementById('serviceDisp').textContent = quoteData.deliveryType || '—';
+        document.getElementById('quoteTotalDisplay').textContent = '$' + (quoteData.total ?? 0).toFixed(2);
+
+        document.getElementById('pickupCity').value = quoteData.pickupCity || '';
+        document.getElementById('deliveryCity').value = quoteData.deliveryCity || '';
+        document.getElementById('weight').value = quoteData.weight || '';
+
+        const dt = String(quoteData.deliveryType || 'Domestic').toLowerCase();
+        const typeSelect = document.getElementById('deliveryType');
+        const match = Array.from(typeSelect.options).find(o => o.value.toLowerCase() === dt);
+        if (match) typeSelect.value = match.value;
+      } catch (_) {}
+    }
+
+    /* ---- Logged in user -> pre-fill sender name/phone ---- */
+    const active = window.ParcelProAuth?.session();
+    if (active && active.role === 'user') {
+      const full = window.ParcelProAuth.users().find(u => u.id === active.id);
+      document.getElementById('senderName').value = document.getElementById('senderName').value || active.name || '';
+      if (full?.phone) document.getElementById('senderPhone').value = full.phone;
+    }
+
+    /* ---- Re-calc quote if fields change (always keep fresh) ---- */
+    function currentQuote() {
+      const pickupCity = document.getElementById('pickupCity').value;
+      const deliveryCity = document.getElementById('deliveryCity').value;
+      const weight = parseFloat(document.getElementById('weight').value) || 0.5;
+      const deliveryType = document.getElementById('deliveryType').value || 'Domestic';
+      if (!pickupCity || !deliveryCity) return quoteData;
+      return window.ParcelProStore.calculateQuote({ pickupCity, deliveryCity, weight, deliveryType });
+    }
+    ['pickupCity', 'deliveryCity', 'weight', 'deliveryType'].forEach(id => {
+      document.getElementById(id).addEventListener('change', () => {
+        const q = currentQuote();
+        if (q) {
+          document.getElementById('quoteSummaryCard').classList.remove('d-none');
+          document.getElementById('fromCityDisp').textContent = q.pickupCity || document.getElementById('pickupCity').value;
+          document.getElementById('toCityDisp').textContent = q.deliveryCity || document.getElementById('deliveryCity').value;
+          document.getElementById('weightDisp').textContent = `${q.weight} kg`;
+          document.getElementById('serviceDisp').textContent = q.deliveryType || '—';
+          document.getElementById('quoteTotalDisplay').textContent = '$' + q.total.toFixed(2);
+        }
+      });
+    });
+
+    /* ========== Multi-Step Form Logic ========== */
+    let currentStep = 1;
+    const TOTAL_STEPS = 4;
+
+    function showStep(n) {
+      currentStep = n;
+
+      document.querySelectorAll('.step-panel').forEach(panel => {
+        panel.classList.remove('active');
+      });
+      const targetPanel = document.querySelector(`.step-panel[data-step="${n}"]`);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      document.querySelectorAll('.step-item').forEach(item => {
+        const stepNum = parseInt(item.dataset.stepItem, 10);
+        item.classList.remove('active', 'completed');
+        if (stepNum < n) item.classList.add('completed');
+        else if (stepNum === n) item.classList.add('active');
+      });
+
+      const progressLine = document.getElementById('stepProgressLine');
+      if (progressLine) {
+        const progressPercent = ((n - 1) / (TOTAL_STEPS - 1)) * 100;
+        progressLine.style.width = progressPercent + '%';
+      }
+
+      if (n === 4) populateReviewSummary();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateStep(n) {
+      const panel = document.querySelector(`.step-panel[data-step="${n}"]`);
+      if (!panel) return true;
+
+      const fields = panel.querySelectorAll('input, select, textarea');
+      let isValid = true;
+
+      fields.forEach(field => {
+        if (field.hasAttribute('required')) {
+          field.classList.add('was-validated');
+          if (!field.checkValidity()) isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        window.showToast?.('Please complete all required fields in this step.', 'error');
+      }
+      return isValid;
+    }
+
+    function getETAFromService(serviceLevel, deliveryType) {
+      const svc = (serviceLevel || 'Standard (3–5 days)').toLowerCase();
+      const dt = (deliveryType || 'Domestic').toLowerCase();
+      if (svc.includes('same day') || dt.includes('same day')) return 'Same Day';
+      if (svc.includes('express')) return '1–2 Business Days';
+      if (dt.includes('international')) return '5–10 Business Days';
+      return '3–5 Business Days';
+    }
+
+    function populateReviewSummary() {
+      document.getElementById('rvSenderName').textContent = document.getElementById('senderName').value || '—';
+      document.getElementById('rvSenderPhone').textContent = document.getElementById('senderPhone').value || '—';
+      document.getElementById('rvPickupCity').textContent = document.getElementById('pickupCity').value || '—';
+      document.getElementById('rvPickupDate').textContent = document.getElementById('pickupDate').value || '—';
+      document.getElementById('rvPickupAddress').textContent = document.getElementById('pickupAddress').value || '—';
+
+      document.getElementById('rvReceiverName').textContent = document.getElementById('receiverName').value || '—';
+      document.getElementById('rvReceiverPhone').textContent = document.getElementById('receiverPhone').value || '—';
+      document.getElementById('rvDeliveryCity').textContent = document.getElementById('deliveryCity').value || '—';
+      document.getElementById('rvDeliveryType').textContent = document.getElementById('deliveryType').value || '—';
+      document.getElementById('rvReceiverAddress').textContent = document.getElementById('receiverAddress').value || '—';
+
+      document.getElementById('rvParcelType').textContent = document.getElementById('parcelType').value || '—';
+      const wt = document.getElementById('weight').value;
+      document.getElementById('rvWeight').textContent = wt ? `${wt} kg` : '—';
+      document.getElementById('rvServiceLevel').textContent = document.getElementById('serviceLevel').value || '—';
+      document.getElementById('rvETA').textContent = getETAFromService(
+        document.getElementById('serviceLevel').value,
+        document.getElementById('deliveryType').value
+      );
+
+      const q = currentQuote();
+      if (q) {
+        const base = q.base || 0;
+        const dist = q.distanceFee || q.distance || 0;
+        const wfee = q.weightFee || q.weightSurcharge || 0;
+        const svcf = q.serviceFee || q.serviceUpgrade || 0;
+        const calcSum = base + dist + wfee + svcf;
+        const total = q.total || calcSum || 0;
+        const remainder = total - (base + dist + wfee);
+        const finalSvcFee = (svcf > 0) ? svcf : (remainder > 0 ? remainder : 0);
+
+        document.getElementById('rvBaseFee').textContent = '$' + base.toFixed(2);
+        document.getElementById('rvDistanceFee').textContent = '$' + dist.toFixed(2);
+        document.getElementById('rvWeightFee').textContent = '$' + wfee.toFixed(2);
+        document.getElementById('rvServiceFee').textContent = '$' + finalSvcFee.toFixed(2);
+        document.getElementById('rvTotalPrice').textContent = '$' + total.toFixed(2);
+      } else {
+        document.getElementById('rvBaseFee').textContent = '$0.00';
+        document.getElementById('rvDistanceFee').textContent = '$0.00';
+        document.getElementById('rvWeightFee').textContent = '$0.00';
+        document.getElementById('rvServiceFee').textContent = '$0.00';
+        document.getElementById('rvTotalPrice').textContent = '$0.00';
+      }
+    }
+
+    document.querySelectorAll('[data-next-step]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nextStep = parseInt(btn.dataset.nextStep, 10);
+        if (validateStep(currentStep)) {
+          showStep(nextStep);
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-prev-step]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prevStep = parseInt(btn.dataset.prevStep, 10);
+        showStep(prevStep);
+      });
+    });
+
+    /* ---- Submit: validate + store pending booking in sessionStorage -> payment page ---- */
+    bookingForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!bookingForm.checkValidity()) { bookingForm.classList.add('was-validated'); window.showToast?.('Please fill in all required fields.', 'error'); return; }
+      bookingForm.classList.add('was-validated');
+
+      const form = new FormData(bookingForm);
+      const q = currentQuote();
+      const pendingBooking = {
+        id: currentTrackingId,
+        trackingId: currentTrackingId,
+        userEmail: active?.email || 'guest',
+        senderName: form.get('senderName'),
+        senderPhone: form.get('senderPhone'),
+        pickupCity: form.get('pickupCity'),
+        pickupAddress: form.get('pickupAddress'),
+        pickupDate: form.get('pickupDate'),
+        receiverName: form.get('receiverName'),
+        receiverPhone: form.get('receiverPhone'),
+        deliveryCity: form.get('deliveryCity'),
+        receiverAddress: form.get('receiverAddress'),
+        type: form.get('parcelType'),
+        parcelType: form.get('parcelType'),
+        weight: parseFloat(form.get('weight')),
+        deliveryType: form.get('deliveryType'),
+        serviceLevel: form.get('serviceLevel'),
+        quote: q,
+        totalAmount: q?.total,
+        locations: {
+          pickupCity: form.get('pickupCity'),
+          deliveryCity: form.get('deliveryCity')
+        }
+      };
+      sessionStorage.setItem('parcelpro-pending-booking', JSON.stringify(pendingBooking));
+      sessionStorage.removeItem('parcelpro-quote');
+      window.showToast?.('Booking ready. Redirecting to payment…', 'info');
+      setTimeout(() => { window.location.href = 'payment.html'; }, 600);
+    });
+  </script>
+</body>
+</html>

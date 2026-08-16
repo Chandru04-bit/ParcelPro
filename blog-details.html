@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Read the full article on ParcelPro Blog - detailed insights on logistics, shipping, e-commerce and courier services." />
+  <title>Blog Details - ParcelPro</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2" href="services.html">All Services</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=domestic">Domestic Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=international">International Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=sameday">Same Day Delivery</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=warehouse">Warehousing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><h6 class="dropdown-header text-uppercase small">Public Pages</h6></li>
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" aria-label="Theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <a href="login.html" class="btn btn-outline-primary btn-sm d-none d-lg-inline-flex">Sign In</a>
+      <a href="tracking.html" class="btn btn-primary btn-sm d-none d-lg-inline-flex">
+        <i class="bi bi-send"></i> Ship Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-banner">
+  <div class="container">
+    <div class="page-banner-content">
+      <span class="sub-title" data-aos="fade-up">Blog Details</span>
+      <h1 data-aos="fade-up" data-aos-delay="100">10 Pro Tips to Reduce Shipping Costs for E-commerce</h1>
+      <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+        <ol class="breadcrumb justify-content-center mb-0">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Article</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <article class="blog-detail" data-aos="fade-up">
+          <div class="blog-detail-img mb-5">
+            <div class="p-5 rounded-5 d-flex align-items-center justify-content-center text-center" style="min-height:400px;background:linear-gradient(135deg, rgba(30,64,175,0.08), rgba(59,130,246,0.08));">
+              <div>
+                <div style="width:160px;height:160px;margin:0 auto 24px;border-radius:28px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(30,64,175,0.15), rgba(249,115,22,0.15));">
+                  <i class="bi bi-newspaper" style="font-size:80px;background:linear-gradient(135deg, var(--primary), var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></i>
+                </div>
+                <span class="badge badge-primary mb-2">Logistics</span>
+                <div class="d-flex gap-4 justify-content-center small mt-3" style="color:var(--gray-500);">
+                  <span><i class="bi bi-calendar3 me-1"></i> August 02, 2026</span>
+                  <span><i class="bi bi-person me-1"></i> By Admin</span>
+                  <span><i class="bi bi-chat me-1"></i> 24 Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-content">
+            <h2 class="mb-4">Introduction</h2>
+            <p class="lead">Shipping expenses can eat up 10-25% of an e-commerce business's revenue if not managed carefully. In this comprehensive guide, we'll share ten battle-tested strategies that top online retailers use to keep shipping costs under control without sacrificing customer satisfaction.</p>
+
+            <h3 class="mt-5 mb-3">1. Negotiate Volume Discounts with Carriers</h3>
+            <p>Most couriers offer tiered pricing based on monthly shipment volume. Even if you're only shipping 100 parcels a month, it's worth reaching out to your account manager to discuss better rates. Carriers like ParcelPro regularly review accounts and can adjust pricing based on consistency, not just raw volume.</p>
+
+            <div class="content-quote my-5">
+              <i class="bi bi-quote"></i>
+              <p>"We reduced our per-shipment cost by 22% simply by scheduling a 30-minute call with our ParcelPro account rep. They found a tier we qualified for that we didn't even know existed." ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Sarah M., UrbanStyle Retail</p>
+            </div>
+
+            <h3 class="mt-5 mb-3">2. Optimize Packaging to Reduce Dimensional Weight</h3>
+            <p>Carriers use a formula called dimensional weight (DIM weight) that considers both size AND weight. A light-but-large box can cost you 2-3x more than necessary. Invest in custom-sized poly mailers or boxes for your most common SKUs. Sometimes switching from a box to a padded envelope can save $3-5 per shipment.</p>
+
+            <div class="content-box p-4 rounded-4 my-5" style="background:linear-gradient(135deg, rgba(30,64,175,0.05), rgba(249,115,22,0.05));">
+              <div class="d-flex gap-3 align-items-start">
+                <div style="width:48px;height:48px;border-radius:12px;background:rgba(249,115,22,0.15);color:var(--secondary);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;"><i class="bi bi-lightbulb"></i></div>
+                <div>
+                  <h5 class="mb-2">Quick Checklist</h5>
+                  <ul class="mb-0" style="color:var(--gray-600);">
+                    <li>Measure your top 10 products individually</li>
+                    <li>Order custom poly mailers in 3 sizes</li>
+                    <li>Use void fill only when truly necessary</li>
+                    <li>Compare DIM weight vs actual weight pricing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="mt-5 mb-3">3. Use Third-Party Insurance When It Makes Sense</h3>
+            <p>Carrier insurance is convenient but typically costs $1-2 per $100 of coverage. Third-party insurers like Shipsurance or ParcelGuard can offer the same coverage for 30-60% less. For high-value shipments, this adds up quickly.</p>
+
+            <h3 class="mt-5 mb-3">4. Mix Regional Carriers with National Services</h3>
+            <p>UPS, FedEx, and ParcelPro are great for nationwide and international shipping, but regional carriers like OnTrac, LaserShip, or LSO often offer lower rates for short-zone deliveries. A hybrid approach can save 15-25% on local shipments.</p>
+
+            <h3 class="mt-5 mb-3">5. Batch Orders to Cut Pickup Fees</h3>
+            <p>Scheduling a single daily pickup instead of multiple pickups throughout the day eliminates extra charges. Most fulfillment teams find that consolidating orders into a 3 PM daily drop-off window works without impacting SLAs.</p>
+
+            <h3 class="mt-5 mb-3">6. Implement a Shipping Rules Engine</h3>
+            <p>Modern e-commerce platforms let you set rules like: "Use cheapest service for orders under $50, use Express for orders over $200, and require signature for high-value electronics." This automation prevents staff from accidentally selecting premium service for standard orders.</p>
+
+            <h3 class="mt-5 mb-3">7. Audit Invoices Every Month</h3>
+            <p>Industry research shows that 3-5% of carrier invoices contain errors: duplicate charges, incorrect zone surcharges, or unapplied discounts. A monthly 30-minute audit can recover hundreds of dollars. ParcelPro customers get free automated auditing built into their dashboards.</p>
+
+            <h3 class="mt-5 mb-3">8. Consider Zone Skipping for Bulk Shipments</h3>
+            <p>If you're sending 50+ parcels to the same metro area, consolidating them into a single freight shipment to a local warehouse and then doing last-mile delivery locally can cut costs by 30-40%. ParcelPro's warehousing network makes this easy to set up.</p>
+
+            <h3 class="mt-5 mb-3">9. Offer Free Shipping Thresholds Strategically</h3>
+            <p>Free shipping is the #1 conversion driver, but you don't have to eat the cost on every order. Set your free-shipping threshold 10-15% above your average order value. This lifts AOV while absorbing shipping through higher revenue per order.</p>
+
+            <h3 class="mt-5 mb-3">10. Track and Review Shipping Metrics Weekly</h3>
+            <p>You can't optimize what you don't measure. Set up a weekly dashboard showing: cost per shipment by service, zone, carrier, and packaging type; damage rate; and delivery-time variance. Small consistent improvements compound into major savings over quarters.</p>
+
+            <h2 class="mt-6 mb-4">Conclusion</h2>
+            <p>Shipping cost optimization isn't about finding one magic trick ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â it's about stacking 5-10 small improvements across your fulfillment pipeline. Start with the two or three tips above that apply most directly to your business, then layer in more over time. Even a 10% reduction in shipping cost goes straight to your bottom line.</p>
+          </div>
+          <div class="blog-tags mt-5 pt-4 border-top">
+            <span class="me-2 fw-semibold">Tags:</span>
+            <a href="#" class="tag">#Shipping</a>
+            <a href="#" class="tag">#Ecommerce</a>
+            <a href="#" class="tag">#CostOptimization</a>
+            <a href="#" class="tag">#Logistics</a>
+            <a href="#" class="tag">#SmallBusiness</a>
+          </div>
+          <div class="blog-share mt-4 d-flex gap-2 align-items-center flex-wrap">
+            <span class="fw-semibold">Share Article:</span>
+            <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-facebook"></i> Facebook</a>
+            <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-twitter-x"></i> Twitter</a>
+            <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-link-45deg"></i> Copy Link</a>
+          </div>
+          <div class="author-card mt-5 p-4 rounded-4" style="background:var(--gray-100);">
+            <div class="d-flex gap-4 align-items-start flex-column flex-sm-row">
+              <div style="width:80px;height:80px;border-radius:24px;background:linear-gradient(135deg, var(--primary), var(--secondary));color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;flex-shrink:0;">A</div>
+              <div>
+                <h5 class="mb-1">Admin Author</h5>
+                <p class="text-primary small mb-3">Senior Logistics Editor | ParcelPro</p>
+                <p class="mb-3">Writer and consultant specializing in e-commerce fulfillment, last-mile delivery optimization, and supply chain strategy. 12+ years in logistics operations.</p>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-globe"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class="mt-5 pt-5 border-top">
+          <h3 class="mb-4" data-aos="fade-up">Related Articles</h3>
+          <div class="row g-4">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+              <article class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/images/ParcelPro_expands_same-day_delivery_2K_202608081923.jpeg" alt="ParcelPro same-day delivery van" />
+                  <span class="blog-category">News</span>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-meta">
+                    <span><i class="bi bi-calendar3"></i> Jul 28, 2026</span>
+                  </div>
+                  <h4><a href="blog-details.html">ParcelPro Expands Same-Day Delivery to 30 More Cities</a></h4>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <article class="blog-card">
+                <div class="blog-card-img">
+                  <img src="assets/images/Domestic_parcel_shipping_services_2K_202608081828.jpeg" alt="Parcel prepared for safe delivery" />
+                  <span class="blog-category">Tips</span>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-meta">
+                    <span><i class="bi bi-calendar3"></i> Jul 15, 2026</span>
+                  </div>
+                  <h4><a href="blog-details.html">How to Package Fragile Items for Safe Shipping</a></h4>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 pt-5 border-top">
+          <h3 class="mb-4" data-aos="fade-up">3 Comments</h3>
+          <div class="comments-list">
+            <div class="comment-card" data-aos="fade-up">
+              <div class="comment-avatar">SM</div>
+              <div class="comment-body">
+                <div class="comment-header"><h5>Sarah Mitchell</h5><span class="comment-date">Aug 03, 2026 at 09:24</span></div>
+                <p>Tip #1 about negotiating with carriers is so true. We did this last quarter and it made a huge difference. Thanks for the practical, actionable guide!</p>
+                <a href="#" class="comment-reply"><i class="bi bi-reply"></i> Reply</a>
+              </div>
+            </div>
+            <div class="comment-card" data-aos="fade-up">
+              <div class="comment-avatar" style="background:linear-gradient(135deg,var(--secondary),var(--secondary-light));">MR</div>
+              <div class="comment-body">
+                <div class="comment-header"><h5>Marco Rossi</h5><span class="comment-date">Aug 02, 2026 at 14:50</span></div>
+                <p>The DIM weight section was gold. We just switched 60% of our apparel orders from boxes to poly mailers and are saving about $4.20 per shipment. Crazy!</p>
+                <a href="#" class="comment-reply"><i class="bi bi-reply"></i> Reply</a>
+              </div>
+            </div>
+            <div class="comment-card" data-aos="fade-up">
+              <div class="comment-avatar" style="background:linear-gradient(135deg,var(--success),#34d399);">RP</div>
+              <div class="comment-body">
+                <div class="comment-header"><h5>Rajesh Patel</h5><span class="comment-date">Aug 02, 2026 at 08:15</span></div>
+                <p>Can you do a follow-up post specifically on international shipping cost optimization? Duties and brokerage fees are where we feel the most pain right now.</p>
+                <a href="#" class="comment-reply"><i class="bi bi-reply"></i> Reply</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 pt-5 border-top" data-aos="fade-up">
+          <h3 class="mb-4">Leave a Reply</h3>
+          <form class="comment-form" onsubmit="event.preventDefault();this.reset();window.showToast('Comment submitted for review!','success');">
+            <div class="row g-3">
+              <div class="col-md-4"><input class="form-control" type="text" placeholder="Your Name" required /></div>
+              <div class="col-md-4"><input class="form-control" type="email" placeholder="Your Email" required /></div>
+              <div class="col-md-4"><input class="form-control" type="url" placeholder="Website (Optional)" /></div>
+              <div class="col-12"><textarea class="form-control" rows="5" placeholder="Your Comment" required></textarea></div>
+              <div class="col-12"><button class="btn btn-primary" type="submit">Post Comment <i class="bi bi-send"></i></button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <aside class="sidebar sticky-top" style="top:100px;">
+          <div class="sidebar-widget" data-aos="fade-up">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search articles..." />
+              <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+            </div>
+          </div>
+          <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="200">
+            <h5 class="widget-title">Recent Posts</h5>
+            <div class="recent-posts">
+              <div class="recent-post">
+                <div class="recent-post-thumb"><i class="bi bi-newspaper"></i></div>
+                <div class="recent-post-body">
+                  <h6><a href="blog-details.html">10 Pro Tips to Reduce Shipping Costs</a></h6>
+                  <span><i class="bi bi-calendar3"></i> Aug 02, 2026</span>
+                </div>
+              </div>
+              <div class="recent-post">
+                <div class="recent-post-thumb" style="background:linear-gradient(135deg,var(--secondary),var(--secondary-light));"><i class="bi bi-truck"></i></div>
+                <div class="recent-post-body">
+                  <h6><a href="blog-details.html">Same-Day Delivery Expansion</a></h6>
+                  <span><i class="bi bi-calendar3"></i> Jul 28, 2026</span>
+                </div>
+              </div>
+              <div class="recent-post">
+                <div class="recent-post-thumb" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);"><i class="bi bi-globe"></i></div>
+                <div class="recent-post-body">
+                  <h6><a href="blog-details.html">Guide to International Customs</a></h6>
+                  <span><i class="bi bi-calendar3"></i> Jul 20, 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-widget" data-aos="fade-up" data-aos-delay="300">
+            <h5 class="widget-title">Popular Tags</h5>
+            <div class="tag-cloud">
+              <a href="#" class="tag">#Shipping</a>
+              <a href="#" class="tag">#Logistics</a>
+              <a href="#" class="tag">#Ecommerce</a>
+              <a href="#" class="tag">#Delivery</a>
+              <a href="#" class="tag">#Courier</a>
+              <a href="#" class="tag">#Warehouse</a>
+              <a href="#" class="tag">#Freight</a>
+              <a href="#" class="tag">#Packaging</a>
+              <a href="#" class="tag">#SupplyChain</a>
+              <a href="#" class="tag">#SmallBusiness</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="service-details.html?id=domestic"><i class="bi bi-caret-right"></i> Domestic Shipping</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> International Shipping</a></li>
+          <li><a href="service-details.html?id=sameday"><i class="bi bi-caret-right"></i> Same Day Delivery</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Express Delivery</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Warehousing</a></li>
+          <li><a href="service-details.html?id=packaging"><i class="bi bi-caret-right"></i> Packaging</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Newsletter</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Subscribe to get updates, offers and logistics tips.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';window.showToast('Subscribed successfully!','success');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>123 Delivery Ave, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (555) 012-4800</span></li>
+          <li><i class="bi bi-envelope"></i><span>hello@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for logistics.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="documentation/index.html">Documentation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

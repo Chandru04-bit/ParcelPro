@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ParcelPro Home 2 — Advanced enterprise courier and fulfillment platform with global routing, ROI planning, vertical-tailored logistics and unified integrations." />
+  <meta name="keywords" content="advanced logistics, enterprise courier, global routing, ROI calculator, fulfillment platform, logistics integrations, 3PL SaaS" />
+  <meta name="author" content="ParcelPro" />
+  <meta property="og:title" content="ParcelPro — Advanced Logistics Platform" />
+  <meta property="og:description" content="Unified multi-carrier platform for scaling teams. Plan ROI, connect any tool, ship to 220+ countries with guaranteed SLAs." />
+  <meta property="og:type" content="website" />
+  <title>ParcelPro — Advanced Courier &amp; Enterprise Logistics Platform</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230ea5e9'%3E%3Cpath d='M3 3h11l5 5v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm11 1.5V7h2.5L14 4.5zM5 11h10v2H5v-2zm0 4h10v2H5v-2zm0-8h7v2H5V7z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    /* ========== Home 2 Advanced Styles ========== */
+    :root {
+      --h2-primary: #0ea5e9;
+      --h2-primary-dark: #0369a1;
+      --h2-accent: #8b5cf6;
+    }
+    .h2-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 160px 0 100px;
+      background:
+        radial-gradient(1000px 600px at 90% -10%, rgba(14,165,233,0.18), transparent 60%),
+        radial-gradient(800px 500px at -10% 10%, rgba(139,92,246,0.16), transparent 60%),
+        linear-gradient(180deg, #f8fbff 0%, #f0f9ff 100%);
+    }
+    .h2-hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(14,165,233,0.08) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(180deg, black, transparent 85%);
+      opacity: 0.6;
+    }
+    .h2-hero-wrap { position: relative; z-index: 2; }
+    .h2-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(14,165,233,0.22);
+      backdrop-filter: blur(10px);
+      font-weight: 600; font-size: 13px;
+      color: #0369a1;
+      box-shadow: 0 8px 24px rgba(14,165,233,0.08);
+    }
+    .h2-kicker i { color: #22c55e; }
+    .h2-hero h1 {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin: 18px 0 18px;
+      color: #0b1220;
+    }
+    .h2-hero h1 .h2-gradient {
+      background: linear-gradient(120deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .h2-hero p.lede {
+      font-size: 18px; line-height: 1.7;
+      color: #475569;
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+    .h2-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+    .h2-btn-primary {
+      background: linear-gradient(120deg, #0ea5e9, #6366f1);
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 12px 26px rgba(99,102,241,0.28);
+      transition: transform .3s ease, box-shadow .3s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+    }
+    .h2-btn-primary:hover { transform: translateY(-2px); color: #fff; box-shadow: 0 16px 30px rgba(99,102,241,0.34); }
+    .h2-btn-outline {
+      background: #fff;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: all .3s ease;
+    }
+    .h2-btn-outline:hover { border-color: #0ea5e9; color: #0369a1; transform: translateY(-2px); }
+    .h2-trust {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      color: #64748b; font-size: 13px;
+    }
+    .h2-trust-stars { color: #f59e0b; letter-spacing: 2px; }
+    .h2-hero-visual { position: relative; height: 100%; min-height: 520px; }
+    .h2-bento {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 90px;
+      gap: 14px;
+      height: 100%;
+    }
+    .h2-bento-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 20px 40px -20px rgba(15,23,42,0.18);
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .h2-bento-card:hover { transform: translateY(-4px); box-shadow: 0 28px 50px -20px rgba(14,165,233,0.25); }
+    .h2-bento-card .stat-num {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .h2-bento-card .stat-label {
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+    .h2-bento-card .stat-up {
+      position: absolute; top: 16px; right: 18px;
+      font-size: 12px; font-weight: 700;
+      background: rgba(34,197,94,0.12); color: #15803d;
+      padding: 4px 10px; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .h2-b1 { grid-column: span 3; grid-row: span 2; background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; border-color: transparent; }
+    .h2-b1 .stat-label { color: rgba(255,255,255,0.8); }
+    .h2-b1 .h2-bento-icon { position: absolute; right: -20px; bottom: -30px; font-size: 140px; opacity: 0.18; }
+    .h2-b2 { grid-column: span 3; grid-row: span 2; }
+    .h2-b3 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, #fdf2f8, #f5f3ff); }
+    .h2-b4 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, #ecfeff, #eff6ff); }
+    .h2-b5 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, #fff7ed, #fef3c7); }
+    .h2-b6 { grid-column: span 6; grid-row: span 2;
+      background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(236,72,153,0.08));
+      display: flex; align-items: center; gap: 20px; }
+    .h2-b6 .live-pill {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.7);
+      animation: h2-pulse 1.8s infinite;
+      flex: 0 0 12px;
+    }
+    @keyframes h2-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+      70% { box-shadow: 0 0 0 14px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .h2-bento-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 8px;
+      background: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 14px;
+    }
+    .h2-b2-head { display:flex; align-items:center; justify-content:space-between; margin-bottom: 8px;}
+    .h2-b2-track { font-weight: 800; letter-spacing: -0.01em; font-size: 18px; }
+    .h2-b2-timeline { position: relative; padding: 12px 0 0 28px; margin-top: 8px; }
+    .h2-b2-timeline::before { content: ""; position: absolute; left: 8px; top: 12px; bottom: 4px; width: 2px; background: linear-gradient(180deg, #0ea5e9, #8b5cf6); border-radius: 2px;}
+    .h2-b2-timeline .step { position: relative; padding-bottom: 14px; }
+    .h2-b2-timeline .step:last-child { padding-bottom: 0; }
+    .h2-b2-timeline .step::before {
+      content:""; position: absolute; left: -24px; top: 4px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #fff; border: 2px solid #0ea5e9;
+    }
+    .h2-b2-timeline .step.active::before { background: #0ea5e9; box-shadow: 0 0 0 5px rgba(14,165,233,0.18); }
+    .h2-b2-timeline .step small { color: #94a3b8; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .h2-b2-timeline .step strong { display: block; font-size: 13px; color: #0f172a; }
+
+    /* ===== Trust strip ===== */
+    .h2-trust-strip {
+      background: linear-gradient(180deg, #f0f9ff, #ffffff);
+      padding: 34px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .h2-trust-strip-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+    }
+    .h2-trust-strip h5 {
+      color: #0f172a; font-weight: 800; font-size: 15px; margin: 0 0 2px;
+    }
+    .h2-trust-strip p { color: #64748b; font-size: 13px; margin: 0; }
+    .h2-trust-marks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 800px;}
+    .h2-mark {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      color: #0f172a; font-weight: 600; font-size: 13px;
+    }
+    .h2-mark i { color: #0ea5e9; font-size: 18px; }
+
+    /* ===== Marquee ===== */
+    .h2-marquee {
+      padding: 28px 0;
+      background: var(--white, #fff);
+      border-block: 1px solid var(--gray-200, #e5e7eb);
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .h2-marquee-track {
+      display: flex;
+      gap: 52px;
+      width: max-content;
+      animation: h2-scroll 38s linear infinite;
+    }
+    .h2-marquee:hover .h2-marquee-track { animation-play-state: paused; }
+    @keyframes h2-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .h2-marquee-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: #94a3b8; font-weight: 700; letter-spacing: -0.01em;
+      font-size: 22px; white-space: nowrap;
+    }
+    .h2-marquee-item i { color: #cbd5e1; }
+
+    /* ===== Section headers ===== */
+    .h2-section { padding: 96px 0; position: relative; }
+    .h2-section-alt { background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%); }
+    .h2-section-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+    .h2-section-head .eyebrow {
+      display: inline-block; padding: 7px 14px;
+      background: rgba(14,165,233,0.1); color: #0369a1;
+      border-radius: 999px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .h2-section-head h2 {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #0b1220;
+      margin: 0 0 14px;
+    }
+    .h2-section-head p { font-size: 17px; color: #64748b; line-height: 1.65; margin: 0; }
+
+    /* ===== Industry verticals ===== */
+    .h2-verticals { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .h2-vertical {
+      grid-column: span 4;
+      position: relative;
+      border-radius: 22px;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--gray-200, #e5e7eb);
+      transition: all .4s ease;
+      overflow: hidden;
+      min-height: 260px;
+    }
+    .h2-vertical:hover { border-color: transparent; transform: translateY(-6px); box-shadow: 0 24px 40px -20px rgba(14,165,233,0.3); }
+    .h2-vertical::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at top right, rgba(14,165,233,0.12), transparent 55%);
+      opacity: 0; transition: opacity .4s ease;
+    }
+    .h2-vertical:hover::after { opacity: 1; }
+    .h2-vertical > * { position: relative; z-index: 1; }
+    .h2-vertical .v-icon {
+      width: 54px; height: 54px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(139,92,246,0.1));
+      color: #0ea5e9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px;
+    }
+    .h2-vertical h4 { font-weight: 800; font-size: 20px; letter-spacing: -0.01em; margin: 0 0 8px; color: #0b1220;}
+    .h2-vertical p { color: #64748b; margin: 0 0 18px; font-size: 14px; line-height: 1.6; }
+    .h2-vertical .v-metrics {
+      display: flex; gap: 18px; border-top: 1px dashed #e2e8f0; padding-top: 16px;
+    }
+    .h2-vertical .v-metric small { display: block; color: #94a3b8; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+    .h2-vertical .v-metric strong { display: block; color: #0ea5e9; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+
+    /* ===== Split section ===== */
+    .h2-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .h2-split-img {
+      position: relative; aspect-ratio: 1 / 1; border-radius: 28px; overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(14,165,233,0.2), rgba(139,92,246,0.2)),
+        radial-gradient(circle at 30% 20%, #bae6fd 0%, transparent 55%),
+        radial-gradient(circle at 70% 80%, #ede9fe 0%, transparent 55%);
+      box-shadow: 0 30px 60px -30px rgba(14,165,233,0.3);
+    }
+    .h2-split-img .h2-split-center {
+      position: absolute; inset: 10%;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 22px 40px -14px rgba(15,23,42,0.2);
+      overflow: hidden;
+    }
+    .h2-split-img .h2-split-center img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 58% 38%;
+    }
+    .h2-split-img .float-tag {
+      position: absolute; z-index: 3;
+      background: #fff; border-radius: 14px; padding: 12px 16px;
+      box-shadow: 0 16px 30px -12px rgba(15,23,42,0.2);
+      display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13px;
+    }
+    .h2-split-img .t1 { top: 28px; left: -6px; animation: floatSlow 5s ease-in-out infinite; }
+    .h2-split-img .t2 { bottom: 34px; right: -6px; animation: floatSlow 5.5s ease-in-out infinite 0.6s; }
+    @keyframes floatSlow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .h2-split-list { list-style: none; padding: 0; margin: 0; }
+    .h2-split-list li { position: relative; padding: 14px 0 14px 60px; border-bottom: 1px solid #e2e8f0; }
+    .h2-split-list li:last-child { border-bottom: none; }
+    .h2-split-list li i {
+      position: absolute; left: 0; top: 14px;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .h2-split-list h5 { margin: 0 0 4px; font-weight: 800; font-size: 16px; color: #0b1220;}
+    .h2-split-list p { margin: 0; color: #64748b; font-size: 14px; line-height: 1.6;}
+
+    /* ===== Integration grid ===== */
+    .h2-intros { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+    .h2-intro {
+      aspect-ratio: 1 / 1;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 6px;
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 18px;
+      transition: all .3s ease; color: #0f172a;
+    }
+    .h2-intro:hover { transform: translateY(-4px); box-shadow: 0 18px 28px -16px rgba(99,102,241,0.35); border-color: #0ea5e9; }
+    .h2-intro i { font-size: 30px; }
+    .h2-intro span { font-weight: 700; font-size: 12px; letter-spacing: 0.01em; }
+
+    /* ===== ROI calculator ===== */
+    .h2-roi {
+      border-radius: 28px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #fff;
+      padding: 42px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 40px 70px -30px rgba(15,23,42,0.5);
+    }
+    .h2-roi::before { content:""; position: absolute; right: -100px; top: -100px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(14,165,233,0.3), transparent 60%); filter: blur(20px); }
+    .h2-roi::after { content:""; position: absolute; left: -80px; bottom: -80px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(236,72,153,0.2), transparent 60%); filter: blur(20px); }
+    .h2-roi > * { position: relative; z-index: 1; }
+    .h2-roi h3 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .h2-roi p.lede { color: rgba(255,255,255,0.72); margin: 0 0 28px; font-size: 15px;}
+    .h2-roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .h2-roi label { display: block; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7); margin: 0 0 8px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .h2-roi input[type=range] { width: 100%; accent-color: #0ea5e9; }
+    .h2-roi-val { display: flex; justify-content: space-between; color: #fff; font-weight: 700; margin: 10px 0 20px; font-size: 14px; }
+    .h2-roi-val strong { color: #7dd3fc; }
+    .h2-roi-result {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 22px;
+    }
+    .h2-roi-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .h2-roi-kpi {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .h2-roi-kpi small { display: block; color: rgba(255,255,255,0.6); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+    .h2-roi-kpi strong { display: block; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px; margin-top: 4px; }
+    .h2-roi-kpi strong.positive { color: #86efac; }
+
+    /* ===== Case study banner ===== */
+    .h2-case {
+      border-radius: 28px; padding: 0; overflow: hidden;
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      background: linear-gradient(135deg, #ecfeff, #ede9fe);
+      border: 1px solid #dbeafe;
+    }
+    .h2-case-text { padding: 44px; }
+    .h2-case-text .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(255,255,255,0.85); color: #0369a1;
+      font-weight: 700; font-size: 12px; border: 1px solid #bae6fd;
+      margin-bottom: 18px;
+    }
+    .h2-case-text h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; margin: 0 0 12px; color: #0b1220;}
+    .h2-case-text p { color: #475569; font-size: 16px; line-height: 1.7; margin: 0 0 22px;}
+    .h2-case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 26px; }
+    .h2-case-metric { background: rgba(255,255,255,0.7); border-radius: 16px; padding: 16px; border: 1px solid #dbeafe; backdrop-filter: blur(10px);}
+    .h2-case-metric small { display: block; color: #64748b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+    .h2-case-metric strong { display: block; color: #0369a1; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; margin-top: 4px;}
+    .h2-case-visual {
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(14,165,233,0.2), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(139,92,246,0.25), transparent 55%);
+      min-height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .h2-case-visual .big-quote {
+      position: relative; z-index: 2;
+      max-width: 80%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 30px 60px -30px rgba(15,23,42,0.3);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+    .h2-case-visual .big-quote i { color: #0ea5e9; font-size: 28px; margin-bottom: 8px; display: block; }
+    .h2-case-visual .big-quote p { color: #0f172a; font-weight: 600; font-size: 15px; line-height: 1.7; margin: 0 0 14px;}
+    .h2-case-visual .big-quote-author { display: flex; align-items: center; gap: 12px; }
+    .h2-case-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800;
+    }
+    .h2-case-avatar-meta small { display: block; color: #64748b; font-size: 11px; font-weight: 700; }
+    .h2-case-avatar-meta strong { display: block; color: #0f172a; font-size: 13px; font-weight: 800; }
+
+    /* ===== Testimonial carousel ===== */
+    .h2-swiper { position: relative; }
+    .h2-testimonial-card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 22px;
+      padding: 32px; height: 100%;
+    }
+    .h2-testimonial-card .stars { color: #f59e0b; margin-bottom: 16px; font-size: 16px; }
+    .h2-testimonial-card blockquote {
+      font-size: 16px; line-height: 1.75; color: #1e293b;
+      margin: 0 0 24px; font-weight: 500;
+    }
+    .h2-testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .h2-testimonial-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; letter-spacing: 0.03em;
+    }
+    .h2-testimonial-info h6 { margin: 0; font-weight: 800; color: #0f172a; font-size: 15px; }
+    .h2-testimonial-info p { margin: 2px 0 0; color: #64748b; font-size: 13px; }
+    .h2-swiper-nav { margin-top: 28px; display: flex; justify-content: center; gap: 12px; align-items: center;}
+    .h2-swiper-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #fff; border: 1px solid #e2e8f0;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #0f172a; cursor: pointer; transition: all .3s ease;
+    }
+    .h2-swiper-btn:hover { border-color: #0ea5e9; color: #0ea5e9; box-shadow: 0 10px 20px -10px rgba(14,165,233,0.3); }
+    .h2-swiper-pagination { display: inline-flex; gap: 8px; padding: 0 8px; }
+    .h2-swiper-pagination .swiper-pagination-bullet { width: 8px; height: 8px; background: #cbd5e1; opacity: 1; transition: all .3s; }
+    .h2-swiper-pagination .swiper-pagination-bullet-active { width: 24px; border-radius: 8px; background: #0ea5e9; }
+
+    /* ===== FAQ ===== */
+    .h2-faq-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
+    .h2-faq-side h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em; margin: 0 0 10px; color: #0b1220;}
+    .h2-faq-side p { color: #64748b; font-size: 16px; line-height: 1.7; margin: 0 0 20px;}
+    .h2-faq-card {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      border-radius: 22px; padding: 28px; color: #fff;
+    }
+    .h2-faq-card h5 { font-weight: 800; font-size: 20px; margin: 0 0 6px;}
+    .h2-faq-card p { opacity: 0.88; margin: 0 0 18px; }
+
+    /* ===== CTA ===== */
+    .h2-cta {
+      border-radius: 30px; padding: 64px 48px;
+      background:
+        radial-gradient(600px 400px at 10% 0%, rgba(139,92,246,0.4), transparent 55%),
+        radial-gradient(700px 500px at 100% 100%, rgba(14,165,233,0.4), transparent 60%),
+        linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff; overflow: hidden;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+      box-shadow: 0 40px 80px -30px rgba(15,23,42,0.6);
+    }
+    .h2-cta-text h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 10px; max-width: 560px;}
+    .h2-cta-text p { margin: 0; color: rgba(255,255,255,0.78); font-size: 17px; max-width: 520px; }
+    .h2-cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .h2-cta-white { background: #fff; color: #0f172a; border-radius: 14px; padding: 14px 22px; font-weight: 700; text-decoration: none; transition: all .3s; }
+    .h2-cta-white:hover { transform: translateY(-2px); box-shadow: 0 12px 20px -10px rgba(0,0,0,0.4); color: #0f172a; }
+    .h2-cta-ghost { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 14px; padding: 14px 22px; font-weight: 700; text-decoration: none; }
+    .h2-cta-ghost:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+    /* ===== Dark mode ===== */
+    [data-theme="dark"] .h2-hero { background: linear-gradient(180deg, #0b1220 0%, #0c1a34 100%); }
+    [data-theme="dark"] .h2-hero h1 { color: #f8fafc; }
+    [data-theme="dark"] .h2-hero p.lede { color: #cbd5e1; }
+    [data-theme="dark"] .h2-kicker { background: rgba(30,41,59,0.7); color: #7dd3fc; border-color: rgba(125,211,252,0.25);}
+    [data-theme="dark"] .h2-bento-card { background: #0f172a; border-color: #1e293b; }
+    [data-theme="dark"] .h2-bento-card .stat-label { color: #94a3b8; }
+    [data-theme="dark"] .h2-bento-card .stat-num { color: #f8fafc; }
+    [data-theme="dark"] .h2-b2-track { color: #f8fafc; }
+    [data-theme="dark"] .h2-b2-timeline .step strong { color: #f8fafc; }
+    [data-theme="dark"] .h2-trust-strip { background: linear-gradient(180deg, #0c1a34, #0b1220); border-bottom-color: #1e293b; }
+    [data-theme="dark"] .h2-trust-strip h5 { color: #f8fafc; }
+    [data-theme="dark"] .h2-mark { background: #0f172a; border-color: #1e293b; color: #f8fafc; }
+    [data-theme="dark"] .h2-section-head h2,
+    [data-theme="dark"] .h2-vertical h4,
+    [data-theme="dark"] .h2-split-list h5 { color: #f8fafc; }
+    [data-theme="dark"] .h2-section { background: #0b1220; }
+    [data-theme="dark"] .h2-section-alt { background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%); }
+    [data-theme="dark"] .h2-vertical { background: #0f172a; border-color: #1e293b; }
+    [data-theme="dark"] .h2-vertical:hover::after { background: radial-gradient(circle at top right, rgba(14,165,233,0.2), transparent 55%); }
+    [data-theme="dark"] .h2-intro { background: #0f172a; border-color: #1e293b; color: #f8fafc; }
+    [data-theme="dark"] .h2-marquee { background: #0b1220; border-block-color: #1e293b; }
+    [data-theme="dark"] .h2-marquee-item { color: #64748b; }
+    [data-theme="dark"] .h2-split-list li { border-bottom-color: #1e293b; }
+    [data-theme="dark"] .h2-split-list p,
+    [data-theme="dark"] .h2-vertical p,
+    [data-theme="dark"] .h2-section-head p,
+    [data-theme="dark"] .h2-faq-side p { color: #94a3b8; }
+    [data-theme="dark"] .h2-case { background: linear-gradient(135deg, #0c1a34, #1e1b4b); border-color: #334155; }
+    [data-theme="dark"] .h2-case-text h3 { color: #f8fafc; }
+    [data-theme="dark"] .h2-case-text p { color: #cbd5e1; }
+    [data-theme="dark"] .h2-case-metric { background: rgba(15,23,42,0.6); border-color: #334155; }
+    [data-theme="dark"] .h2-case-metric strong { color: #7dd3fc; }
+    [data-theme="dark"] .h2-case-visual .big-quote { background: rgba(15,23,42,0.9); border-color: #334155; }
+    [data-theme="dark"] .h2-case-visual .big-quote p { color: #f8fafc; }
+    [data-theme="dark"] .h2-case-avatar-meta strong { color: #f8fafc; }
+    [data-theme="dark"] .h2-testimonial-card { background: #0f172a; border-color: #1e293b; }
+    [data-theme="dark"] .h2-testimonial-card blockquote { color: #e2e8f0; }
+    [data-theme="dark"] .h2-testimonial-info h6 { color: #f8fafc; }
+    [data-theme="dark"] .h2-swiper-btn { background: #0f172a; border-color: #1e293b; color: #f8fafc; }
+    [data-theme="dark"] .h2-swiper-pagination .swiper-pagination-bullet { background: #334155; }
+    [data-theme="dark"] .h2-faq-side h3 { color: #f8fafc; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 991.98px) {
+      .h2-hero { padding: 130px 0 70px; }
+      .h2-hero-visual { min-height: 520px; margin-top: 40px; }
+      .h2-bento { grid-auto-rows: 85px; }
+      .h2-verticals { gap: 14px; }
+      .h2-vertical { grid-column: span 6; min-height: 240px; }
+      .h2-split { grid-template-columns: 1fr; gap: 40px; }
+      .h2-intros { grid-template-columns: repeat(3, 1fr); }
+      .h2-roi-grid { grid-template-columns: 1fr; }
+      .h2-case { grid-template-columns: 1fr; }
+      .h2-case-text { padding: 30px; }
+      .h2-faq-grid { grid-template-columns: 1fr; }
+      .h2-trust-strip-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .h2-trust-marks { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+    }
+    @media (max-width: 575.98px) {
+      .h2-bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 80px; }
+      .h2-b1 { grid-column: span 4; grid-row: span 2; }
+      .h2-b2 { grid-column: span 4; grid-row: span 2; }
+      .h2-b3, .h2-b4, .h2-b5 { grid-column: span 2; grid-row: span 2; }
+      .h2-b6 { grid-column: span 4; grid-row: span 2; flex-direction: column; align-items: flex-start; }
+      .h2-vertical { grid-column: span 12; }
+      .h2-intros { grid-template-columns: repeat(2, 1fr); }
+      .h2-roi { padding: 28px; }
+      .h2-roi-kpis { grid-template-columns: 1fr 1fr; }
+      .h2-cta { padding: 40px 24px; }
+      .h2-cta-text h3 { font-size: 26px; }
+      .h2-case-metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .h2-marquee-track { animation: none; }
+      .h2-split-img .t1, .h2-split-img .t2 { animation: none !important; }
+      .h2-b6 .live-pill { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Advanced Platform</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link" href="login.html">Sign In</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link" href="register.html">Register</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <div class="dropdown d-none d-lg-inline-block" id="authNavMenu">
+        <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right me-1"></i>Sign In</button>
+        <ul class="dropdown-menu dropdown-menu-end rounded-3 border-0 shadow-lg p-2 mt-2">
+          <li><a class="dropdown-item rounded-2" href="login.html"><i class="bi bi-box-arrow-in-right text-primary me-2"></i>User Sign In</a></li>
+          <li><a class="dropdown-item rounded-2" href="register.html"><i class="bi bi-person-plus-fill text-primary me-2"></i>User Sign Up</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO + BENTO ==================== -->
+<section class="h2-hero">
+  <div class="container h2-hero-wrap">
+    <div class="row align-items-center g-5">
+      <div class="col-xl-5 col-lg-6">
+        <span class="h2-kicker" data-aos="fade-down"><i class="bi bi-activity"></i> New · ParcelPro Atlas routing engine v4.2</span>
+        <h1 data-aos="fade-up" data-aos-delay="80">
+          The <span class="h2-gradient">Advanced Logistics</span><br class="d-none d-md-block" />
+          Platform for Teams That Ship at Scale
+        </h1>
+        <p class="lede" data-aos="fade-up" data-aos-delay="140">
+          One unified platform to plan rates across 20+ carriers, orchestrate fulfillment across 14 warehouses, model ROI on every lane, and ship with guaranteed SLAs to 220+ countries.
+        </p>
+        <div class="h2-hero-actions" data-aos="fade-up" data-aos-delay="200">
+          <a href="pricing.html" class="h2-btn-primary">
+            <i class="bi bi-rocket-takeoff-fill"></i> Book ROI Strategy Call
+          </a>
+          <a href="services.html" class="h2-btn-outline">
+            <i class="bi bi-play-circle-fill" style="color:#0ea5e9;"></i> Tour the Platform
+          </a>
+        </div>
+        <div class="h2-trust" data-aos="fade-up" data-aos-delay="280">
+          <span class="h2-trust-stars" aria-label="Rated 4.9 out of 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+          <span>4.9 / 5 from 3,400+ ops teams · SOC2 · GDPR</span>
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-6">
+        <div class="h2-hero-visual" data-aos="fade-left" data-aos-delay="100">
+          <div class="h2-bento">
+            <!-- b1 - Primary stat -->
+            <div class="h2-bento-card h2-b1">
+              <span class="h2-bento-tag">Multi-Carrier Engine</span>
+              <div class="stat-num">$142M</div>
+              <div class="stat-label">Shipped value processed / month</div>
+              <span class="stat-up"><i class="bi bi-arrow-up-right"></i> 38% YoY</span>
+              <i class="bi bi-diagram-3 h2-bento-icon"></i>
+            </div>
+            <!-- b2 - Live tracking timeline -->
+            <div class="h2-bento-card h2-b2">
+              <div class="h2-b2-head">
+                <div class="h2-b2-track" style="display:flex;align-items:center;gap:8px;"><i class="bi bi-broadcast-pin" style="color:#0ea5e9;"></i> ENT-2026-731</div>
+                <span class="badge rounded-pill text-bg-success">Live</span>
+              </div>
+              <small style="color:#94a3b8; font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em;">Real-time Shipment Timeline</small>
+              <div class="h2-b2-timeline">
+                <div class="step"><small>08:12 · Newark</small><strong>Picked up &amp; scanned</strong></div>
+                <div class="step active"><small>10:47 · JFK Hub</small><strong>In transit — global sort</strong></div>
+                <div class="step"><small>14:05 · Heathrow</small><strong>Arriving tomorrow</strong></div>
+              </div>
+            </div>
+            <!-- b3 - Insurance -->
+            <div class="h2-bento-card h2-b3">
+              <span class="stat-up" style="top:14px;"><i class="bi bi-shield-check"></i> Included</span>
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(236,72,153,0.14);color:#db2777;display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><i class="bi bi-shield-lock-fill"></i></div>
+              <div class="stat-num" style="font-size:26px;color:#be185d;">$25K</div>
+              <div class="stat-label">Included insurance per shipment</div>
+            </div>
+            <!-- b4 - SLA -->
+            <div class="h2-bento-card h2-b4">
+              <span class="stat-up" style="top:14px;"><i class="bi bi-graph-up-arrow"></i> 6σ</span>
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(14,165,233,0.14);color:#0369a1;display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><i class="bi bi-clock-history"></i></div>
+              <div class="stat-num" style="font-size:26px;color:#0369a1;">99.98%</div>
+              <div class="stat-label">Guaranteed on-time SLA</div>
+            </div>
+            <!-- b5 - Coverage -->
+            <div class="h2-bento-card h2-b5">
+              <span class="stat-up" style="top:14px; background:rgba(217,119,6,0.12); color:#92400e;"><i class="bi bi-globe-americas"></i> +14 new</span>
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(245,158,11,0.15);color:#b45309;display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><i class="bi bi-globe-central-south-asia"></i></div>
+              <div class="stat-num" style="font-size:26px;color:#b45309;">220+</div>
+              <div class="stat-label">Countries with end-to-end service</div>
+            </div>
+            <!-- b6 - Live events strip -->
+            <div class="h2-bento-card h2-b6">
+              <div class="live-pill" aria-hidden="true"></div>
+              <div>
+                <strong style="display:block;color:#0f172a;font-weight:800;font-size:15px;">18,472 teams routing live right now</strong>
+                <small style="color:#64748b;font-size:13px;">Average savings this hour: 31.6% vs single-carrier rates</small>
+              </div>
+              <div style="margin-left:auto;display:flex;gap:10px;align-items:center;">
+                <span class="badge rounded-pill text-bg-info" style="font-weight:700;padding:6px 10px;">API 18K req/s</span>
+                <span class="badge rounded-pill text-bg-success" style="font-weight:700;padding:6px 10px;">All Systems Green</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TRUST STRIP ==================== -->
+<section class="h2-trust-strip">
+  <div class="container h2-trust-strip-inner">
+    <div data-aos="fade-right">
+      <h5>Certified &amp; Audited Every Quarter</h5>
+      <p>The compliance foundation global operations teams trust.</p>
+    </div>
+    <div class="h2-trust-marks" data-aos="fade-left">
+      <div class="h2-mark"><i class="bi bi-shield-check"></i> SOC 2 Type II</div>
+      <div class="h2-mark"><i class="bi bi-globe-europe-africa"></i> GDPR Compliant</div>
+      <div class="h2-mark"><i class="bi bi-file-lock2"></i> HIPAA Ready</div>
+      <div class="h2-mark"><i class="bi bi-bank2"></i> PCI DSS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MARQUEE ==================== -->
+<section class="h2-marquee" aria-label="Powering brands globally">
+  <div class="h2-marquee-track" id="h2Marquee">
+    <div class="h2-marquee-item"><i class="bi bi-bag-check-fill"></i> SHOPIFY PLUS</div>
+    <div class="h2-marquee-item"><i class="bi bi-soundwave"></i> KLAVIYO</div>
+    <div class="h2-marquee-item"><i class="bi bi-receipt-cutoff"></i> NETSUITE</div>
+    <div class="h2-marquee-item"><i class="bi bi-meta"></i> META ADS</div>
+    <div class="h2-marquee-item"><i class="bi bi-google"></i> GOOGLE ADS</div>
+    <div class="h2-marquee-item"><i class="bi bi-bag-heart-fill"></i> WOOCOMMERCE</div>
+    <div class="h2-marquee-item"><i class="bi bi-amazon"></i> AMAZON MCF</div>
+    <div class="h2-marquee-item"><i class="bi bi-truck"></i> SHIPSTATION</div>
+    <div class="h2-marquee-item"><i class="bi bi-bag-check-fill"></i> SHOPIFY PLUS</div>
+    <div class="h2-marquee-item"><i class="bi bi-soundwave"></i> KLAVIYO</div>
+    <div class="h2-marquee-item"><i class="bi bi-receipt-cutoff"></i> NETSUITE</div>
+    <div class="h2-marquee-item"><i class="bi bi-meta"></i> META ADS</div>
+    <div class="h2-marquee-item"><i class="bi bi-google"></i> GOOGLE ADS</div>
+    <div class="h2-marquee-item"><i class="bi bi-bag-heart-fill"></i> WOOCOMMERCE</div>
+    <div class="h2-marquee-item"><i class="bi bi-amazon"></i> AMAZON MCF</div>
+    <div class="h2-marquee-item"><i class="bi bi-truck"></i> SHIPSTATION</div>
+  </div>
+</section>
+
+<!-- ==================== INDUSTRY VERTICALS ==================== -->
+<section class="h2-section">
+  <div class="container">
+    <div class="h2-section-head" data-aos="fade-up">
+      <span class="eyebrow">Tailored by Vertical</span>
+      <h2>One Platform. Every Logistics Pattern.</h2>
+      <p>From high-velocity DTC to temperature-sensitive pharma, ParcelPro ships the workflows you need with pre-built rules, labels and routing.</p>
+    </div>
+    <div class="h2-verticals">
+      <div class="h2-vertical" data-aos="fade-up" data-aos-delay="0">
+        <div class="v-icon"><i class="bi bi-bag-heart-fill"></i></div>
+        <h4>DTC E-Commerce</h4>
+        <p>Checkout rates, branded tracking, returns portals and 2-day coverage for 95% of regions.</p>
+        <div class="v-metrics">
+          <div class="v-metric"><small>Typical Savings</small><strong>34%</strong></div>
+          <div class="v-metric"><small>Integrations</small><strong>60+</strong></div>
+        </div>
+      </div>
+      <div class="h2-vertical" data-aos="fade-up" data-aos-delay="80">
+        <div class="v-icon" style="color:#8b5cf6;background:linear-gradient(135deg, rgba(139,92,246,0.1), rgba(236,72,153,0.1));"><i class="bi bi-diagram-3-fill"></i></div>
+        <h4>B2B Wholesale</h4>
+        <p>LTL/FTL, pallet labels, EDI, customs, NET30 billing and PO-level visibility.</p>
+        <div class="v-metrics">
+          <div class="v-metric"><small>Lanes</small><strong>14K+</strong></div>
+          <div class="v-metric"><small>EDI Ready</small><strong>Yes</strong></div>
+        </div>
+      </div>
+      <div class="h2-vertical" data-aos="fade-up" data-aos-delay="160">
+        <div class="v-icon" style="color:#16a34a;background:linear-gradient(135deg, rgba(34,197,94,0.1), rgba(14,165,233,0.1));"><i class="bi bi-droplet-half"></i></div>
+        <h4>Healthcare &amp; Pharma</h4>
+        <p>Cold chain, chain-of-custody, serialised compliance and temperature audit trails out of the box.</p>
+        <div class="v-metrics">
+          <div class="v-metric"><small>HIPAA Ready</small><strong>Yes</strong></div>
+          <div class="v-metric"><small>Cold Chain</small><strong>2–8°C</strong></div>
+        </div>
+      </div>
+      <div class="h2-vertical" data-aos="fade-up" data-aos-delay="0">
+        <div class="v-icon" style="color:#f59e0b;background:linear-gradient(135deg, rgba(245,158,11,0.14), rgba(234,88,12,0.12));"><i class="bi bi-gift-fill"></i></div>
+        <h4>Subscription &amp; CPG</h4>
+        <p>Kitting, recurring batches, SKU-level forecasting and predictive pick-schedule suggestions.</p>
+        <div class="v-metrics">
+          <div class="v-metric"><small>Kits / mo</small><strong>Unlimited</strong></div>
+          <div class="v-metric"><small>Forecast</small><strong>AI</strong></div>
+        </div>
+      </div>
+      <div class="h2-vertical" data-aos="fade-up" data-aos-delay="80">
+        <div class="v-icon" style="color:#ef4444;background:linear-gradient(135deg, rgba(239,68,68,0.1), rgba(245,158,11,0.1));"><i class="bi bi-lightning-charge-fill"></i></div>
+        <h4>Marketplaces</h4>
+        <p>Multi-store orchestration for Amazon, Walmart, eBay, TikTok Shop and custom storefronts.</p>
+        <div class="v-metrics">
+          <div class="v-metric"><small>Channels</small><strong>12</strong></div>
+          <div class="v-metric"><small>Sync</small><strong>&lt; 30s</strong></div>
+        </div>
+      </div>
+      <div class="h2-vertical" data-aos="fade-up" data-aos-delay="160">
+        <div class="v-icon" style="color:#0284c7;background:linear-gradient(135deg, rgba(14,165,233,0.12), rgba(99,102,241,0.12));"><i class="bi bi-buildings-fill"></i></div>
+        <h4>Enterprise &amp; 3PL</h4>
+        <p>Multi-tenant dashboards, SSO, role-based access, SOC 2 reporting and bespoke SLAs.</p>
+        <div class="v-metrics">
+          <div class="v-metric"><small>SSO / SAML</small><strong>Yes</strong></div>
+          <div class="v-metric"><small>99.99% Uptime</small><strong>SLA</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SPLIT SECTION ==================== -->
+<section class="h2-section h2-section-alt">
+  <div class="container">
+    <div class="h2-split">
+      <div data-aos="fade-right">
+        <div class="h2-split-img">
+          <span class="float-tag t1"><i class="bi bi-bank2" style="color:#0ea5e9;font-size:18px;"></i> Duties Prepaid</span>
+          <span class="float-tag t2"><i class="bi bi-stars" style="color:#f59e0b;font-size:18px;"></i> Carbon Neutral</span>
+          <div class="h2-split-center">
+            <img src="assets/images/Integration_covering_all_carriers_2K_202608082324.jpeg" alt="Global courier network operations and carrier integration" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+      <div data-aos="fade-left">
+        <span class="eyebrow" style="display:inline-block;padding:7px 14px;background:rgba(14,165,233,0.1);color:#0369a1;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Built for Global Brands</span>
+        <h2 style="font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:600;font-size:clamp(28px,3.6vw,40px);letter-spacing:-0.02em;line-height:1.15;color:#0b1220;margin:0 0 14px;">
+          One Integration. Every Carrier. Every Country.
+        </h2>
+        <p style="font-size:16px;color:#64748b;line-height:1.7;margin:0 0 22px;">
+          Stop juggling carrier contracts. ParcelPro negotiates 20+ carrier rates daily, serves them through a single API, and guarantees the lowest compliant rate for every lane — automatically.
+        </p>
+        <ul class="h2-split-list">
+          <li><i class="bi bi-diagram-3"></i><h5>Smart Rate Shopping</h5><p>Multi-dimensional pricing engine with 40+ cost factors, carrier scorecards and lane-level preferences.</p></li>
+          <li><i class="bi bi-shield-lock"></i><h5>Auto-Compliance &amp; Duties</h5><p>HS codes, commercial invoices, IOSS/VAT registration and landed-cost calculations generated per order.</p></li>
+          <li><i class="bi bi-bell"></i><h5>Live Orchestration Events</h5><p>Webhooks, Slack/SFMC, Teams and email alerts for every exception — before customers call support.</p></li>
+          <li><i class="bi bi-arrow-repeat"></i><h5>Automated Returns Hub</h5><p>Self-serve portal, QR labels, grade-in photos and restock rules, no engineering required.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INTEGRATIONS GRID ==================== -->
+<section class="h2-section">
+  <div class="container">
+    <div class="h2-section-head" data-aos="fade-up">
+      <span class="eyebrow">Integrations</span>
+      <h2>Plug Into Any Stack in Under a Day</h2>
+      <p>Native connectors, open REST API, Zapier support and a dedicated integrations CSM if you need help.</p>
+    </div>
+    <div class="h2-intros" data-aos="fade-up">
+      <div class="h2-intro"><i class="bi bi-bag-check-fill" style="color:#96bf48;"></i><span>Shopify</span></div>
+      <div class="h2-intro"><i class="bi bi-bag-heart-fill" style="color:#96588a;"></i><span>WooCommerce</span></div>
+      <div class="h2-intro"><i class="bi bi-amazon" style="color:#ff9900;"></i><span>Amazon MCF</span></div>
+      <div class="h2-intro"><i class="bi bi-receipt-cutoff" style="color:#2467c4;"></i><span>NetSuite</span></div>
+      <div class="h2-intro"><i class="bi bi-braces" style="color:#ea4c89;"></i><span>REST API</span></div>
+      <div class="h2-intro"><i class="bi bi-meta" style="color:#0081fb;"></i><span>Meta Ads</span></div>
+      <div class="h2-intro"><i class="bi bi-google" style="color:#4285f4;"></i><span>GA4 Events</span></div>
+      <div class="h2-intro"><i class="bi bi-slack" style="color="#a059c5;"></i><span>Slack Alerts</span></div>
+      <div class="h2-intro"><i class="bi bi-table"></i><span>Excel / CSV</span></div>
+      <div class="h2-intro"><i class="bi bi-soundwave"></i><span>Klaviyo</span></div>
+      <div class="h2-intro"><i class="bi bi-zap-fill" style="color:#ff4a00;"></i><span>Zapier</span></div>
+      <div class="h2-intro"><i class="bi bi-code-slash" style="color:#6366f1;"></i><span>Webhooks</span></div>
+      <div class="h2-intro"><i class="bi bi-truck" style="color:#f97316;"></i><span>FedEx</span></div>
+      <div class="h2-intro"><i class="bi bi-truck" style="color:#ba0c2f;"></i><span>DHL</span></div>
+      <div class="h2-intro"><i class="bi bi-truck" style="color:#371777;"></i><span>UPS</span></div>
+      <div class="h2-intro"><i class="bi bi-truck" style="color:#004b87;"></i><span>USPS</span></div>
+      <div class="h2-intro"><i class="bi bi-snow2" style="color:#0284c7;"></i><span>Cold Chain</span></div>
+      <div class="h2-intro"><i class="bi bi-arrow-left-right" style="color:#0ea5e9;"></i><span>EDI (X12)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ROI CALCULATOR ==================== -->
+<section class="h2-section h2-section-alt">
+  <div class="container">
+    <div class="h2-roi" data-aos="zoom-in" data-aos-offset="80">
+      <h3>See Your 12-Month ROI in 30 Seconds</h3>
+      <p class="lede">Move the sliders. We'll benchmark against 1,200+ teams on the same volume + carrier mix.</p>
+
+      <div class="h2-roi-grid">
+        <div id="roiInputs">
+          <div>
+            <label>Average Monthly Shipments</label>
+            <div class="h2-roi-val"><span><span id="roiVolText">2,500</span> shipments/mo</span><strong id="roiVolValue"></strong></div>
+            <input type="range" id="roiVol" min="100" max="50000" value="2500" step="100" />
+          </div>
+          <div>
+            <label>Average Order Value (AOV)</label>
+            <div class="h2-roi-val"><span>$<span id="roiAovText">85</span> AOV</span><strong id="roiAovValue"></strong></div>
+            <input type="range" id="roiAov" min="20" max="1500" value="85" step="5" />
+          </div>
+          <div>
+            <label>Current Cost per Shipment</label>
+            <div class="h2-roi-val"><span>$<span id="roiCostText">9.20</span> / shipment</span><strong id="roiCostValue"></strong></div>
+            <input type="range" id="roiCost" min="2" max="25" value="9.20" step="0.10" />
+          </div>
+          <div>
+            <label>International / Cross-Border Mix</label>
+            <div class="h2-roi-val"><span><span id="roiIntlText">22</span>% of volume</span><strong id="roiIntlValue"></strong></div>
+            <input type="range" id="roiIntl" min="0" max="100" value="22" step="1" />
+          </div>
+        </div>
+        <div class="h2-roi-result">
+          <div class="h2-roi-kpis mb-4">
+            <div class="h2-roi-kpi">
+              <small>Projected 12-mo Savings</small>
+              <strong class="positive" id="roiSavings">$0</strong>
+            </div>
+            <div class="h2-roi-kpi">
+              <small>Projected ROI</small>
+              <strong class="positive" id="roiRoi">0x</strong>
+            </div>
+            <div class="h2-roi-kpi">
+              <small>Break-Even Month</small>
+              <strong id="roiBe">—</strong>
+            </div>
+            <div class="h2-roi-kpi">
+              <small>CSM Included</small>
+              <strong class="positive">Yes</strong>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="contact.html" class="h2-cta-white" style="padding:12px 18px; font-size:14px;"><i class="bi bi-calendar-check-fill me-1"></i> Get Custom Forecast</a>
+            <a href="pricing.html" class="h2-cta-ghost" style="padding:12px 18px; font-size:14px;"><i class="bi bi-arrow-right me-1"></i> Compare Tiers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CASE STUDY ==================== -->
+<section class="h2-section">
+  <div class="container">
+    <div class="h2-case" data-aos="fade-up">
+      <div class="h2-case-text">
+        <span class="eyebrow"><i class="bi bi-award-fill"></i> Case Study · Lumiere Beauty, Series-C DTC</span>
+        <h3>How Lumiere Cut Shipping Costs 31% and WISMO Tickets 72%</h3>
+        <p>We consolidated 3 carriers, switched to zone-skipping for the midwest and launched branded proactive tracking notifications. Results came in within the first full quarter — and compounded from there.</p>
+        <div class="h2-case-metrics">
+          <div class="h2-case-metric"><small>12-mo Savings</small><strong>$180K</strong></div>
+          <div class="h2-case-metric"><small>Delivery SLA</small><strong>99.94%</strong></div>
+          <div class="h2-case-metric"><small>WISMO ↓</small><strong>−72%</strong></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="case-study.html" class="h2-btn-primary" style="padding:12px 20px;font-size:14px;"><i class="bi bi-file-earmark-text"></i> Read Full Case Study</a>
+          <a href="contact.html" class="h2-btn-outline" style="padding:12px 20px;font-size:14px;"><i class="bi bi-chat-dots-fill"></i> Run Our Numbers Next</a>
+        </div>
+      </div>
+      <div class="h2-case-visual">
+        <div class="big-quote">
+          <i class="bi bi-quote"></i>
+          <p>"ParcelPro replaced three tools on our ops stack. Invoices are finally one report, and our CX team answers 72% fewer 'where is my order' tickets. Best migration we've run."</p>
+          <div class="h2-case-visual-author h2-case-avatar-meta-row" style="display:flex;align-items:center;gap:12px;">
+            <div class="h2-case-avatar">AC</div>
+            <div class="h2-case-avatar-meta">
+              <strong>Alex Chen</strong>
+              <small>Head of Operations · Lumiere</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIAL SWIPER ==================== -->
+<section class="h2-section h2-section-alt">
+  <div class="container">
+    <div class="h2-section-head" data-aos="fade-up">
+      <span class="eyebrow">Loved by Operations Teams</span>
+      <h2>Trusted by Brands Shipping Millions of Parcels a Year</h2>
+      <p>Hear from logistics leaders that replaced 3+ tools with one unified platform.</p>
+    </div>
+    <div class="h2-swiper" data-aos="fade-up">
+      <div class="swiper h2-testimonials-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="h2-testimonial-card">
+              <div class="stars" aria-label="5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <blockquote>"The ROI calculator was spot on. We're six months in and already tracking 28% savings vs last year — plus the proactively-branded tracking page cut inbound calls 41%."</blockquote>
+              <div class="h2-testimonial-author">
+                <div class="h2-testimonial-avatar">NH</div>
+                <div class="h2-testimonial-info"><h6>Nadia Hammoud</h6><p>Customer Experience Director · Nordform</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="h2-testimonial-card">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <blockquote>"Our REST API migration took 11 working days, end to end. Webhooks are reliable, sandbox is clean, and the solutions engineer was with us the entire time. Best partner onboarding ever."</blockquote>
+              <div class="h2-testimonial-author">
+                <div class="h2-testimonial-avatar" style="background:linear-gradient(135deg,#22c55e,#0ea5e9);">SD</div>
+                <div class="h2-testimonial-info"><h6>Sanjay Dutta</h6><p>VP Engineering · Sellyo Commerce</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="h2-testimonial-card">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+              <blockquote>"Cross-border VAT, IOSS, HS codes — it was our biggest blocker for EU expansion. ParcelPro automated 90% of the paperwork and we launched 6 countries in 7 weeks."</blockquote>
+              <div class="h2-testimonial-author">
+                <div class="h2-testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">PR</div>
+                <div class="h2-testimonial-info"><h6>Prisha Rao</h6><p>Global Expansion Lead · Bayaari Home</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="h2-testimonial-card">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <blockquote>"Cold chain pharma was a hard requirement. The audit trail and temperature logs we get out of ParcelPro save us days of QA every month. Regulatory reviewers love it."</blockquote>
+              <div class="h2-testimonial-author">
+                <div class="h2-testimonial-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">GO</div>
+                <div class="h2-testimonial-info"><h6>Dr. Gabriela Ortiz</h6><p>QA Director · Medixent Pharma</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="h2-testimonial-card">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <blockquote>"We run 9 marketplaces. ParcelPro is the single source of truth for tracking, claims and finance reconciliations. Month-end close used to be 4 days — now it's half a day."</blockquote>
+              <div class="h2-testimonial-author">
+                <div class="h2-testimonial-avatar" style="background:linear-gradient(135deg,#0ea5e9,#22c55e);">MA</div>
+                <div class="h2-testimonial-info"><h6>Marcus Ahlfors</h6><p>Head of Finance · Marttify Marketplaces</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="h2-testimonial-card">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <blockquote>"Bulk pallet + LTL + small parcel under one roof. We used to juggle four carrier portals; today every report is one click. My team actually likes shipping again."</blockquote>
+              <div class="h2-testimonial-author">
+                <div class="h2-testimonial-avatar" style="background:linear-gradient(135deg,#1e3a8a,#8b5cf6);">JL</div>
+                <div class="h2-testimonial-info"><h6>Jorge Lima</h6><p>Logistics Manager · Tramontana Industrial</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="h2-swiper-nav">
+        <button type="button" class="h2-swiper-btn h2-swiper-prev" aria-label="Previous testimonial"><i class="bi bi-chevron-left"></i></button>
+        <div class="h2-swiper-pagination"></div>
+        <button type="button" class="h2-swiper-btn h2-swiper-next" aria-label="Next testimonial"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section class="h2-section faq-section" id="faq">
+  <div class="container">
+    <div class="h2-faq-grid">
+      <div class="h2-faq-side" data-aos="fade-right">
+        <h3>Answers to the Questions Every Ops Leader Asks</h3>
+        <p>Can't find what you're looking for? Our solutions team runs a free 30-minute blueprint call — no sales pitch, just concrete numbers for your lanes and volumes.</p>
+        <div class="h2-faq-card mt-4">
+          <h5><i class="bi bi-lightbulb-fill me-2"></i> Still evaluating solutions?</h5>
+          <p>We'll compare your current stack side-by-side, including your carrier contracts, in a private report.</p>
+          <a href="contact.html" class="h2-btn-primary" style="padding:12px 20px;font-size:14px;"><i class="bi bi-calendar-event-fill"></i> Book Blueprint Call</a>
+        </div>
+      </div>
+      <div class="accordion" id="h2Accordion" data-aos="fade-left">
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#h2-faq-1" aria-expanded="true" aria-controls="h2-faq-1">
+            How long does a typical enterprise migration take?
+          </button></h2>
+          <div id="h2-faq-1" class="accordion-collapse collapse show" data-bs-parent="#h2Accordion">
+            <div class="accordion-body">Most teams go live in 2–4 weeks. The heavy lift is one single REST integration (or a plug-and-play app for Shopify/WooCommerce/NetSuite), followed by parallel shadow-mode testing on 5–10% of your volume until everyone is comfortable. Your dedicated CSM owns the Gantt chart.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#h2-faq-2" aria-expanded="false" aria-controls="h2-faq-2">
+            Do I lose my existing carrier contracts &amp; volume discounts?
+          </button></h2>
+          <div id="h2-faq-2" class="accordion-collapse collapse" data-bs-parent="#h2Accordion">
+            <div class="accordion-body">Never. You keep 100% of your carrier contracts. We layer on top of them, add 20+ pre-negotiated carrier rates into the same decision engine, and let your routing rules choose the best rate every time — yours or ours.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#h2-faq-3" aria-expanded="false" aria-controls="h2-faq-3">
+            How does the insurance and SLA guarantee actually work?
+          </button></h2>
+          <div id="h2-faq-3" class="accordion-collapse collapse" data-bs-parent="#h2Accordion">
+            <div class="accordion-body">Every parcel includes $25,000 of cargo insurance with no extra forms. You can declare higher values per shipment. On SLA: if we miss a committed delivery window on an eligible lane, we credit that shipment's cost back to your account — on the next invoice, automatically.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#h2-faq-4" aria-expanded="false" aria-controls="h2-faq-4">
+            Do you support cross-border duties, VAT/IOSS and customs?
+          </button></h2>
+          <div id="h2-faq-4" class="accordion-collapse collapse" data-bs-parent="#h2Accordion">
+            <div class="accordion-body">Yes, end-to-end. For every cross-border shipment we generate HS codes, commercial invoices, CN22/CN23, and landed-cost calculations at checkout. We can register and file VAT/IOSS on your behalf for EU and UK, or pass duties to the recipient — whichever you prefer.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#h2-faq-5" aria-expanded="false" aria-controls="h2-faq-5">
+            How is my data handled? Do you support SSO, SAML and audit reports?
+          </button></h2>
+          <div id="h2-faq-5" class="accordion-collapse collapse" data-bs-parent="#h2Accordion">
+            <div class="accordion-body">We're SOC 2 Type II audited, GDPR-compliant and HIPAA-ready. Enterprise tiers include SAML 2.0 / SSO for Okta, Azure AD, Google Workspace and custom IdPs. Detailed audit logs and custom retention windows are available from the Enterprise tier up.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#h2-faq-6" aria-expanded="false" aria-controls="h2-faq-6">
+            Can we try before we buy — without a credit card?
+          </button></h2>
+          <div id="h2-faq-6" class="accordion-collapse collapse" data-bs-parent="#h2Accordion">
+            <div class="accordion-body">Absolutely. Every tier starts with a 14-day free trial with full sandbox access, and we'll load 1,000 complimentary test labels. For Enterprise, a solutions engineer will run a 30-minute blueprint call using your data — your numbers, your lanes, your savings estimate.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="h2-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="h2-cta" data-aos="zoom-in-up" data-aos-offset="80">
+      <div class="h2-cta-text">
+        <h3>Ready to make shipping the easiest part of your stack?</h3>
+        <p>Join 18,472 teams routing live on ParcelPro Atlas. Start free or book a tailored blueprint call with our solutions team.</p>
+      </div>
+      <div class="h2-cta-actions">
+        <a href="register.html" class="h2-cta-white"><i class="bi bi-play-fill"></i> Start Free Trial</a>
+        <a href="contact.html" class="h2-cta-ghost"><i class="bi bi-telephone-fill"></i> Talk to Enterprise Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">The advanced logistics platform for scaling teams. Unified multi-carrier rates, guaranteed SLAs, global routing, and full compliance — one dashboard.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Platform</h5>
+        <ul class="footer-links">
+          <li><a href="home2.html"><i class="bi bi-caret-right"></i> Advanced Home</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Solutions</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> ROI &amp; Pricing</a></li>
+          <li><a href="documentation/index.html" target="_blank" rel="noopener noreferrer"><i class="bi bi-caret-right"></i> API Docs</a></li>
+          <li><a href="tracking.html"><i class="bi bi-caret-right"></i> Live Tracking</a></li>
+          <li><a href="customer-dashboard/dashboard.html"><i class="bi bi-caret-right"></i> Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Solutions</h5>
+        <ul class="footer-links">
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> DTC E-Commerce</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> B2B Wholesale</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> 3PL &amp; Warehousing</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> Cross-Border</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Fulfillment</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Priority &amp; Cold-Chain</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Stay Updated</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Ops playbooks, carrier rate changes and product updates — one concise email per month.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';if(window.showToast){window.showToast('Subscribed successfully!','success');}else{alert('Thanks for subscribing.');}">
+          <input type="email" placeholder="your@company.com" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>550 Harbor Blvd, Suite 1400, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (800) 555-4800 (enterprise line)</span></li>
+          <li><i class="bi bi-envelope"></i><span>enterprise@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro, Inc. All rights reserved. · SOC 2 Type II · GDPR · HIPAA-ready · PCI DSS. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for global ops teams.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/parcelpro-store.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      // ===== ROI Calculator =====
+      var fmt = new Intl.NumberFormat('en-US');
+      var fmtCur = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      var fmtCur2 = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
+
+      var vol = document.getElementById('roiVol');
+      var aov = document.getElementById('roiAov');
+      var cost = document.getElementById('roiCost');
+      var intl = document.getElementById('roiIntl');
+
+      function recalc() {
+        var volVal = Number(vol.value);
+        var aovVal = Number(aov.value);
+        var costVal = Number(cost.value);
+        var intlVal = Number(intl.value);
+
+        document.getElementById('roiVolText').textContent = fmt.format(volVal);
+        document.getElementById('roiAovText').textContent = fmt.format(aovVal);
+        document.getElementById('roiCostText').textContent = costVal.toFixed(2);
+        document.getElementById('roiIntlText').textContent = intlVal;
+
+        var annualShipments = volVal * 12;
+        var avgSavingRate = (0.18 + (intlVal / 100) * 0.18); // up to 36% for cross-border
+        var savedPerShipment = costVal * avgSavingRate;
+        var annualSavings = Math.round(annualShipments * savedPerShipment);
+        var platformCost = 1788 + (volVal > 10000 ? (volVal - 10000) * 0.08 * 12 : 0); // rough scale tier
+        var roi = platformCost > 0 ? (annualSavings / platformCost) : 0;
+        var monthlySaving = annualSavings / 12;
+        var breakEven = monthlySaving > 0 ? Math.max(1, Math.ceil(platformCost / monthlySaving)) : 1;
+
+        document.getElementById('roiSavings').textContent = fmtCur.format(annualSavings);
+        document.getElementById('roiRoi').textContent = (roi >= 10 ? '10+' : roi.toFixed(1)) + 'x';
+        document.getElementById('roiBe').textContent = 'Month ' + breakEven;
+      }
+
+      [vol, aov, cost, intl].forEach(function (el) {
+        el.addEventListener('input', recalc);
+      });
+      recalc();
+
+      // ===== Marquee fallback duplication for true seamless loop if track is short =====
+      var track = document.getElementById('h2Marquee');
+      if (track && track.children.length && track.children.length < 30) {
+        var html = track.innerHTML;
+        track.innerHTML = html + html;
+      }
+
+      // ===== Testimonial Swiper =====
+      if (window.Swiper && document.querySelector('.h2-testimonials-swiper')) {
+        new Swiper('.h2-testimonials-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: { delay: 4800, disableOnInteraction: false },
+          keyboard: { enabled: true },
+          pagination: {
+            el: '.h2-swiper-pagination',
+            clickable: true,
+            bulletElement: 'span',
+          },
+          navigation: {
+            nextEl: '.h2-swiper-next',
+            prevEl: '.h2-swiper-prev',
+          },
+          breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 22 },
+            992: { slidesPerView: 3, spaceBetween: 24 }
+          }
+        });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

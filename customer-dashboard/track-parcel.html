@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Track Parcel | ParcelPro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../assets/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body has-public-navbar">
+  <nav class="customer-navbar" aria-label="Main navigation">
+    <a class="customer-navbar-brand" href="../index.html"><span class="customer-navbar-logo"><i class="bi bi-box-seam-fill"></i></span>Parcel<span>Pro</span></a>
+    <div class="customer-navbar-links">
+      <span class="home-dd">
+    <a class="home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Dashboard <i class="bi bi-chevron-down home-dd-caret"></i>
+    </a>
+    <ul class="home-dd-submenu" role="menu">
+      <li>
+        <a href="../index.html" data-home="1" class="home-dd-link-1" role="menuitem">
+          <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+          <span><strong>Home 1</strong><small>Main landing page</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="../home2.html" data-home="2" class="home-dd-link-2" role="menuitem">
+          <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+          <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+        </a>
+      </li>
+    </ul>
+  </span><a href="my-parcels.html">My Parcels</a><a href="track-parcel.html">Track Parcel</a><a href="profile.html">Profile</a><a href="settings.html">Settings</a>
+    </div>
+    <div class="customer-navbar-actions">
+      <a class="customer-navbar-icon" href="../tracking.html" aria-label="Search"><i class="bi bi-search"></i></a>
+      <button class="customer-navbar-icon" type="button" aria-label="Toggle theme"></button>
+      <span class="customer-navbar-user"><i class="bi bi-person-circle"></i><span data-user-name>User</span></span><button class="customer-navbar-logout" type="button" data-logout>Logout</button>
+    </div>
+  </nav>
+  <aside class="dash-sidebar" aria-label="Customer navigation">
+    <a class="dash-brand" href="dashboard.html"><i class="bi bi-box-seam-fill me-2"></i>ParcelPro</a>
+    <div class="d-flex align-items-center gap-2 rounded-3 border p-2 mb-3">
+      <div class="profile-avatar flex-shrink-0" style="width:42px;height:42px;font-size:1rem" data-user-initials>U</div>
+      <div class="overflow-hidden"><div class="fw-semibold text-truncate" data-user-name>User</div><small class="text-muted text-truncate d-block" data-user-email></small></div>
+    </div>
+    <nav class="dash-nav nav flex-column">
+      <a class="nav-link" href="dashboard.html"><i class="bi bi-grid"></i>Dashboard</a>
+      <a class="nav-link" href="my-parcels.html"><i class="bi bi-box"></i>My Parcels</a>
+      <a class="nav-link active" href="track-parcel.html"><i class="bi bi-search"></i>Track Parcel</a>
+      <a class="nav-link" href="addresses.html"><i class="bi bi-geo-alt"></i>Addresses</a>
+      <a class="nav-link" href="payments.html"><i class="bi bi-credit-card"></i>Payments</a>
+      <a class="nav-link" href="notifications.html"><i class="bi bi-bell"></i>Notifications</a>
+      <a class="nav-link" href="profile.html"><i class="bi bi-person"></i>Profile</a>
+      <a class="nav-link" href="settings.html"><i class="bi bi-gear"></i>Settings</a>
+      <hr>
+      <button class="nav-link text-start border-0 bg-transparent w-100" type="button" data-logout><i class="bi bi-box-arrow-right"></i>Logout</button>
+    </nav>
+  </aside>
+  <div class="sidebar-backdrop"></div>
+
+  <main class="dash-main">
+    <header class="dash-topbar">
+      <button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-muted d-none d-sm-inline">Hello, <span data-user-name>User</span></span>
+        <button class="btn btn-outline-primary btn-sm" type="button" data-logout>Logout</button>
+      </div>
+    </header>
+
+    <section class="dash-content">
+      <h1 class="page-title">Track Parcel</h1>
+      <p class="page-subtitle mb-4">Track your shipment with real-time status updates.</p>
+
+      <div class="card simple-card mb-4">
+        <div class="card-body">
+          <form id="trackForm" onsubmit="handleTrackSearch(event); return false;">
+            <label class="form-label fw-semibold" for="trackInput">Tracking ID</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="bi bi-truck"></i></span>
+              <input class="form-control" id="trackInput" placeholder="Enter tracking ID (e.g. PK20258432A)" autocomplete="off" maxlength="25">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-search me-1"></i> Track</button>
+            </div>
+            <div class="d-flex flex-wrap gap-2 align-items-center">
+              <span class="text-muted small fw-semibold">Try demo ID:</span>
+              <button type="button" class="btn btn-outline-secondary btn-sm" onclick="loadDemoTracking('PK20258432A')">PK20258432A</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="trackingResultCard" style="display:none;" class="card simple-card mb-4">
+        <div class="card-body">
+          <div class="row g-4 mb-4 align-items-center">
+            <div class="col-md-8">
+              <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-primary bg-opacity-10 text-primary small fw-bold mb-2">
+                <i class="bi bi-geo-alt-fill"></i> LIVE TRACKING
+              </div>
+              <div class="d-flex flex-wrap align-items-center gap-3 mb-2">
+                <h2 class="h4 mb-0">Shipment Tracking</h2>
+                <span class="status-badge" id="trackStatusBadge">Order Placed</span>
+              </div>
+              <div class="d-flex flex-wrap align-items-center gap-2">
+                <span class="text-muted fw-semibold">Tracking ID:</span>
+                <span class="fw-bold fs-5" id="trackResultId">—</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="border rounded-3 p-3 bg-light">
+                <div class="text-muted small text-uppercase fw-bold mb-1">Last Updated</div>
+                <div class="fw-bold" id="trackLastUpdated">—</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-lg-3"><div class="card simple-card h-100"><div class="card-body"><div class="text-muted small text-uppercase fw-bold mb-1">Service</div><div class="fw-bold" id="trackService">—</div></div></div></div>
+            <div class="col-sm-6 col-lg-3"><div class="card simple-card h-100"><div class="card-body"><div class="text-muted small text-uppercase fw-bold mb-1">Weight</div><div class="fw-bold" id="trackWeight">—</div></div></div></div>
+            <div class="col-sm-6 col-lg-3"><div class="card simple-card h-100"><div class="card-body"><div class="text-muted small text-uppercase fw-bold mb-1">Distance</div><div class="fw-bold" id="trackDistance">—</div></div></div></div>
+            <div class="col-sm-6 col-lg-3"><div class="card simple-card h-100"><div class="card-body"><div class="text-muted small text-uppercase fw-bold mb-1">ETA Delivery</div><div class="fw-bold text-secondary" id="trackEta">—</div></div></div></div>
+          </div>
+
+          <div class="row g-4 mb-4">
+            <div class="col-lg-5">
+              <div class="card simple-card h-100">
+                <div class="card-body">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="rounded-circle bg-primary bg-opacity-10 p-2 text-primary"><i class="bi bi-geo-alt-fill"></i></div>
+                    <div>
+                      <div class="text-muted small text-uppercase fw-bold">From</div>
+                      <div class="fw-bold" id="trackFromCity">—</div>
+                    </div>
+                  </div>
+                  <div class="ms-2 ps-3 border-start border-dashed py-2">
+                    <div class="text-muted small mb-2"><i class="bi bi-truck me-1"></i> In transit</div>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="rounded-circle bg-secondary bg-opacity-10 p-2 text-secondary"><i class="bi bi-geo-fill"></i></div>
+                    <div>
+                      <div class="text-muted small text-uppercase fw-bold">To</div>
+                      <div class="fw-bold" id="trackToCity">—</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card simple-card h-100">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-3">
+                    <div>
+                      <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-secondary bg-opacity-10 text-secondary small fw-bold mb-1">
+                        <i class="bi bi-clock-history"></i> SHIPMENT TIMELINE
+                      </div>
+                      <h3 class="h5 mb-0">Status Updates</h3>
+                    </div>
+                    <div class="text-muted small fw-semibold"><i class="bi bi-arrow-down-short"></i> Newest first</div>
+                  </div>
+                  <div id="trackingTimeline"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card simple-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-person-lines-fill text-primary"></i>
+                <h3 class="h5 mb-0">Recipient Details</h3>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-4"><div class="border rounded-3 p-3"><div class="text-muted small text-uppercase fw-bold mb-1">Name</div><div class="fw-bold" id="trackRecName">—</div></div></div>
+                <div class="col-md-4"><div class="border rounded-3 p-3"><div class="text-muted small text-uppercase fw-bold mb-1">Phone</div><div class="fw-bold" id="trackRecPhone">—</div></div></div>
+                <div class="col-md-4"><div class="border rounded-3 p-3"><div class="text-muted small text-uppercase fw-bold mb-1">Address</div><div class="fw-bold" id="trackRecAddress">—</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="trackingEmptyState" class="card simple-card">
+        <div class="card-body text-center py-5">
+          <div class="rounded-3 bg-primary bg-opacity-10 d-inline-flex align-items-center justify-content-center p-4 mb-3">
+            <i class="bi bi-search fs-1 text-primary"></i>
+          </div>
+          <h2 class="h4 mb-2">Enter a Tracking Number</h2>
+          <p class="text-muted mb-4">Paste your tracking ID above or click the demo ID PK20258432A to see a sample shipment.</p>
+          <button type="button" class="btn btn-primary" onclick="loadDemoTracking('PK20258432A')"><i class="bi bi-play-circle me-1"></i> Load Demo Shipment</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal fade" id="parcelDetailsModal" tabindex="-1" aria-labelledby="parcelDetailsTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="parcelDetailsTitle">Parcel Details</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body" id="parcelDetailsContent"></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="appToast" class="toast border-0" role="status" aria-live="polite" aria-atomic="true"><div class="d-flex"><div class="toast-body"></div><button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/parcelpro-store.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/user-dashboard.js"></script>
+  <script>
+    function formatDate(iso) {
+      try {
+        const d = new Date(iso);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+      } catch (e) { return '—'; }
+    }
+    function statusBadgeClass(status) {
+      const s = String(status).toLowerCase().replace(/\s+/g, '-');
+      const map = {
+        'delivered': 'status-delivered',
+        'out-for-delivery': 'status-out-for-delivery',
+        'in-transit': 'status-in-transit',
+        'picked-up': 'status-picked-up',
+        'order-placed': 'status-order-placed'
+      };
+      return map[s] || 'status-order-placed';
+    }
+    function renderTimeline(timeline) {
+      const items = [...(timeline || [])].reverse();
+      return items.map(t => {
+        const classes = ['tl-item'];
+        if (t.done) classes.push('done');
+        if (t.active) classes.push('active');
+        const icon = t.done ? 'bi-check2' : (t.active ? 'bi-clock-fill' : 'bi-circle');
+        return `
+          <div class="${classes.join(' ')}" style="position:relative; display:grid; grid-template-columns:44px 1fr; gap:16px; padding-bottom:26px;">
+            <div style="position:absolute; left:21px; top:44px; bottom:0; width:2px; background:rgba(100,116,139,0.18);"></div>
+            <div style="width:44px; height:44px; border-radius:50%; background:#f1f5f9; color:#94a3b8; display:flex; align-items:center; justify-content:center; border:3px solid #fff; position:relative; z-index:1; ${t.done ? 'background:#1e40af; color:#fff;' : ''} ${t.active ? 'background:#f97316; color:#fff; box-shadow:0 0 0 6px rgba(249,115,22,0.15);' : ''}">
+              <i class="bi ${icon}"></i>
+            </div>
+            <div style="border:1px solid #e2e8f0; border-radius:15px; padding:16px 18px; ${t.active ? 'border-color:rgba(249,115,22,0.35); box-shadow:0 4px 16px rgba(249,115,22,0.1);' : ''}">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="fw-bold">${t.status}</div>
+                <div class="text-muted small fw-semibold">${formatDate(t.date)}</div>
+              </div>
+              <div class="mt-1" style="color:#64748b; font-weight:600; font-size:13px;">${t.location}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    function ensureDemoParcel() {
+      const store = window.ParcelProStore;
+      if (!store) return null;
+      const existing = store.getById('PK20258432A');
+      if (existing) return existing;
+      return store.create({
+        id: 'PK20258432A',
+        trackingId: 'PK20258432A',
+        receiverName: 'Emma Johnson',
+        receiverPhone: '+1 (555) 234-5678',
+        pickupCity: 'New York',
+        deliveryCity: 'Los Angeles',
+        pickupAddress: '250 Broadway, New York, NY 10007',
+        receiverAddress: '1200 Wilshire Blvd, Los Angeles, CA 90017',
+        weight: 3.5,
+        deliveryType: 'Express Domestic',
+        serviceLevel: 'Express Domestic',
+        status: 'In Transit',
+        locations: { pickupCity: 'New York', hubCity: 'Chicago', deliveryCity: 'Los Angeles' },
+        createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+        paymentStatus: 'Paid'
+      });
+    }
+    function displayTracking(parcel) {
+      if (!parcel) return;
+      document.getElementById('trackingEmptyState').style.display = 'none';
+      document.getElementById('trackingResultCard').style.display = 'block';
+      const el = (id) => document.getElementById(id);
+      el('trackResultId').textContent = parcel.trackingId || parcel.id;
+      const badge = el('trackStatusBadge');
+      badge.textContent = parcel.status;
+      badge.className = 'status-badge ' + statusBadgeClass(parcel.status);
+      el('trackLastUpdated').textContent = formatDate(parcel.updatedAt || parcel.createdAt);
+      el('trackService').textContent = parcel.deliveryType || 'Standard';
+      el('trackWeight').textContent = (parcel.weight || parcel.quote?.weight || 1) + ' kg';
+      const quote = parcel.quote || {};
+      el('trackDistance').textContent = (quote.distance || 500) + ' km';
+      el('trackEta').textContent = parcel.eta || quote.etaText || '2-3 days';
+      el('trackFromCity').textContent = parcel.pickupCity || parcel.pickup || 'Sender';
+      el('trackToCity').textContent = parcel.deliveryCity || parcel.delivery || 'Recipient';
+      el('trackRecName').textContent = parcel.receiverName || 'N/A';
+      el('trackRecPhone').textContent = parcel.receiverPhone || 'N/A';
+      el('trackRecAddress').textContent = parcel.receiverAddress || parcel.delivery || 'N/A';
+      const timeline = parcel.timeline && parcel.timeline.length ? parcel.timeline : (window.ParcelProStore ? window.ParcelProStore.buildTimeline(parcel) : []);
+      el('trackingTimeline').innerHTML = renderTimeline(timeline);
+    }
+    function handleTrackSearch(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('trackInput');
+      const id = (input.value || '').trim();
+      if (!id) return;
+      const store = window.ParcelProStore;
+      let p = store ? store.getById(id) : null;
+      if (!p) { showToast('No parcel found with ID: ' + id, 'danger'); return; }
+      displayTracking(p);
+    }
+    function loadDemoTracking(id) {
+      const store = window.ParcelProStore;
+      if (!store) return;
+      let p = store.getById(id);
+      if (!p) p = ensureDemoParcel();
+      document.getElementById('trackInput').value = p.trackingId || p.id;
+      displayTracking(p);
+    }
+    function showToast(msg, type) {
+      const el = document.getElementById('appToast');
+      if (!el) return;
+      el.querySelector('.toast-body').textContent = msg;
+      el.classList.remove('text-bg-primary','text-bg-success','text-bg-danger','text-bg-warning');
+      el.classList.add('text-bg-' + (type || 'primary'));
+      try { bootstrap.Toast.getOrCreateInstance(el).show(); } catch(e) {}
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      ensureDemoParcel();
+    });
+  </script>
+</body>
+</html>

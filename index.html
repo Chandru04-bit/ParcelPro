@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ParcelPro - Modern Courier & Parcel Drop-Off Center HTML Template with Customer Dashboard and Admin Panel for logistics and delivery services." />
+  <meta name="keywords" content="courier, parcel, logistics, delivery, shipping, warehouse, freight, tracking, drop-off, template" />
+  <meta name="author" content="ParcelPro" />
+  <meta property="og:title" content="ParcelPro - Courier & Parcel Drop-Off Center" />
+  <meta property="og:description" content="Premium courier and parcel management HTML template with dashboards." />
+  <meta property="og:type" content="website" />
+  <title>ParcelPro - Courier & Parcel Drop-Off Center HTML Template</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/partners.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle active" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link" href="login.html">Sign In</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link" href="register.html">Register</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" type="button" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <div class="dropdown d-none d-lg-inline-block" id="authNavMenu">
+        <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right me-1"></i>Sign In</button>
+        <ul class="dropdown-menu dropdown-menu-end rounded-3 border-0 shadow-lg p-2 mt-2">
+          <li><a class="dropdown-item rounded-2" href="login.html"><i class="bi bi-box-arrow-in-right text-primary me-2"></i>User Sign In</a></li>
+          <li><a class="dropdown-item rounded-2" href="register.html"><i class="bi bi-person-plus-fill text-primary me-2"></i>User Sign Up</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 col-xl-5">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="bi bi-stars"></i> Trusted by 50,000+ businesses
+          </div>
+          <h1 class="hero-title">Fast & Reliable <span class="gradient-text">Courier & Parcel</span> Delivery Services</h1>
+          <p class="hero-desc">Ship parcels worldwide with confidence. Track real-time, get instant quotes, and enjoy door-to-door pickup and drop-off services across 220+ countries.</p>
+          <div class="mt-4 mb-4">
+            <a href="booking.html" class="btn btn-secondary btn-lg">
+              <i class="bi bi-box-seam me-2"></i> Book a New Parcel
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-icon blue"><i class="bi bi-box-seam"></i></div>
+              <div><h4 data-count="2500000" data-suffix="+">0</h4><p>Parcels Delivered</p></div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-icon orange"><i class="bi bi-emoji-smile"></i></div>
+              <div><h4 data-count="185000" data-suffix="+">0</h4><p>Happy Clients</p></div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-icon green"><i class="bi bi-globe-americas"></i></div>
+              <div><h4 data-count="220" data-suffix="+">0</h4><p>Countries Served</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xl-7">
+        <div class="hero-image">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-main" style="min-height:480px;">
+              <img src="assets/images/hero section image .jpeg" alt="Courier handing a parcel to a customer" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section">
+  <div class="container">
+    <div class="booking-card">
+      <div class="row g-3 align-items-start">
+        <div class="col-lg-3">
+          <h4 class="mb-1">Instant Booking</h4>
+          <p class="mb-0" style="color:var(--gray-500);font-size:14px;">Get a quote & book in 60 seconds</p>
+        </div>
+        <div class="col-lg-9">
+          <div class="booking-tabs mb-0 mb-lg-3" id="deliveryTypeTabs">
+            <button class="booking-tab active" data-type="Domestic"><i class="bi bi-box-seam me-2"></i>Domestic</button>
+            <button class="booking-tab" data-type="International"><i class="bi bi-globe me-2"></i>International</button>
+            <button class="booking-tab" data-type="Same Day"><i class="bi bi-lightning me-2"></i>Same Day</button>
+          </div>
+          <form class="booking-form" id="instantBookingForm" data-validate="true" novalidate>
+            <div class="form-group">
+              <label>Pickup City <span class="required">*</span></label>
+              <select class="form-select" name="pickup" id="pickupCity" required>
+                <option value="">Select City</option>
+                <option>New York</option><option>Los Angeles</option><option>Chicago</option>
+                <option>Houston</option><option>Phoenix</option><option>London</option><option>Berlin</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Delivery City <span class="required">*</span></label>
+              <select class="form-select" name="delivery" id="deliveryCity" required>
+                <option value="">Select City</option>
+                <option>New York</option><option>Los Angeles</option><option>Chicago</option>
+                <option>Houston</option><option>Phoenix</option><option>Paris</option><option>Tokyo</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Weight (kg) <span class="required">*</span></label>
+              <input class="form-control" type="number" min="0.5" step="0.5" placeholder="2.5" required id="calcWeight" />
+            </div>
+            <div class="submit-wrap">
+              <button type="submit" class="btn btn-secondary btn-lg" id="getQuoteBtn">
+                <i class="bi bi-calculator"></i> Get Quote
+              </button>
+            </div>
+          </form>
+          <div id="quoteResult" class="mt-4" style="display:none;">
+            <div class="p-4 rounded-4 animate-fade-in-up" style="background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(249,115,22,0.08)); border: 1px solid rgba(30,64,175,0.15);">
+              <div class="d-flex align-items-center mb-3">
+                <div style="width:40px;height:40px;border-radius:12px;background:#10b981;color:#fff;display:flex;align-items:center;justify-content:center;margin-right:12px;"><i class="bi bi-check2" style="font-size:22px;"></i></div>
+                <div>
+                  <div style="font-size:13px;color:#64748b;font-weight:600;">QUOTE GENERATED</div>
+                  <div style="font-size:16px;font-weight:800;color:#0f172a;">Your instant delivery quote</div>
+                </div>
+              </div>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-md-3">
+                  <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Distance</div>
+                  <div id="quoteDistance" style="font-weight:800;color:#0f172a;">—</div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Weight</div>
+                  <div id="quoteWeight" style="font-weight:800;color:#0f172a;">—</div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Service</div>
+                  <div id="quoteService" style="font-weight:800;color:#1e40af;">—</div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:1px;font-weight:700;">ETA</div>
+                  <div id="quoteEta" style="font-weight:800;color:#f97316;">—</div>
+                </div>
+              </div>
+              <div class="row g-2 mb-4 small">
+                <div class="col-12 d-flex justify-content-between"><span style="color:#64748b;">Base Price:</span><strong>$<span id="quoteBase">0</span></strong></div>
+                <div class="col-12 d-flex justify-content-between"><span style="color:#64748b;">Distance Charge:</span><strong>$<span id="quoteDistCharge">0</span></strong></div>
+                <div class="col-12 d-flex justify-content-between"><span style="color:#64748b;">Weight Charge:</span><strong>$<span id="quoteWeightCharge">0</span></strong></div>
+                <hr style="border-color:rgba(0,0,0,0.08);margin:6px 0;">
+                <div class="col-12 d-flex justify-content-between align-items-center">
+                  <span style="font-size:16px;font-weight:800;color:#0f172a;">Total Price:</span>
+                  <span style="font-size:32px;font-weight:900;background:linear-gradient(135deg, var(--primary), var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">$<span id="quoteTotal">0</span></span>
+                </div>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <button type="button" class="btn btn-primary btn-lg" id="proceedToBookBtn">
+                  <i class="bi bi-arrow-right-circle me-1"></i> Proceed to Book
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg" id="resetQuoteBtn">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Recalculate
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tracking-section" id="tracking">
+  <div class="container">
+    <div class="tracking-card text-center">
+      <div class="section-header mb-4">
+        <span class="sub-title" style="background:rgba(255,255,255,0.15);color:#fff;">Track Order</span>
+        <h2 class="text-white">Track Your Parcel in Real-Time</h2>
+        <p class="desc">Enter your tracking number to get instant updates on your shipment status and location.</p>
+      </div>
+      <form class="track-input-wrap" onsubmit="ParcelPro.trackShipment();return false;">
+        <i class="bi bi-truck track-icon"></i>
+        <input id="trackInput" type="text" placeholder="Enter tracking number (e.g. PK20258432A)" data-rules="tracking" />
+        <button type="submit" class="btn btn-secondary">
+          <i class="bi bi-search"></i> Track
+        </button>
+      </form>
+      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap" style="position:relative;z-index:2;">
+        <span style="color:rgba(255,255,255,0.7);font-size:13px;">Try examples:</span>
+        <a href="javascript:ParcelPro.trackShipment('PK20258432A')" style="color:#fff;font-size:13px;font-weight:600;">PK20258432A</a>
+        <a href="javascript:ParcelPro.trackShipment('PX9876EXPRESS')" style="color:#fff;font-size:13px;font-weight:600;">PX9876EXPRESS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Why Choose Us</span>
+      <h2>We Deliver Excellence, <br class="d-none d-md-block" /> Every Single Time</h2>
+      <p>From swift pickup to secure final delivery, our end-to-end logistics platform guarantees peace of mind with every parcel.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-card">
+          <div class="feature-icon blue"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h4>Express Delivery</h4>
+          <p>Same-day and next-day delivery options for urgent shipments with priority handling.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
+          <div class="feature-icon orange"><i class="bi bi-shield-check"></i></div>
+          <h4>Insured Shipping</h4>
+          <p>All shipments come with full insurance coverage up to $5,000 for total peace of mind.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
+          <div class="feature-icon green"><i class="bi bi-geo-alt-fill"></i></div>
+          <h4>Global Coverage</h4>
+          <p>Reliable delivery to 220+ countries worldwide via our trusted logistics network.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card">
+          <div class="feature-icon purple"><i class="bi bi-headset"></i></div>
+          <h4>24/7 Support</h4>
+          <p>Round-the-clock customer support with real human agents ready to help anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-section section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Our Services</span>
+      <h2>Comprehensive Courier & Logistics Solutions</h2>
+      <p>Whether it's a document across town or a pallet across oceans, we have the right service for every need.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="assets/images/Domestic_parcel_shipping_services_2K_202608081828.jpeg" alt="Domestic Shipping - Courier delivering parcel to doorstep" loading="lazy" decoding="async" width="400" height="300" />
+          </div>
+          <div class="service-card-body">
+            <span class="service-tag">POPULAR</span>
+            <h4>Domestic Shipping</h4>
+            <p>Fast and economical parcel delivery within your country with multiple service tiers.</p>
+            <a href="service-details.html?id=domestic" class="service-card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="assets\images\International_shipping_with_cust…_2K_202608081830.jpeg" alt="International Shipping - Global cargo airplane and worldwide logistics network" loading="lazy" decoding="async" width="400" height="300" />
+          </div>
+          <div class="service-card-body">
+            <span class="service-tag">WORLDWIDE</span>
+            <h4>International Shipping</h4>
+            <p>Secure and efficient cross-border shipping with customs clearance included.</p>
+            <a href="service-details.html?id=international" class="service-card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="assets/images/Same_day_delivery_service_2K_202608081835.jpeg" alt="Same Day Delivery - Urgent fast delivery van with speed motion" loading="lazy" decoding="async" width="400" height="300" />
+          </div>
+          <div class="service-card-body">
+            <span class="service-tag">URGENT</span>
+            <h4>Same Day Delivery</h4>
+            <p>Time-critical shipments picked up and delivered within hours, any day of the week.</p>
+            <a href="service-details.html?id=sameday" class="service-card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="assets/images/Fast_express_delivery_guarantees_2K_202608081901.jpeg" alt="Express Delivery - Fast drone delivery with priority shipping badge" loading="lazy" decoding="async" width="400" height="300" />
+          </div>
+          <div class="service-card-body">
+            <span class="service-tag">FAST</span>
+            <h4>Express Delivery</h4>
+            <p>Next-day and 2-day delivery guarantees with priority handling at every facility.</p>
+            <a href="service-details.html?id=express" class="service-card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="assets\images\Secure_warehousing_with_inventor…_2K_202608081903.jpeg" alt="Warehouse Services - Logistics warehouse with storage racks and forklift" loading="lazy" decoding="async" width="400" height="300" />
+          </div>
+          <div class="service-card-body">
+            <span class="service-tag">STORAGE</span>
+            <h4>Warehousing</h4>
+            <p>Secure, climate-controlled storage facilities with inventory management.</p>
+            <a href="service-details.html?id=warehouse" class="service-card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="assets/images/Professional_packaging_service_2K_202608081904.jpeg" alt="Packaging Service - Professional packaging station with boxes and fragile labels" loading="lazy" decoding="async" width="400" height="300" />
+          </div>
+          <div class="service-card-body">
+            <span class="service-tag">PREMIUM</span>
+            <h4>Packaging Service</h4>
+            <p>Professional packaging for fragile, high-value, and special-handling items.</p>
+            <a href="service-details.html?id=packaging" class="service-card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="services.html" class="btn btn-outline-primary btn-lg">View All Services <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Pricing Plans</span>
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Pick the plan that fits your shipping volume. Cancel or upgrade anytime - no hidden fees.</p>
+    </div>
+    <div class="row g-4 justify-content-center align-items-stretch">
+      <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="0">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-icon" style="background:rgba(30,64,175,0.1);color:var(--primary);"><i class="bi bi-person"></i></div>
+            <div class="plan-name">Starter</div>
+            <div class="pricing-amount"><span class="currency">$</span>29<span class="period">/mo</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="bi bi-check-lg"></i> Up to 50 shipments / month</li>
+            <li><i class="bi bi-check-lg"></i> Domestic Delivery</li>
+            <li><i class="bi bi-check-lg"></i> Email Support</li>
+            <li><i class="bi bi-check-lg"></i> Basic Tracking</li>
+            <li class="disabled"><i class="bi bi-x-lg"></i> International Shipping</li>
+            <li class="disabled"><i class="bi bi-x-lg"></i> Priority Pickup</li>
+          </ul>
+          <a href="register.html" class="btn btn-outline-primary w-100">Get Started</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="pricing-card featured">
+          <div class="pricing-header">
+            <div class="pricing-icon" style="background:rgba(249,115,22,0.1);color:var(--secondary);"><i class="bi bi-briefcase"></i></div>
+            <div class="plan-name">Business</div>
+            <div class="pricing-amount"><span class="currency">$</span>79<span class="period">/mo</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="bi bi-check-lg"></i> Up to 500 shipments / month</li>
+            <li><i class="bi bi-check-lg"></i> Domestic + International</li>
+            <li><i class="bi bi-check-lg"></i> Priority Email + Chat Support</li>
+            <li><i class="bi bi-check-lg"></i> Advanced Tracking + API</li>
+            <li><i class="bi bi-check-lg"></i> Pickup Scheduling</li>
+            <li class="disabled"><i class="bi bi-x-lg"></i> Dedicated Account Manager</li>
+          </ul>
+          <a href="register.html" class="btn btn-primary w-100">Get Started</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;"><i class="bi bi-building"></i></div>
+            <div class="plan-name">Enterprise</div>
+            <div class="pricing-amount"><span class="currency">$</span>199<span class="period">/mo</span></div>
+          </div>
+          <ul class="pricing-features">
+            <li><i class="bi bi-check-lg"></i> Unlimited shipments</li>
+            <li><i class="bi bi-check-lg"></i> All Services Included</li>
+            <li><i class="bi bi-check-lg"></i> 24/7 Phone + Priority Support</li>
+            <li><i class="bi bi-check-lg"></i> Custom API + Webhooks</li>
+            <li><i class="bi bi-check-lg"></i> Warehousing Discounts</li>
+            <li><i class="bi bi-check-lg"></i> Dedicated Account Manager</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline-primary w-100">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">How It Works</span>
+      <h2>Shipping in 4 Simple Steps</h2>
+      <p>Book, schedule, track, and receive. Ship parcels without the hassle - it's really that simple.</p>
+    </div>
+    <div class="row g-0 align-items-stretch">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="bi bi-laptop"></i></div>
+          <h4>Book Online</h4>
+          <p>Enter pickup & delivery details, choose a service, and get an instant quote in seconds.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="bi bi-calendar-check"></i></div>
+          <h4>Pickup Scheduled</h4>
+          <p>Our courier arrives at your doorstep at the scheduled time to collect your parcel.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="bi bi-geo"></i></div>
+          <h4>Track Live</h4>
+          <p>Follow your shipment in real-time with detailed status updates at every checkpoint.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-icon"><i class="bi bi-check2-circle"></i></div>
+          <h4>Delivered</h4>
+          <p>Recipient signs for delivery. You get a delivery confirmation instantly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Testimonials</span>
+      <h2>Loved by Thousands of Businesses</h2>
+      <p>Hear from our customers why they trust ParcelPro with their daily shipping operations.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+          <div class="testimonial-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testimonial-text">"ParcelPro has transformed how we handle order fulfillment. The dashboard is intuitive, tracking is accurate, and pickup has never once been late in two years."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="assets/images/team-maya-walsh.png" alt="Sarah Mitchell, Founder of UrbanStyle Retail"></div>
+            <div class="testimonial-info"><h5>Sarah Mitchell</h5><p>Founder, UrbanStyle Retail</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+          <div class="testimonial-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testimonial-text">"We ship over 2,000 parcels per month internationally. ParcelPro's rate calculator and automatic customs documents save our team 20+ hours every week. Highly recommended!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="assets/images/team-james-carter.png" alt="Marco Rossi, Operations Director at DolceVita"></div>
+            <div class="testimonial-info"><h5>Marco Rossi</h5><p>Operations Director, DolceVita</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+          <div class="testimonial-rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+          <p class="testimonial-text">"The customer support team actually picks up the phone and resolves issues immediately. When a rare issue happened, they made it right within hours. A+ service."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="assets/images/team-omar-navarro.png" alt="Rajesh Patel, CEO of TechForge Components"></div>
+            <div class="testimonial-info"><h5>Rajesh Patel</h5><p>CEO, TechForge Components</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-section section-padding">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Latest Blog</span>
+      <h2>News, Tips & Insights</h2>
+      <p>Stay informed with expert articles on logistics, shipping, e-commerce fulfillment, and more.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/images/Reducing_e-commerce_shipping_costs_2K_202608081921.jpeg" alt="Packages prepared for e-commerce shipping" />
+            <span class="blog-category">Logistics</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span><i class="bi bi-calendar3"></i> Aug 02, 2026</span>
+              <span><i class="bi bi-person"></i> Admin</span>
+            </div>
+            <h4><a href="blog-details.html">10 Pro Tips to Reduce Shipping Costs for E-commerce</a></h4>
+            <p>Shipping expenses eating into your margins? Here are proven strategies used by top retailers...</p>
+            <a href="blog-details.html" class="service-card-link">Read Article <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/images/ParcelPro_expands_same-day_delivery_2K_202608081923.jpeg" alt="ParcelPro same-day delivery van" />
+            <span class="blog-category">News</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span><i class="bi bi-calendar3"></i> Jul 28, 2026</span>
+              <span><i class="bi bi-person"></i> Admin</span>
+            </div>
+            <h4><a href="blog-details.html">ParcelPro Expands Same-Day Delivery to 30 More Cities</a></h4>
+            <p>We're excited to announce that our same-day delivery service is now available in 30 additional metropolitan areas across North America and Europe...</p>
+            <a href="blog-details.html" class="service-card-link">Read Article <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <article class="blog-card">
+          <div class="blog-card-img">
+            <img src="assets/images/international-shipping-customs.jpeg" alt="International shipping customs documentation" />
+            <span class="blog-category">Guide</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span><i class="bi bi-calendar3"></i> Jul 20, 2026</span>
+              <span><i class="bi bi-person"></i> Admin</span>
+            </div>
+            <h4><a href="blog-details.html">Complete Guide to International Shipping Customs</a></h4>
+            <p>Navigating customs forms and import duties can be confusing. Here's everything you need to know to ship internationally without delays...</p>
+            <a href="blog-details.html" class="service-card-link">Read Article <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding pt-0">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Awards & Partners</span>
+      <h2>Trusted by Industry Leaders</h2>
+      <p>We work with the biggest names in logistics and retail to deliver excellence every time.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="0">
+        <div class="partner-item">FedEx</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="50">
+        <div class="partner-item">DHL</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="partner-item">UPS</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="150">
+        <div class="partner-item">USPS</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="200">
+        <div class="partner-item">Amazon</div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="250">
+        <div class="partner-item">Shopify</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="cta-content">
+            <h2>Ready to ship smarter and faster?</h2>
+            <p>Join 50,000+ businesses already shipping with ParcelPro. Start your free trial today - no credit card required.</p>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="cta-btns">
+            <a href="register.html" class="btn btn-light btn-lg">Create Free Account</a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg">Talk to Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="service-details.html?id=domestic"><i class="bi bi-caret-right"></i> Domestic Shipping</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> International Shipping</a></li>
+          <li><a href="service-details.html?id=sameday"><i class="bi bi-caret-right"></i> Same Day Delivery</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Express Delivery</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Warehousing</a></li>
+          <li><a href="service-details.html?id=packaging"><i class="bi bi-caret-right"></i> Packaging</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Newsletter</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Subscribe to get updates, offers and logistics tips.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';window.showToast('Subscribed successfully!','success');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>123 Delivery Ave, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (555) 012-4800</span></li>
+          <li><i class="bi bi-envelope"></i><span>hello@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for logistics.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="documentation/index.html">Documentation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/parcelpro-store.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.Swiper) {
+      new Swiper('.heroSwiper', { loop: true, effect: 'fade', autoplay: { delay: 6000 } });
+    }
+    /* ========== Instant Booking Quote Calculator ========== */
+    const bookingForm = document.getElementById('instantBookingForm');
+    const tabsContainer = document.getElementById('deliveryTypeTabs');
+    const quoteResult = document.getElementById('quoteResult');
+    let activeDeliveryType = 'Domestic';
+    let lastQuote = null;
+
+    /* Track active tab */
+    tabsContainer?.querySelectorAll('.booking-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabsContainer.querySelectorAll('.booking-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        activeDeliveryType = tab.dataset.type || 'Domestic';
+      });
+    });
+
+    bookingForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const pickupCity = document.getElementById('pickupCity').value;
+      const deliveryCity = document.getElementById('deliveryCity').value;
+      const weight = parseFloat(document.getElementById('calcWeight').value) || 0;
+
+      if (!pickupCity) { window.showToast?.('Please select a Pickup City.', 'error'); document.getElementById('pickupCity').focus(); return; }
+      if (!deliveryCity) { window.showToast?.('Please select a Delivery City.', 'error'); document.getElementById('deliveryCity').focus(); return; }
+      if (pickupCity === deliveryCity && !String(activeDeliveryType).toLowerCase().includes('same')) {
+        if (!confirm('Pickup and delivery cities are the same. Use Same Day service for the best rate?')) { /* continue */ }
+      }
+      if (weight <= 0) { window.showToast?.('Please enter a valid weight above 0 kg.', 'error'); document.getElementById('calcWeight').focus(); return; }
+
+      const quote = window.ParcelProStore.calculateQuote({ pickupCity, deliveryCity, weight, deliveryType: activeDeliveryType });
+      lastQuote = { ...quote, pickupCity, deliveryCity, weight };
+
+      /* Populate result card */
+      document.getElementById('quoteDistance').textContent = `${quote.distance.toLocaleString()} km`;
+      document.getElementById('quoteWeight').textContent = `${weight} kg`;
+      document.getElementById('quoteService').textContent = activeDeliveryType;
+      document.getElementById('quoteEta').textContent = quote.etaText;
+      document.getElementById('quoteBase').textContent = quote.base_price.toFixed(2);
+      document.getElementById('quoteDistCharge').textContent = quote.distanceCharge.toFixed(2);
+      document.getElementById('quoteWeightCharge').textContent = quote.weightCharge.toFixed(2);
+      document.getElementById('quoteTotal').textContent = quote.total.toFixed(2);
+
+      quoteResult.style.display = 'block';
+      quoteResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      window.showToast?.(`Quote generated: $${quote.total.toFixed(2)}`, 'success');
+    });
+
+    /* Proceed to Book -> takes quote to booking page via sessionStorage */
+    document.getElementById('proceedToBookBtn')?.addEventListener('click', () => {
+      if (!lastQuote) return;
+      sessionStorage.setItem('parcelpro-quote', JSON.stringify(lastQuote));
+      window.location.href = 'booking.html';
+    });
+
+    /* Reset / recalculate */
+    document.getElementById('resetQuoteBtn')?.addEventListener('click', () => {
+      quoteResult.style.display = 'none';
+      bookingForm.reset();
+      lastQuote = null;
+    });
+
+    /* Restore booking tabs active from quote if any */
+    const savedQuote = sessionStorage.getItem('parcelpro-quote');
+    if (savedQuote) {
+      try {
+        const q = JSON.parse(savedQuote);
+        document.getElementById('pickupCity').value = q.pickupCity || '';
+        document.getElementById('deliveryCity').value = q.deliveryCity || '';
+        document.getElementById('calcWeight').value = q.weight || '';
+        const t = q.deliveryType || 'Domestic';
+        tabsContainer?.querySelectorAll('.booking-tab').forEach(tab => {
+          if ((tab.dataset.type || '').toLowerCase() === t.toLowerCase()) {
+            tabsContainer.querySelectorAll('.booking-tab').forEach(x => x.classList.remove('active'));
+            tab.classList.add('active');
+            activeDeliveryType = t;
+          }
+        });
+      } catch (_) {}
+    }
+  });
+</script>
+</body>
+</html>

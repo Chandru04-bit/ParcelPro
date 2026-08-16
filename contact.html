@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact ParcelPro - Get in touch with our 24/7 customer support team for courier, logistics, and shipping inquiries." />
+  <title>Contact Us - ParcelPro | 24/7 Customer Support</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2" href="services.html">All Services</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=domestic">Domestic Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=international">International Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=sameday">Same Day Delivery</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=warehouse">Warehousing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><h6 class="dropdown-header text-uppercase small">Public Pages</h6></li>
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" aria-label="Theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <a href="login.html" class="btn btn-outline-primary btn-sm d-none d-lg-inline-flex">Sign In</a>
+      <a href="tracking.html" class="btn btn-primary btn-sm d-none d-lg-inline-flex">
+        <i class="bi bi-send"></i> Ship Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-banner">
+  <div class="container">
+    <div class="page-banner-content">
+      <span class="sub-title" data-aos="fade-up">Get In Touch</span>
+      <h1 data-aos="fade-up" data-aos-delay="100">Contact ParcelPro</h1>
+      <p class="text-white-50" style="max-width:600px;margin:0 auto;" data-aos="fade-up" data-aos-delay="200">Have questions about our services? Our friendly support team is available 24/7 to help with anything you need.</p>
+      <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="300">
+        <ol class="breadcrumb justify-content-center mb-0 mt-3">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Contact</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding-sm pt-5">
+  <div class="container">
+    <div class="row g-4 mb-5">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="contact-info-card h-100">
+          <div class="contact-icon blue"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Head Office</h5>
+          <p class="mb-1">123 Delivery Avenue</p>
+          <p class="mb-1">Logistics District, NY 10001</p>
+          <p class="mb-0">United States</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-info-card h-100">
+          <div class="contact-icon orange"><i class="bi bi-telephone-fill"></i></div>
+          <h5>Call Us 24/7</h5>
+          <p class="mb-1"><strong>Support:</strong> +1 (555) 012-4800</p>
+          <p class="mb-1"><strong>Sales:</strong> +1 (555) 012-4801</p>
+          <p class="mb-0"><strong>Fax:</strong> +1 (555) 012-4802</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-info-card h-100">
+          <div class="contact-icon green"><i class="bi bi-envelope-fill"></i></div>
+          <h5>Email Us</h5>
+          <p class="mb-1"><strong>Support:</strong> hello@parcelpro.com</p>
+          <p class="mb-1"><strong>Sales:</strong> sales@parcelpro.com</p>
+          <p class="mb-0"><strong>Careers:</strong> careers@parcelpro.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding-sm pt-0">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="rounded-4 overflow-hidden shadow-lg" style="height:100%;min-height:500px;background:linear-gradient(135deg, rgba(30,64,175,0.05), rgba(249,115,22,0.05));">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147705794!2d-74.11976301892901!3d40.69714941680123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1720000000000"
+            width="100%" height="100%" style="border:0;min-height:500px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="p-5 rounded-4" style="background:var(--gray-100);">
+          <h3 class="mb-2">Send Us a Message</h3>
+          <p class="mb-4" style="color:var(--gray-500);">We typically respond within 1 business hour. For urgent issues, please call our 24/7 line instead.</p>
+          <form class="contact-form" data-validate="true" onsubmit="event.preventDefault();this.reset();window.showToast('Message sent successfully! We will get back to you shortly.','success');">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name <span class="required">*</span></label>
+                <input class="form-control" type="text" placeholder="John Doe" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address <span class="required">*</span></label>
+                <input class="form-control" type="email" placeholder="john@example.com" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input class="form-control" type="tel" placeholder="+1 (555) 000-0000" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Subject <span class="required">*</span></label>
+                <select class="form-select" required>
+                  <option value="">Select a topic</option>
+                  <option>General Inquiry</option>
+                  <option>Shipping Quote</option>
+                  <option>Tracking Issue</option>
+                  <option>Sales / Enterprise</option>
+                  <option>Partnership</option>
+                  <option>Careers</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message <span class="required">*</span></label>
+                <textarea class="form-control" rows="6" placeholder="How can we help you today? Please include tracking numbers if applicable." required></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="contactPrivacy" required />
+                  <label class="form-check-label small" for="contactPrivacy">
+                    I agree to the Privacy Policy and consent to ParcelPro processing my information to respond to this inquiry.
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                  <i class="bi bi-send"></i> Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding pt-0">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="sub-title">Our Offices</span>
+      <h2>Global Network, Local Presence</h2>
+      <p>With offices across 4 continents, we're always close to where you need us.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#3c3b6e,#b22234);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>New York, USA</h5>
+          <p class="small mb-1">123 Delivery Ave, NY 10001</p>
+          <p class="small mb-0">+1 (555) 012-4800</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#00247d,#cf142b);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>London, UK</h5>
+          <p class="small mb-1">45 Parcel Lane, London EC1A 1BB</p>
+          <p class="small mb-0">+44 20 7946 0000</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#000,#dd0000,#ffcc00);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Berlin, Germany</h5>
+          <p class="small mb-1">78 Logistics Str, 10115 Berlin</p>
+          <p class="small mb-0">+49 30 1234 5678</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#bc002d,#ffffff);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Tokyo, Japan</h5>
+          <p class="small mb-1">2-4-6 Shibuya, Tokyo 150-0002</p>
+          <p class="small mb-0">+81 3-1234-5678</p>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4 mt-3">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#0055a4,#ffffff,#ef4135);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Paris, France</h5>
+          <p class="small mb-1">12 Rue de la Livraison, 75001</p>
+          <p class="small mb-0">+33 1 23 45 67 89</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#009c3b,#ffdf00,#002776);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>SÃƒÆ’Ã‚Â£o Paulo, Brazil</h5>
+          <p class="small mb-1">Av. Paulista 1000, 01310-100</p>
+          <p class="small mb-0">+55 11 1234-5678</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#ff9933,#ffffff,#138808);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Mumbai, India</h5>
+          <p class="small mb-1">Bandra Kurla Complex, 400051</p>
+          <p class="small mb-0">+91 22 1234 5678</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="office-card">
+          <div class="office-flag" style="background:linear-gradient(135deg,#000000,#ffcc00);"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5>Sydney, Australia</h5>
+          <p class="small mb-1">1 Martin Place, NSW 2000</p>
+          <p class="small mb-0">+61 2 1234 5678</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="cta-content">
+            <h2>Ready to ship smarter and faster?</h2>
+            <p>Join 50,000+ businesses already shipping with ParcelPro. Start your free trial today - no credit card required.</p>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="cta-btns">
+            <a href="register.html" class="btn btn-light btn-lg">Create Free Account</a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg">Talk to Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="service-details.html?id=domestic"><i class="bi bi-caret-right"></i> Domestic Shipping</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> International Shipping</a></li>
+          <li><a href="service-details.html?id=sameday"><i class="bi bi-caret-right"></i> Same Day Delivery</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Express Delivery</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Warehousing</a></li>
+          <li><a href="service-details.html?id=packaging"><i class="bi bi-caret-right"></i> Packaging</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Newsletter</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Subscribe to get updates, offers and logistics tips.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';window.showToast('Subscribed successfully!','success');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>123 Delivery Ave, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (555) 012-4800</span></li>
+          <li><i class="bi bi-envelope"></i><span>hello@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for logistics.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="documentation/index.html">Documentation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

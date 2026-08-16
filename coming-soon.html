@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon - ParcelPro</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .coming-soon-wrap {
+      min-height:100vh;
+      background:linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--secondary) 100%);
+      display:flex;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;
+    }
+    .coming-soon-wrap::before {
+      content:'';position:absolute;inset:0;
+      background-image:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06) 0%, transparent 40%);
+    }
+    .countdown-item {
+      width:100%;max-width:130px;aspect-ratio:1/1;
+      border-radius:24px;background:rgba(255,255,255,0.1);backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,0.18);
+      display:flex;align-items:center;justify-content:center;flex-direction:column;
+      color:#fff;
+    }
+    .countdown-number { font-size:3rem;font-weight:800;line-height:1;font-family:var(--font-heading); }
+    .countdown-label { font-size:0.75rem;opacity:0.7;text-transform:uppercase;letter-spacing:2px;margin-top:6px; }
+  </style>
+</head>
+<body>
+<div class="coming-soon-wrap">
+  <div class="container position-relative z-2">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center text-white" data-aos="fade-up">
+        <a class="d-inline-flex align-items-center gap-2 fw-800 fs-3 mb-5 text-white" href="index.html">
+          <div style="width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;"><i class="bi bi-box-seam-fill" style="font-size:28px;"></i></div>
+          Parcel<span style="color:var(--secondary-light);">Pro</span>
+        </a>
+        <span class="d-inline-block px-4 py-2 rounded-pill mb-4 fs-7 fw-600" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);">
+          <i class="bi bi-stars me-2" style="color:var(--secondary-light);"></i> Something Amazing is Coming
+        </span>
+        <h1 class="display-3 fw-800 text-white mb-4" style="line-height:1.15;">We're Launching<br/>Something <span style="color:var(--secondary-light);">Big Soon</span></h1>
+        <p class="fs-5 mb-5 text-white-50" style="max-width:620px;margin:0 auto;">
+          Our brand new premium logistics experience is almost ready. Be the first to know when we go live and unlock an exclusive launch offer.
+        </p>
+        <div class="countdown d-flex justify-content-center gap-3 flex-wrap mb-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="countdown-item"><div class="countdown-number" data-countdown="days">00</div><div class="countdown-label">Days</div></div>
+          <div class="countdown-item"><div class="countdown-number" data-countdown="hours">00</div><div class="countdown-label">Hours</div></div>
+          <div class="countdown-item"><div class="countdown-number" data-countdown="minutes">00</div><div class="countdown-label">Minutes</div></div>
+          <div class="countdown-item"><div class="countdown-number" data-countdown="seconds">00</div><div class="countdown-label">Seconds</div></div>
+        </div>
+        <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-8 col-lg-7">
+            <form class="newsletter-form p-2 rounded-pill" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.2);" onsubmit="event.preventDefault();this.querySelector('input').value='';window.showToast('You\\'re on the list! Check your inbox.','success');">
+              <input type="email" placeholder="Enter your email address" style="background:transparent;border:0;color:#fff;" required />
+              <button type="submit" style="border-radius:50px;background:var(--secondary);color:#fff;">
+                Notify Me <i class="bi bi-send ms-1"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="400">
+          <a href="index.html" class="btn btn-light"><i class="bi bi-house me-1"></i> Back to Home</a>
+          <a href="contact.html" class="btn btn-outline-light"><i class="bi bi-envelope me-1"></i> Contact Us</a>
+        </div>
+        <div class="d-flex justify-content-center gap-2 mt-5" data-aos="fade-up" data-aos-delay="500">
+          <a href="#" class="social-icon" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;border:1px solid rgba(255,255,255,0.2);"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;border:1px solid rgba(255,255,255,0.2);"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;border:1px solid rgba(255,255,255,0.2);"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;border:1px solid rgba(255,255,255,0.2);"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-icon" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:#fff;border:1px solid rgba(255,255,255,0.2);"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script>
+  (function () {
+    const launch = new Date();
+    launch.setDate(launch.getDate() + 45);
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      const now = new Date().getTime();
+      const distance = launch.getTime() - now;
+      if (distance < 0) return;
+      const d = Math.floor(distance / 86400000);
+      const h = Math.floor((distance % 86400000) / 3600000);
+      const m = Math.floor((distance % 3600000) / 60000);
+      const s = Math.floor((distance % 60000) / 1000);
+      document.querySelectorAll('[data-countdown="days"]').forEach(el => el.textContent = pad(d));
+      document.querySelectorAll('[data-countdown="hours"]').forEach(el => el.textContent = pad(h));
+      document.querySelectorAll('[data-countdown="minutes"]').forEach(el => el.textContent = pad(m));
+      document.querySelectorAll('[data-countdown="seconds"]').forEach(el => el.textContent = pad(s));
+    }
+    document.addEventListener('DOMContentLoaded', function () { tick(); setInterval(tick, 1000); });
+  })();
+</script>
+</body>
+</html>

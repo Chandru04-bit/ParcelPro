@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ParcelPro Services - Comprehensive courier and logistics solutions including domestic, international, same-day delivery, warehousing, and more." />
+  <meta name="keywords" content="courier services, shipping, delivery, warehousing, freight, pickup, packaging, logistics" />
+  <meta name="author" content="ParcelPro" />
+  <title>Our Services - ParcelPro Courier & Logistics</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e40af'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM15 6v2h2V6h-2z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark.css" />
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <style>
+    .page-header {
+      padding: 160px 0 80px;
+      background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(249,115,22,0.08));
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: linear-gradient(135deg, rgba(30,64,175,0.06), rgba(249,115,22,0.06));
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(249,115,22,0.05), rgba(139,92,246,0.05));
+    }
+    .page-header .container { position: relative; z-index: 2; }
+    .page-header h1 { font-size: 48px; font-weight: 800; color: var(--dark); margin-bottom: 16px; position: relative; z-index: 2; }
+    .page-header-desc { color: rgba(15, 23, 42, 0.8); font-size: 1.125rem; max-width: 760px; margin: 0 auto 24px; line-height: 1.8; }
+    .breadcrumb { background: transparent; padding: 0; margin: 0; position: relative; z-index: 2; }
+    .breadcrumb-item a { color: var(--gray-500); text-decoration: none; }
+    .breadcrumb-item.active { color: var(--primary); font-weight: 600; }
+
+    [data-theme="dark"] .page-header { background: #0b1120; }
+    [data-theme="dark"] .page-header-desc { color: rgba(241, 245, 249, 0.8); }
+    [data-theme="dark"] .page-header::before { background: linear-gradient(135deg, rgba(30,64,175,0.14), rgba(249,115,22,0.08)); }
+    [data-theme="dark"] .page-header::after { background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(139,92,246,0.08)); }
+    [data-theme="dark"] .page-header h1 { color: #f1f5f9; }
+    [data-theme="dark"] .page-header .breadcrumb-item a { color: #94a3b8; }
+    [data-theme="dark"] .page-header .breadcrumb-item.active { color: var(--primary-light); }
+
+    .services-grid-section { padding: 80px 0; }
+    /* Premium dark presentation for the complete service catalogue. */
+    [data-theme="dark"] .services-grid-section {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(59,130,246,0.18), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(139,92,246,0.14), transparent 28%),
+        linear-gradient(135deg, #020617 0%, #0b1120 52%, #101b34 100%);
+    }
+    [data-theme="dark"] .services-grid-section .section-header h2 {
+      color: #f8fafc;
+    }
+    [data-theme="dark"] .services-grid-section .section-header p {
+      color: #aab8cf;
+    }
+    .service-card-extended {
+      background: var(--card-bg, #fff);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .service-card-extended:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(30,64,175,0.12);
+    }
+    .service-card-header {
+      padding: 32px 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card-header::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .service-card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.2);
+    }
+    /* Local sprite keeps the service imagery fast, consistent and independent of remote image APIs. */
+    .service-sprite {
+      background-color: #f8f6f2;
+      background-image: url('assets/images/services/courier-service-icons.png');
+      background-repeat: no-repeat;
+      background-size: 400% 200%;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
+    }
+    .sprite-domestic { background-position: 0% 0%; }
+    .sprite-international { background-position: 33.333% 0%; }
+    .sprite-sameday { background-position: 66.667% 0%; }
+    .sprite-express { background-position: 100% 0%; }
+    .sprite-warehouse { background-position: 0% 100%; }
+    .sprite-packaging { background-position: 33.333% 100%; }
+    .sprite-freight { background-position: 66.667% 100%; }
+    .sprite-pickup { background-position: 100% 100%; }
+    .service-card-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .service-card-title {
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin: 0;
+      min-height: 2.5em;
+    }
+    .service-card-body {
+      padding: 28px;
+    }
+    .service-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .service-features-list li {
+      padding: 8px 0;
+      color: var(--gray-600, #475569);
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .service-features-list li i {
+      color: var(--primary, #1e40af);
+      font-weight: bold;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary, #1e40af);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 14px;
+      transition: gap 0.2s;
+    }
+    .service-link:hover {
+      gap: 14px;
+      color: var(--secondary, #f97316);
+    }
+    .grad-blue { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+    .grad-orange { background: linear-gradient(135deg, #ea580c 0%, #f97316 100%); }
+    .grad-purple { background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%); }
+    .grad-green { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+    .grad-cyan { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); }
+    .grad-pink { background: linear-gradient(135deg, #be185d 0%, #ec4899 100%); }
+    .grad-indigo { background: linear-gradient(135deg, #3730a3 0%, #6366f1 100%); }
+    .grad-teal { background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); }
+
+    .features-row-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    }
+    .feature-row-item {
+      text-align: center;
+      padding: 32px 20px;
+      border-radius: 16px;
+      background: var(--card-bg, #fff);
+      transition: all 0.3s;
+      height: 100%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .feature-row-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(30,64,175,0.1);
+    }
+    .feature-row-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+    .feature-row-icon.blue { background: rgba(30,64,175,0.1); color: #1e40af; }
+    .feature-row-icon.orange { background: rgba(249,115,22,0.1); color: #f97316; }
+    .feature-row-icon.green { background: rgba(16,185,129,0.1); color: #059669; }
+    .feature-row-icon.purple { background: rgba(139,92,246,0.1); color: #7c3aed; }
+    .feature-row-icon.cyan { background: rgba(6,182,212,0.1); color: #0891b2; }
+    .feature-row-icon.pink { background: rgba(236,72,153,0.1); color: #db2777; }
+    .feature-row-item h5 {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--dark, #0f172a);
+    }
+    .feature-row-item p {
+      font-size: 13px;
+      color: var(--gray-500, #64748b);
+      margin: 0;
+    }
+
+    [data-theme="dark"] .service-card-extended,
+    [data-theme="dark"] .feature-row-item,
+    [data-theme="dark"] .compare-card-con {
+      background: linear-gradient(145deg, rgba(30,41,59,0.88), rgba(15,23,42,0.8));
+      border-color: rgba(148,163,184,0.18);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+    }
+    [data-theme="dark"] .service-card-extended:hover,
+    [data-theme="dark"] .feature-row-item:hover {
+      box-shadow: 0 22px 52px rgba(37,99,235,0.24), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    [data-theme="dark"] .service-features-list li,
+    [data-theme="dark"] .feature-row-item p,
+    [data-theme="dark"] .compare-card-con .compare-list li {
+      color: #b9c5d8;
+    }
+    [data-theme="dark"] .feature-row-item h5,
+    [data-theme="dark"] .compare-card-con h3 {
+      color: #f8fafc;
+    }
+    [data-theme="dark"] .features-row-section,
+    [data-theme="dark"] .compare-section {
+      background:
+        radial-gradient(circle at 80% 15%, rgba(14,165,233,0.1), transparent 28%),
+        linear-gradient(135deg, #07101f, #0b1120);
+    }
+    [data-theme="dark"] .features-row-section .section-header h2,
+    [data-theme="dark"] .compare-section .section-header h2 { color: #f8fafc; }
+    [data-theme="dark"] .features-row-section .section-header p,
+    [data-theme="dark"] .compare-section .section-header p { color: #aab8cf; }
+    [data-theme="dark"] .badge-con { background: rgba(239,68,68,0.15); color: #fca5a5; }
+
+    .compare-section {
+      padding: 80px 0;
+    }
+    .compare-section .section-header { margin-bottom: 48px; }
+    .compare-card {
+      border-radius: 24px;
+      padding: 40px 36px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .compare-card-pro {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: #fff;
+    }
+    .compare-card-pro .compare-list li i { color: #4ade80; }
+    .compare-card-pro .compare-list li { color: rgba(255,255,255,0.9); }
+    .compare-card-con {
+      background: var(--card-bg, #fff);
+      border: 2px solid #fee2e2;
+    }
+    .compare-card-con .compare-list li i { color: #ef4444; }
+    .compare-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .badge-pro { background: rgba(255,255,255,0.2); color: #fff; }
+    .badge-con { background: #fee2e2; color: #991b1b; }
+    .compare-card h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .compare-card-pro h3 { color: #fff; }
+    .compare-card-con h3 { color: #0f172a; }
+    .compare-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .compare-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--gray-700, #334155);
+      font-weight: 500;
+    }
+    .compare-card-pro .compare-list li {
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-list li i {
+      font-size: 20px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .cta-banner-section {
+      padding: 80px 0;
+    }
+    .cta-gradient-banner {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #f97316 100%);
+      border-radius: 28px;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-gradient-banner::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .cta-gradient-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cta-gradient-banner .container-inner { position: relative; z-index: 2; }
+    .cta-gradient-banner h2 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-gradient-banner p {
+      color: rgba(255,255,255,0.9);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+    .cta-gradient-banner .btn-light {
+      padding: 14px 32px;
+      font-weight: 700;
+      border-radius: 14px;
+    }
+    .cta-gradient-banner .btn-outline-light {
+      padding: 14px 32px;
+      font-weight: 700;
+      border-radius: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top w-100">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+      Parcel<span>Pro</span>
+    </a>
+    <button class="navbar-toggler mobile-menu-btn" type="button" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
+        <li class="nav-item home-dropdown">
+          <a class="nav-link home-dd-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Home <i class="bi bi-chevron-down home-caret"></i>
+          </a>
+          <ul class="home-dropdown-menu" role="menu">
+            <li>
+              <a href="index.html" data-home="1" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-fill"></i></span>
+                <span><strong>Home 1</strong><small>Main landing page</small></span>
+              </a>
+            </li>
+            <li>
+              <a href="home2.html" data-home="2" role="menuitem">
+                <span class="home-dd-icon"><i class="bi bi-house-door-fill"></i></span>
+                <span><strong>Home 2</strong><small>Alternative homepage</small></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><a class="dropdown-item rounded-2 active" href="services.html">All Services</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=domestic">Domestic Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=international">International Shipping</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=sameday">Same Day Delivery</a></li>
+            <li><a class="dropdown-item rounded-2" href="service-details.html?id=warehouse">Warehousing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="tracking.html">Track</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
+            <li><h6 class="dropdown-header text-uppercase small">Public Pages</h6></li>
+            <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item rounded-2" href="careers.html">Careers</a></li>
+            <li><a class="dropdown-item rounded-2" href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="theme-toggle" aria-label="Theme"><i class="bi bi-moon-stars-fill"></i></button>
+      <button data-rtl-toggle class="btn btn-sm btn-outline-secondary ms-2" type="button" aria-label="Toggle RTL" style="font-weight: 600; padding: 0.25rem 0.5rem; height: 32px; display: flex; align-items: center; justify-content: center; min-width: 48px;">RTL</button>
+      <a href="login.html" class="btn btn-outline-primary btn-sm d-none d-lg-inline-flex">Sign In</a>
+      <a href="tracking.html" class="btn btn-primary btn-sm d-none d-lg-inline-flex">
+        <i class="bi bi-send"></i> Ship Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <div class="text-center page-header-content" data-aos="fade-up">
+      <h1>Our Services</h1>
+      <p class="page-header-desc">Comprehensive courier and logistics solutions tailored for every need from a document across town to a pallet across oceans.</p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Our Services</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="services-grid-section">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="sub-title">What We Offer</span>
+      <h2>End-to-End Logistics & Courier Solutions</h2>
+      <p>Explore our full range of services designed to help individuals and businesses ship smarter, faster, and more reliably.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-blue">
+            <div class="service-card-icon service-sprite sprite-domestic" role="img" aria-label="Domestic shipping delivery van and parcel"></div>
+            <span class="service-card-tag">POPULAR</span>
+            <h4 class="service-card-title">Domestic Shipping</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> Nationwide coverage to city</li>
+              <li><i class="bi bi-check2-circle"></i> Standard, Express & Economy</li>
+              <li><i class="bi bi-check2-circle"></i> Real-time tracking </li>
+            </ul>
+            <a href="service-details.html?id=domestic" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-orange">
+            <div class="service-card-icon service-sprite sprite-international" role="img" aria-label="International shipping airplane and globe"></div>
+            <span class="service-card-tag">WORLDWIDE</span>
+            <h4 class="service-card-title">International Shipping</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> 220+ countries & territories</li>
+              <li><i class="bi bi-check2-circle"></i> Customs clearance included</li>
+              <li><i class="bi bi-check2-circle"></i> Duties & taxes calculator</li>
+            </ul>
+            <a href="service-details.html?id=international" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-purple">
+            <div class="service-card-icon service-sprite sprite-sameday" role="img" aria-label="Same-day delivery van with lightning bolt"></div>
+            <span class="service-card-tag">URGENT</span>
+            <h4 class="service-card-title">Same Day Delivery</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> Pickup within 60 minutes</li>
+              <li><i class="bi bi-check2-circle"></i> Delivery within hours, not days</li>
+              <li><i class="bi bi-check2-circle"></i> Available 24/7, weekends too</li>
+            </ul>
+            <a href="service-details.html?id=sameday" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-green">
+            <div class="service-card-icon service-sprite sprite-express" role="img" aria-label="Express delivery rocket carrying a parcel"></div>
+            <span class="service-card-tag">FAST</span>
+            <h4 class="service-card-title">Express Delivery</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> Next-day & 2-day guaranteed</li>
+              <li><i class="bi bi-check2-circle"></i> Priority sorting & handling</li>
+              <li><i class="bi bi-check2-circle"></i> Signature-on-delivery option</li>
+            </ul>
+            <a href="service-details.html?id=express" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-cyan">
+            <div class="service-card-icon service-sprite sprite-warehouse" role="img" aria-label="Warehouse shelving, boxes and forklift"></div>
+            <span class="service-card-tag">STORAGE</span>
+            <h4 class="service-card-title">Warehousing</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> Climate-controlled facilities</li>
+              <li><i class="bi bi-check2-circle"></i> Inventory management system</li>
+              <li><i class="bi bi-check2-circle"></i> Fulfillment & order shipping</li>
+            </ul>
+            <a href="service-details.html?id=warehouse" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-pink">
+            <div class="service-card-icon service-sprite sprite-packaging" role="img" aria-label="Open package with protective wrapping"></div>
+            <span class="service-card-tag">PREMIUM</span>
+            <h4 class="service-card-title">Packaging Service</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> Fragile & high-value specialists</li>
+              <li><i class="bi bi-check2-circle"></i> Eco-friendly premium materials</li>
+              <li><i class="bi bi-check2-circle"></i> Custom branded boxes </li>
+            </ul>
+            <a href="service-details.html?id=packaging" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-indigo">
+            <div class="service-card-icon service-sprite sprite-freight" role="img" aria-label="Freight cargo truck and pallet"></div>
+            <span class="service-card-tag">HEAVY</span>
+            <h4 class="service-card-title">Freight Services</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> LTL, FTL & air freight options</li>
+              <li><i class="bi bi-check2-circle"></i> Pallet & cargo handling</li>
+              <li><i class="bi bi-check2-circle"></i> Liftgate & residential delivery</li>
+            </ul>
+            <a href="service-details.html?id=freight" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card-extended h-100">
+          <div class="service-card-header grad-teal">
+            <div class="service-card-icon service-sprite sprite-pickup" role="img" aria-label="Courier collecting a parcel at a doorstep"></div>
+            <span class="service-card-tag">CONVENIENT</span>
+            <h4 class="service-card-title">Pickup Service</h4>
+          </div>
+          <div class="service-card-body">
+            <ul class="service-features-list">
+              <li><i class="bi bi-check2-circle"></i> Doorstep pickup at your time</li>
+              <li><i class="bi bi-check2-circle"></i> Recurring scheduled pickups</li>
+              <li><i class="bi bi-check2-circle"></i> No need to visit drop-off </li>
+            </ul>
+            <a href="service-details.html?id=pickup" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-row-section">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="sub-title">Service Features</span>
+      <h2>Built-In Benefits Across Every Service</h2>
+      <p>No matter which service you choose, enjoy these premium features included with every shipment.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-row-item">
+          <div class="feature-row-icon blue"><i class="bi bi-shield-check"></i></div>
+          <h5>Full Insurance</h5>
+          <p>Every parcel covered up to $5,000</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-row-item">
+          <div class="feature-row-icon orange"><i class="bi bi-geo-alt"></i></div>
+          <h5>Live Tracking</h5>
+          <p>Real-time GPS status and ETA</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-row-item">
+          <div class="feature-row-icon green"><i class="bi bi-headset"></i></div>
+          <h5>24/7 Support</h5>
+          <p>Human agents available any time</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-row-item">
+          <div class="feature-row-icon purple"><i class="bi bi-box2-heart"></i></div>
+          <h5>Custom Packaging</h5>
+          <p>Fragile-safe premium materials</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-row-item">
+          <div class="feature-row-icon cyan"><i class="bi bi-passport"></i></div>
+          <h5>Customs Clearance</h5>
+          <p>Paperwork handled for international</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="500">
+        <div class="feature-row-item">
+          <div class="feature-row-icon pink"><i class="bi bi-receipt-check"></i></div>
+          <h5>Proof of Delivery</h5>
+          <p>Signature & photo confirmation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <span class="sub-title">Why Choose Us</span>
+      <h2>ParcelPro vs. Other Courier Services</h2>
+      <p>See the difference that makes thousands of businesses switch to ParcelPro every month.</p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-6" data-aos="fade-right" data-aos-delay="0">
+        <div class="compare-card compare-card-pro">
+          <span class="compare-badge badge-pro">Recommended</span>
+          <h3>With ParcelPro <i class="bi bi-hand-thumbs-up-fill ms-2"></i></h3>
+          <ul class="compare-list">
+            <li><i class="bi bi-check-circle-fill"></i> Transparent pricing ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â no hidden surcharges or fuel fees</li>
+            <li><i class="bi bi-check-circle-fill"></i> Free real-time SMS & email notifications at every step</li>
+            <li><i class="bi bi-check-circle-fill"></i> Automatic full insurance (up to $5,000) on every shipment</li>
+            <li><i class="bi bi-check-circle-fill"></i> 24/7 human customer support ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â never wait in long queues</li>
+            <li><i class="bi bi-check-circle-fill"></i> Flexible pickup windows including evenings and weekends</li>
+            <li><i class="bi bi-check-circle-fill"></i> Easy dashboard, API & integrations with Shopify, WooCommerce</li>
+            <li><i class="bi bi-check-circle-fill"></i> 99.7% on-time delivery rate with money-back guarantee</li>
+            <li><i class="bi bi-check-circle-fill"></i> Instant refunds for eligible service failures</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+        <div class="compare-card compare-card-con">
+          <span class="compare-badge badge-con">Competitors</span>
+          <h3>With Other Couriers <i class="bi bi-hand-thumbs-down-fill ms-2"></i></h3>
+          <ul class="compare-list">
+            <li><i class="bi bi-x-circle-fill"></i> Hidden fees, fuel surcharges, and vague dimensional pricing</li>
+            <li><i class="bi bi-x-circle-fill"></i> Limited tracking alerts; SMS notification costs extra</li>
+            <li><i class="bi bi-x-circle-fill"></i> Basic insurance only ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â add-ons are expensive and claim-heavy</li>
+            <li><i class="bi bi-x-circle-fill"></i> 9ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“5 business support only, with long hold times</li>
+            <li><i class="bi bi-x-circle-fill"></i> Rigid pickup slots; weekend pickups charge a premium</li>
+            <li><i class="bi bi-x-circle-fill"></i> Clunky portals, limited API, expensive integrations</li>
+            <li><i class="bi bi-x-circle-fill"></i> Lower on-time rates with excuses for delays</li>
+            <li><i class="bi bi-x-circle-fill"></i> Refund process takes weeks; many claims denied</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner-section">
+  <div class="container">
+    <div class="cta-gradient-banner" data-aos="zoom-in">
+      <div class="container-inner">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-8">
+            <h2>Ready to ship with confidence?</h2>
+            <p class="mb-0">Join 50,000+ businesses already saving time and money with ParcelPro's all-in-one logistics platform. Your first 3 shipments are on us.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <div class="d-flex flex-wrap gap-3 justify-content-lg-end justify-content-center">
+              <a href="register.html" class="btn btn-light btn-lg">
+                <i class="bi bi-gift me-2"></i> Start Free Trial
+              </a>
+              <a href="contact.html" class="btn btn-outline-light btn-lg">
+                Get a Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a class="footer-brand" href="index.html">
+          <div class="logo-icon"><i class="bi bi-box-seam-fill"></i></div>
+          Parcel<span>Pro</span>
+        </a>
+        <p class="footer-desc">Premium courier, parcel and logistics services with a complete platform for both senders and admins. Fast, reliable and always on time.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html"><i class="bi bi-caret-right"></i> About Us</a></li>
+          <li><a href="services.html"><i class="bi bi-caret-right"></i> Services</a></li>
+          <li><a href="pricing.html"><i class="bi bi-caret-right"></i> Pricing</a></li>
+          <li><a href="careers.html"><i class="bi bi-caret-right"></i> Careers</a></li>
+          <li><a href="blog.html"><i class="bi bi-caret-right"></i> Blog</a></li>
+          <li><a href="contact.html"><i class="bi bi-caret-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="service-details.html?id=domestic"><i class="bi bi-caret-right"></i> Domestic Shipping</a></li>
+          <li><a href="service-details.html?id=international"><i class="bi bi-caret-right"></i> International Shipping</a></li>
+          <li><a href="service-details.html?id=sameday"><i class="bi bi-caret-right"></i> Same Day Delivery</a></li>
+          <li><a href="service-details.html?id=express"><i class="bi bi-caret-right"></i> Express Delivery</a></li>
+          <li><a href="service-details.html?id=warehouse"><i class="bi bi-caret-right"></i> Warehousing</a></li>
+          <li><a href="service-details.html?id=packaging"><i class="bi bi-caret-right"></i> Packaging</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Newsletter</h5>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;">Subscribe to get updates, offers and logistics tips.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('input').value='';window.showToast&&showToast('Subscribed successfully!','success');">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit"><i class="bi bi-send"></i></button>
+        </form>
+        <ul class="footer-contact mt-4">
+          <li><i class="bi bi-geo-alt"></i><span>123 Delivery Ave, Logistics District, NY 10001</span></li>
+          <li><i class="bi bi-telephone"></i><span>+1 (555) 012-4800</span></li>
+          <li><i class="bi bi-envelope"></i><span>hello@parcelpro.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ParcelPro. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#ef4444;"></i> for logistics.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="documentation/index.html">Documentation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+</script>
+</body>
+</html>

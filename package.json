@@ -1,0 +1,15 @@
+{
+  "name": "parcelpro-courier-app",
+  "version": "1.0.0",
+  "description": "ParcelPro Courier & Parcel Delivery Web Application. Fully standalone frontend using HTML, CSS and JavaScript with localStorage-based persistence.",
+  "keywords": [
+    "courier",
+    "parcel",
+    "delivery",
+    "tracking",
+    "logistics",
+    "shipping"
+  ],
+  "author": "ParcelPro",
+  "license": "MIT"
+}
