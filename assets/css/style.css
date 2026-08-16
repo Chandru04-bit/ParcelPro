@@ -940,6 +940,7 @@ img { max-width: 100%; height: auto; display: block; }
 .pricing-features li i { color: var(--success); font-weight: 700; }
 .pricing-features li.disabled { color: var(--gray-400); }
 .pricing-features li.disabled i { color: var(--gray-400); }
+.pricing-card > a.btn { justify-content: center; text-align: center; }
 
 /* ========== How It Works ========== */
 .how-it-works { background: var(--white); }
