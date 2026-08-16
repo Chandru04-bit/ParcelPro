@@ -304,6 +304,7 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="locations.html">Locations</a></li>
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
             <ul class="dropdown-menu rounded-3 border-0 shadow-lg p-2 mt-2">
               <li><a class="dropdown-item rounded-2" href="blog.html">Blog</a></li>
@@ -375,21 +376,16 @@
         <div class="step-progress-line" id="stepProgressLine" style="width: 0%;"></div>
 
         <div class="step-item active" data-step-item="1">
-          <div class="step-circle"><i class="bi bi-person"></i></div>
-          <span class="step-label d-none d-md-inline">Sender Details</span>
+          <div class="step-circle"><i class="bi bi-people"></i></div>
+          <span class="step-label d-none d-md-inline">Shipping Details</span>
         </div>
 
         <div class="step-item" data-step-item="2">
-          <div class="step-circle"><i class="bi bi-flag"></i></div>
-          <span class="step-label d-none d-md-inline">Receiver Details</span>
-        </div>
-
-        <div class="step-item" data-step-item="3">
           <div class="step-circle"><i class="bi bi-box-seam"></i></div>
           <span class="step-label d-none d-md-inline">Parcel Information</span>
         </div>
 
-        <div class="step-item" data-step-item="4">
+        <div class="step-item" data-step-item="3">
           <div class="step-circle"><i class="bi bi-check2-all"></i></div>
           <span class="step-label d-none d-md-inline">Review &amp; Confirm</span>
         </div>
@@ -397,60 +393,58 @@
 
       <form id="publicBookingForm" novalidate>
 
-        <!-- STEP 1: Sender Details -->
+        <!-- STEP 1: Shipping Details (Sender + Receiver) -->
         <div class="step-panel active" data-step="1">
-          <h2 class="booking-section mt-0"><i class="bi bi-person me-2"></i>Sender (Pickup) details</h2>
-          <div class="row g-3">
-            <div class="col-md-6"><label class="form-label" for="senderName">Pickup Contact Name <span class="required">*</span></label><input class="form-control" id="senderName" name="senderName" placeholder="John Doe" required><div class="invalid-feedback">Enter a pickup contact name.</div></div>
-            <div class="col-md-6"><label class="form-label" for="senderPhone">Pickup Phone Number <span class="required">*</span></label><input type="tel" class="form-control" id="senderPhone" name="senderPhone" placeholder="+1 (555) 123-4567" required><div class="invalid-feedback">Enter a valid pickup phone number.</div></div>
-            <div class="col-md-6"><label class="form-label" for="pickupCity">Pickup City <span class="required">*</span></label>
-              <select class="form-select" id="pickupCity" name="pickupCity" required>
-                <option value="">Select City</option>
-                <option>New York</option><option>Los Angeles</option><option>Chicago</option>
-                <option>Houston</option><option>Phoenix</option><option>London</option><option>Berlin</option>
-              </select><div class="invalid-feedback">Choose a pickup city.</div>
+          <h2 class="booking-section mt-0"><i class="bi bi-people me-2"></i>Shipping details</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <h3 style="font-size:15px;font-weight:700;color:#1e40af;margin-bottom:14px;"><i class="bi bi-person me-2"></i>Sender (Pickup)</h3>
+              <div class="row g-3">
+                <div class="col-12"><label class="form-label" for="senderName">Pickup Contact Name <span class="required">*</span></label><input class="form-control" id="senderName" name="senderName" placeholder="John Doe" required><div class="invalid-feedback">Enter a pickup contact name.</div></div>
+                <div class="col-12"><label class="form-label" for="senderPhone">Pickup Phone Number <span class="required">*</span></label><input type="tel" class="form-control" id="senderPhone" name="senderPhone" placeholder="+1 (555) 123-4567" required><div class="invalid-feedback">Enter a valid pickup phone number.</div></div>
+                <div class="col-12"><label class="form-label" for="pickupCity">Pickup City <span class="required">*</span></label>
+                  <select class="form-select" id="pickupCity" name="pickupCity" required>
+                    <option value="">Select City</option>
+                    <option>New York</option><option>Los Angeles</option><option>Chicago</option>
+                    <option>Houston</option><option>Phoenix</option><option>London</option><option>Berlin</option>
+                  </select><div class="invalid-feedback">Choose a pickup city.</div>
+                </div>
+                <div class="col-12"><label class="form-label" for="pickupDate">Pickup Date <span class="required">*</span></label><input type="date" class="form-control" id="pickupDate" name="pickupDate" required><div class="invalid-feedback">Choose a pickup date.</div></div>
+                <div class="col-12"><label class="form-label" for="pickupAddress">Pickup Full Address <span class="required">*</span></label><textarea class="form-control" id="pickupAddress" name="pickupAddress" rows="2" placeholder="Street, Apt/Suit, City, State, Postal code" required></textarea><div class="invalid-feedback">Enter a pickup address.</div></div>
+              </div>
             </div>
-            <div class="col-md-6"><label class="form-label" for="pickupDate">Pickup Date <span class="required">*</span></label><input type="date" class="form-control" id="pickupDate" name="pickupDate" required><div class="invalid-feedback">Choose a pickup date.</div></div>
-            <div class="col-12"><label class="form-label" for="pickupAddress">Pickup Full Address <span class="required">*</span></label><textarea class="form-control" id="pickupAddress" name="pickupAddress" rows="2" placeholder="Street, Apt/Suit, City, State, Postal code" required></textarea><div class="invalid-feedback">Enter a pickup address.</div></div>
+            <div class="col-md-6">
+              <h3 style="font-size:15px;font-weight:700;color:#f97316;margin-bottom:14px;"><i class="bi bi-flag me-2"></i>Receiver (Delivery)</h3>
+              <div class="row g-3">
+                <div class="col-12"><label class="form-label" for="receiverName">Recipient Name <span class="required">*</span></label><input class="form-control" id="receiverName" name="receiverName" placeholder="Jane Smith" required><div class="invalid-feedback">Enter a recipient name.</div></div>
+                <div class="col-12"><label class="form-label" for="receiverPhone">Recipient Phone <span class="required">*</span></label><input type="tel" class="form-control" id="receiverPhone" name="receiverPhone" placeholder="+1 (555) 987-6543" required><div class="invalid-feedback">Enter a recipient phone number.</div></div>
+                <div class="col-12"><label class="form-label" for="deliveryCity">Delivery City <span class="required">*</span></label>
+                  <select class="form-select" id="deliveryCity" name="deliveryCity" required>
+                    <option value="">Select City</option>
+                    <option>New York</option><option>Los Angeles</option><option>Chicago</option>
+                    <option>Houston</option><option>Phoenix</option><option>Paris</option><option>Tokyo</option>
+                  </select><div class="invalid-feedback">Choose a delivery city.</div>
+                </div>
+                <div class="col-12"><label class="form-label" for="deliveryType">Delivery Type <span class="required">*</span></label>
+                  <select class="form-select" id="deliveryType" name="deliveryType" required>
+                    <option value="">Choose type</option>
+                    <option value="Domestic">Domestic (Standard)</option>
+                    <option value="International">International</option>
+                    <option value="Same Day">Same Day</option>
+                  </select><div class="invalid-feedback">Choose a delivery type.</div>
+                </div>
+                <div class="col-12"><label class="form-label" for="receiverAddress">Delivery Full Address <span class="required">*</span></label><textarea class="form-control" id="receiverAddress" name="receiverAddress" rows="2" placeholder="Street, Apt/Suit, City, State, Postal code" required></textarea><div class="invalid-feedback">Enter a delivery address.</div></div>
+              </div>
+            </div>
           </div>
 
           <div class="step-nav-row justify-end">
-            <button type="button" class="btn-step-next" data-next-step="2">Next: Receiver Details &rarr;</button>
+            <button type="button" class="btn-step-next" data-next-step="2">Next: Parcel Information &rarr;</button>
           </div>
         </div>
 
-        <!-- STEP 2: Receiver Details -->
+        <!-- STEP 2: Parcel Information -->
         <div class="step-panel" data-step="2">
-          <h2 class="booking-section mt-0"><i class="bi bi-flag me-2"></i>Receiver (Delivery) details</h2>
-          <div class="row g-3">
-            <div class="col-md-6"><label class="form-label" for="receiverName">Recipient Name <span class="required">*</span></label><input class="form-control" id="receiverName" name="receiverName" placeholder="Jane Smith" required><div class="invalid-feedback">Enter a recipient name.</div></div>
-            <div class="col-md-6"><label class="form-label" for="receiverPhone">Recipient Phone <span class="required">*</span></label><input type="tel" class="form-control" id="receiverPhone" name="receiverPhone" placeholder="+1 (555) 987-6543" required><div class="invalid-feedback">Enter a recipient phone number.</div></div>
-            <div class="col-md-6"><label class="form-label" for="deliveryCity">Delivery City <span class="required">*</span></label>
-              <select class="form-select" id="deliveryCity" name="deliveryCity" required>
-                <option value="">Select City</option>
-                <option>New York</option><option>Los Angeles</option><option>Chicago</option>
-                <option>Houston</option><option>Phoenix</option><option>Paris</option><option>Tokyo</option>
-              </select><div class="invalid-feedback">Choose a delivery city.</div>
-            </div>
-            <div class="col-md-6"><label class="form-label" for="deliveryType">Delivery Type <span class="required">*</span></label>
-              <select class="form-select" id="deliveryType" name="deliveryType" required>
-                <option value="">Choose type</option>
-                <option value="Domestic">Domestic (Standard)</option>
-                <option value="International">International</option>
-                <option value="Same Day">Same Day</option>
-              </select><div class="invalid-feedback">Choose a delivery type.</div>
-            </div>
-            <div class="col-12"><label class="form-label" for="receiverAddress">Delivery Full Address <span class="required">*</span></label><textarea class="form-control" id="receiverAddress" name="receiverAddress" rows="2" placeholder="Street, Apt/Suit, City, State, Postal code" required></textarea><div class="invalid-feedback">Enter a delivery address.</div></div>
-          </div>
-
-          <div class="step-nav-row">
-            <button type="button" class="btn-step-back" data-prev-step="1">&larr; Back</button>
-            <button type="button" class="btn-step-next" data-next-step="3">Next: Parcel Information &rarr;</button>
-          </div>
-        </div>
-
-        <!-- STEP 3: Parcel Information -->
-        <div class="step-panel" data-step="3">
           <h2 class="booking-section mt-0"><i class="bi bi-box-seam me-2"></i>Parcel details</h2>
           <div class="row g-3">
             <div class="col-md-4"><label class="form-label" for="parcelType">Parcel Type <span class="required">*</span></label><select class="form-select" id="parcelType" name="parcelType" required><option value="">Choose type</option><option>Documents</option><option>Box</option><option>Fragile item</option><option>Electronics</option><option>Clothing</option><option>Other</option></select><div class="invalid-feedback">Choose a parcel type.</div></div>
@@ -459,13 +453,13 @@
           </div>
 
           <div class="step-nav-row">
-            <button type="button" class="btn-step-back" data-prev-step="2">&larr; Back</button>
-            <button type="button" class="btn-step-next" data-next-step="4">Next: Review &amp; Confirm &rarr;</button>
+            <button type="button" class="btn-step-back" data-prev-step="1">&larr; Back</button>
+            <button type="button" class="btn-step-next" data-next-step="3">Next: Review &amp; Confirm &rarr;</button>
           </div>
         </div>
 
-        <!-- STEP 4: Review & Confirm -->
-        <div class="step-panel" data-step="4">
+        <!-- STEP 3: Review & Confirm -->
+        <div class="step-panel" data-step="3">
           <h2 class="booking-section mt-0"><i class="bi bi-check2-all me-2"></i>Review &amp; Confirm</h2>
 
           <div class="review-card">
@@ -530,7 +524,7 @@
           </div>
 
           <div class="step-nav-row">
-            <button type="button" class="btn-step-back" data-prev-step="3">&larr; Back to Edit</button>
+            <button type="button" class="btn-step-back" data-prev-step="2">&larr; Back to Edit</button>
             <button class="btn-final-submit" type="submit" id="finalSubmitBtn">
               <i class="bi bi-credit-card me-2"></i> Continue to Payment
             </button>
@@ -706,7 +700,7 @@
 
     /* ========== Multi-Step Form Logic ========== */
     let currentStep = 1;
-    const TOTAL_STEPS = 4;
+    const TOTAL_STEPS = 3;
 
     function showStep(n) {
       currentStep = n;
@@ -730,7 +724,7 @@
         progressLine.style.width = progressPercent + '%';
       }
 
-      if (n === 4) populateReviewSummary();
+      if (n === 3) populateReviewSummary();
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
