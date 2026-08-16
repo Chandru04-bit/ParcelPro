@@ -874,6 +874,7 @@ img { max-width: 100%; height: auto; display: block; }
 .pricing-card.featured {
   border-color: var(--primary);
   transform: scale(1.03);
+  transform-origin: bottom center;
   box-shadow: var(--shadow-xl);
 }
 .pricing-card.featured::before {
