@@ -100,6 +100,7 @@ img { max-width: 100%; height: auto; display: block; }
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 12px 28px;
   font-size: 15px;
