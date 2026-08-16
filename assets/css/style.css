@@ -1367,6 +1367,15 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 17px;
   color: var(--gray-600);
 }
+.page-header .hero-stats,
+.page-header .hero-stat { max-width: none; }
+.page-header .hero-stat p {
+  text-align: left;
+  max-width: none;
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-500);
+}
 
 /* ========== Counters ========== */
 .counter-number {
