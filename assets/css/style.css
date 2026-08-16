@@ -388,8 +388,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .nav-actions #authNavMenu { vertical-align: middle; }
-.nav-actions #authNavMenu > .btn {
+.nav-actions #authNavMenu > .btn,
+.nav-actions > .btn,
+.nav-actions > a.btn {
   min-height: 42px;
+  height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -398,6 +401,10 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-actions #authNavMenu > .btn.dropdown-toggle::after {
   margin-left: 0.55rem;
   vertical-align: 0;
+}
+.nav-actions [data-rtl-toggle] {
+  height: 42px !important;
+  padding: 0 14px !important;
 }
 .theme-toggle,
 .search-toggle {

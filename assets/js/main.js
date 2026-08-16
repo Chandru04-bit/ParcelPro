@@ -154,8 +154,6 @@
       || document.querySelector('.navbar .d-flex.align-items-center.gap-2');
     if (!actions || !window.ParcelProAuth) return;
 
-    Array.from(actions.querySelectorAll('a')).find(link => link.textContent.trim() === 'Ship Now')?.remove();
-
     let menu = actions.querySelector('#authNavMenu');
     if (!menu) {
       const signIn = actions.querySelector('a[href="login.html"]');
